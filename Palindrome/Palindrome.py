@@ -28,11 +28,11 @@ def Palindrome(strParam):
     #O(n)
     #copy reversed input string
     #range (from, to, step)
-    for i in range(len(strParam)-1, -1, -1):
+    for i in range(1,len(strParam)+1):
       #number of letter is const so O(1)
-      if strParam[i].isalpha():
-        stringBackward += strParam[i]
-      elif strParam[i] == " ":
+      if strParam[-i].isalpha():
+        stringBackward += strParam[-i]
+      elif strParam[-i] == " ":
           #if space do nothing
           pass
       else:
