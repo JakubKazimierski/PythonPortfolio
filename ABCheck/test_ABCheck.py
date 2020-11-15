@@ -1,28 +1,21 @@
 '''
-test cases for ABCheck from coderbyte
-
+Class contains unittests for ABCheck.py
 Jakub Kazimierski October 2020
 '''
-
 
 import unittest
 import ABCheck
 
-class test_ABCheck(unittest.TestCase):
-    
+class test_ABCheck(unittest.TestCase):    
     '''
-    class of unittests
-    created to test specified
-    problems of ABCheck method
+    Class with unittests for ABCheck.py
     '''
 
     #region Unittests
-    def test_ProperOutput(self):
-        
+    def test_ExpectedOutput(self):
         '''
-        check
-        expected output
-        which is true
+        Checks if returned output is true
+        for input with a and b letters separated by 3 indexes.
         '''
         output = ABCheck.ABCheck("wwwwacccbdd")
         self.assertEqual(output, "true")
@@ -30,35 +23,34 @@ class test_ABCheck(unittest.TestCase):
 
     def test_FewA(self):
         '''
-        check if many of characters of a
-        change proper output
+        Checks if a few of letters a does not
+        change expected true output.
         '''
         output = ABCheck.ABCheck("aaacccbdd")
         self.assertEqual(output, "true")
 
     def test_FewAandB(self):
         '''
-        check if many characters of a and b
-        change proper output
+        Checks if a few of letters a and b does not
+        change expected true output.
         '''
-
         output = ABCheck.ABCheck("aaaccbbdd")
         self.assertEqual(output, "true")
 
     def test_FalseOutput(self):
         '''
-        check if false output is correcty found
+        Checks if returned output is false
+        for input without a and b letters separated by 3 indexes.
         '''
         output = ABCheck.ABCheck("acsss    /cbbdd")
         self.assertEqual(output, "false")
 
     def test_VaroiusChars(self):
         '''
-        check if other signs than letters
-        work properly
-        for output which should be true
+        Checks if returned output is true
+        for input having a and b letters separated by 3 indexes
+        and also containings non alphanumeric signs.
         '''
-        
         output = ABCheck.ABCheck("a/>0bd")
         self.assertEqual(output, "true")
         
@@ -66,7 +58,6 @@ class test_ABCheck(unittest.TestCase):
 
 if __name__ == "__main__":
     '''
-    main method for test cases
+    Main method for test cases.
     '''
-    
     unittest.main()
