@@ -20,7 +20,6 @@ class test_ABCheck(unittest.TestCase):
         output = ABCheck.ABCheck("wwwwacccbdd")
         self.assertEqual(output, "true")
 
-
     def test_FewA(self):
         '''
         Checks if a few of letters a does not
@@ -54,6 +53,22 @@ class test_ABCheck(unittest.TestCase):
         output = ABCheck.ABCheck("a/>0bd")
         self.assertEqual(output, "true")
         
+    def test_CorectInputType(self):
+        '''
+        Checks if returned output is -1
+        for input which is not string.
+        '''
+        output = ABCheck.ABCheck(12)
+        self.assertEqual(output, -1)
+
+    def test_CorectInputLength(self):
+        '''
+        Checks if returned output is -1
+        for input which is empty string.
+        '''
+        output = ABCheck.ABCheck("")
+        self.assertEqual(output, -1)
+
     #endregion
 
 if __name__ == "__main__":

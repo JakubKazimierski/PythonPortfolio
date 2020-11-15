@@ -17,29 +17,24 @@ def ABCheck(strParam):
   Otherwise return the string false.
   '''
 
-  #upper/lower case letters have the same value in this task
-  #make all letters lower
-  strCopy = strParam.lower()
+  #assert correct type
+  if type(strParam) == str and len(strParam) > 0:
+    #upper/lower case letters have the same value in this task
+    #make all letters lower
+    string = strParam.lower()
+
+    #algorithm does not have to traverse whole string
+    for i in range(len(string)-4):
+      #if a is first checks if b is separated by 3 indexes from a
+      if string[i] == 'a' and string[i+4] == 'b':
+        return 'true'
+      #if b is first checks if a is separated by 3 indexes from b  
+      if string[i] == 'b' and string[i+4] == 'a':
+        return 'true'
+
+    #complexity of above is O(n)    
+    return 'false'
   
-  #list of indexes of a-letter
-  indexesA = []
-  #list of indexes of b-letter
-  indexesB = []
-
-  #append indexes of letters a and b to lists of indexes
-  for i in range(0, len(strCopy)):
-    if strCopy[i] == "a" and i not in indexesA:
-      indexesA.append(i)
-    if strCopy[i] == "b" and i not in indexesB:
-      indexesB.append(i)  
-          
-  #check if for indexes of a letter index of a decreased or increased
-  #by 4 is in list of indexes b, if it is return true if not return false
-  for j in indexesA:
-    if j+4 in indexesB or j-4 in indexesB:
-      return "true"
-
-  #Complexity of above algorithm is O(n^2)
-
-  return "false"
+  else:
+    return -1
 
