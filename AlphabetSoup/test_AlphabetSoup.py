@@ -1,29 +1,27 @@
 '''
-Test for Alphabet Soup from coderbyte
-
-Jakub Kazimierski 2020
+Class contains unittests for AlphabetSoup.py
+Jakub Kazimierski October 2020
 '''
 
 import unittest
 import AlphabetSoup
 
-
 class test_AlphabetSoup(unittest.TestCase):
     '''
-    class for test unit methods
+    Class contains unittests for AlphabetSoup.py
     '''
 
     #region Unittests
     def test_ExpectedOutput(self):
         '''
-        method check if output is sorted as expected
+        Checks if output is sorted in alphabetical order.
         '''
         output = AlphabetSoup.AlphabetSoup("ccddbbaa")
         self.assertEqual(output, "aabbccdd")
 
     def test_WrongInput(self):
         '''
-        method check if output is correct when input is wrong
+        Checks if output is -1 when input has forbidden signs.
         '''
         output = AlphabetSoup.AlphabetSoup("ccd1dbbaa")
         self.assertEqual(output, -1)
@@ -31,21 +29,21 @@ class test_AlphabetSoup(unittest.TestCase):
     #Big letters are first before lowercase
     def test_ExpectedOutputBigLetters(self):
         '''
-        check behaviour of uppercase letter
+        Checks if uppercase letters are sorted before lowercase letters.
         '''
         output = AlphabetSoup.AlphabetSoup("CcdDbBaa")
         self.assertEqual(output, "BCDaabcd")
 
     def test_SpaceInput(self):
         '''
-        check behaviour of white spaces
+        Check if whitespaces are sorted before letters.
         '''
-        output = AlphabetSoup.AlphabetSoup("ccdd bbaa")
-        self.assertEqual(output, " aabbccdd")
+        output = AlphabetSoup.AlphabetSoup("ccdd bbAa")
+        self.assertEqual(output, " Aabbccdd")
     #endregion
 
 if __name__ == "__main__":
     '''
-    main method for tests
+    Main method for unittests' Class.
     '''
     unittest.main()
