@@ -16,8 +16,8 @@ class test_ChangingSequence(unittest.TestCase):
 
     def test_ExpectedOutputSequenceStopDecreasing(self):
         '''
-        check if returned number
-        is index where sequence stops decreasing
+        Checks if number in output
+        is index where sequence stops decreasing.
         '''
         output = ChangingSequence.ChangingSequence([5, 4, 3, 2, 10, 11])
         self.assertEqual(output, 3)
@@ -25,40 +25,40 @@ class test_ChangingSequence(unittest.TestCase):
     
     def test_ExpectedOutputSequenceStopIncreasing(self):
         '''
-        check if returned number
-        is index where sequence stops increasing
+        Checks if number in output
+        is index where sequence stops increasing.
         '''
         output = ChangingSequence.ChangingSequence([2, 10, 11, 5, 4, 3])
         self.assertEqual(output, 2)
 
     def test_OneSequenceIsIncreasing(self):
         '''
-        check if for one sequence
-        output is -1
+        Checks if for one sequence increasing
+        output is -1.
         '''
         output = ChangingSequence.ChangingSequence([-4, -2, 9, 10])
         self.assertEqual(output, -1)
     
     def test_OneSequenceIsDecreasing(self):
         '''
-        check if for one sequence
-        output is -1
+        Checks if for one sequence decreasing
+        output is -1.
         '''
         output = ChangingSequence.ChangingSequence([10, 9, -2, -4])
         self.assertEqual(output, -1)
 
     def test_InputIsEmpty(self):
         '''
-        check if assertion in function
-        catches empty input
+        Checks if assertion loop in function
+        catches empty input.
         '''
         output = ChangingSequence.ChangingSequence([])
         self.assertEqual(output, "Input is empty")
 
     def test_InputHasWrongType(self):
         '''
-        check if assertion in function
-        catches wrong type in input
+        Checks if assertion in function
+        catches wrong type in input.
         '''
         output = ChangingSequence.ChangingSequence([10,9,"8"])
         self.assertEqual(output, "Wrong Input Type")
@@ -67,6 +67,6 @@ class test_ChangingSequence(unittest.TestCase):
 
 if __name__ == "__main__":
     '''
-    main method for unittests
+    Main method for unittests.
     '''
     unittest.main()
