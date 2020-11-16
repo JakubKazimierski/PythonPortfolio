@@ -7,40 +7,46 @@ import AdditivePersistence
 
 class test_AdditivePersistence(unittest.TestCase):
     '''
-    class contains unittests for AdditivePersistence
+    Class contains unittests for AdditivePersistence.
     '''
 
     #region Unittests
-
     def test_ExpectedOutput(self):
         '''
-        check if returned amount of steps
-        is as it should be
+        Checks if returned amount of steps
+        is equal to real (e.g. for input 2718 output should be equall 2)
         '''
         output = AdditivePersistence.AdditivePersistence(2718)
         self.assertEqual(output, 2)
 
     def test_SingleDigitInput(self):
         '''
-        check id output is correct
-        for single digit input
+        Checks if output is equal 0
+        for single digit input.
         '''
         output = AdditivePersistence.AdditivePersistence(1)
         self.assertEqual(output, 0)
 
-
     def test_InputType(self):
         '''
-        check if assertion for input
-        type works properly
+        Check if output is equal to -1
+        for wrong input type.
         '''
-        output = AdditivePersistence.AdditivePersistence(-1.0)
+        output = AdditivePersistence.AdditivePersistence(1.0)
+        self.assertEqual(output, -1)    
+
+    def test_InputSign(self):
+        '''
+        Check if output is equal to -1
+        for negative integer at input.
+        '''
+        output = AdditivePersistence.AdditivePersistence(-1)
         self.assertEqual(output, -1)    
 
     #endregion
 
 if __name__ == "__main__":
     '''
-    main method for unittests
+    Main method for unittests.
     '''
     unittest.main()
