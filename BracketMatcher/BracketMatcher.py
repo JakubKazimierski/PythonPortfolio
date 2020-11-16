@@ -1,32 +1,38 @@
 '''
-bracket matcher from coderbyte
-
+Bracket matcher from Coderbyte
 Jakub Kazimierski October 2020
 '''
 
 def BracketMatcher(strParam):
   '''
-  method check if brackets in string
-  are even e.g (word) 
-  and in correct order 
-  e.g. )( is wrong
+  Have the function BracketMatcher(str) 
+  take the str parameter being passed and return 1 
+  if the brackets are correctly matched and 
+  each one is accounted for. Otherwise return 0. 
+  For example: if str is "(hello (world))", 
+  then the output should be 1, but if str is 
+  "((hello (world))" the the output should be 0 
+  because the brackets do not correctly match up. 
+  Only "(" and ")" will be used as brackets. 
+  If str contains no brackets return 1.
   '''
 
-  #quite simple but cool
-  #if one of brackets is without pair 
-  #final sum cannot be 0 because not even numbers from [-1, 1]
-  count = 0
+  
+  #Below counts "("" as 1 and ")" as -1
+  countSum = 0
   for i in strParam:
-    #important here is
-    #that elif works only when if is not working
-    #what i mean by that is
-    #when ) is first bracket it wont be counted
-    #caause elif will never be seeing by interpeter in this specified case
-    if i == '(':
-      count += 1
-    elif i == ')':
-      count -= 1
-    if count < 0: return 0
 
-  return 1 if count == 0 else 0
+    if i == '(':
+      countSum += 1
+    elif i == ')':
+      countSum -= 1
+
+    #Below checks if ")" bracket appear before "("  bracket
+    #If it appears without previous pair with "(" bracket
+    #output cannot be correct
+    if countSum < 0:
+      return 0
+
+  #Bellow checks if there is not "(" bracket without pair
+  return 1 if countSum == 0 else 0
   

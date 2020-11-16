@@ -1,59 +1,54 @@
 '''
-test for bracket matcher from coderbyte
-Jakub Kazimierski 2020
+Unittests for Bracket Matcher from Coderbyte
+Jakub Kazimierski October 2020
 '''
 
 import unittest
 import BracketMatcher
 
-
 class test_BracketMatcher(unittest.TestCase):
     '''
-    class with unit tests
-    for BracketMatcher method
-    1 is for correct output
-    0 is for wrong output
+    Class contains unittests
+    for BracketMatcher.py
     '''
 
     #region Unittests
     def test_NoBrackets(self):
         '''
-        consider 0 as even number
-        so string without brackets
-        should return correct output
+        Ckecks if there is no brackets in input
+        output is equal 1 (because 0 is even number of brackets).
         '''
         output = BracketMatcher.BracketMatcher("withoutBrackets")
         self.assertEqual(output, 1)
     
     def test_NoEqualAmountOfBrackets(self):
         '''
-        when brackets doesnt match
-        outpunt should be wrong
+        Checks if number of brackets doesnt match
+        even number, output is equal to 0.
         '''
         output = BracketMatcher.BracketMatcher("(witho(utBr)ackets")
         self.assertEqual(output, 0)
     
     def test_OneTypeOfBrackets(self):
         '''
-        for oe type of brackets
-        output should be wrong
+        Checks if for only one type of brackets
+        in input, output is 0.
         '''
         output = BracketMatcher.BracketMatcher("w)it)houtBr)ackets")
         self.assertEqual(output, 0)
         
     def test_EvenNumberOfBrackets(self):
         '''
-        for even number of bracket matching each other
-        output should be corrrect
+        Checks if for even number of brackets, where each "(" bracket
+        match ")" bracket output is equall to 1.
         '''
         output = BracketMatcher.BracketMatcher("(((w)it)houtBr)ackets")
         self.assertEqual(output, 1)
 
     def test_EvenNumberOfBracketsMixed(self):
         '''
-        when number of brackets are even
-        but in wrong order (brackets dont match each other)
-        e.g )( output should be wrong
+        Checks if for even number of brackets, where at least
+        one "(" bracket does not match with ")" bracket, output is equal to 0. 
         '''
         output = BracketMatcher.BracketMatcher("the color re(d))()(()")
         self.assertEqual(output, 0)
@@ -61,6 +56,6 @@ class test_BracketMatcher(unittest.TestCase):
 
 if __name__ == "__main__":
     '''
-    main method for unit tests
+    Main method for unit tests.
     '''
     unittest.main()
