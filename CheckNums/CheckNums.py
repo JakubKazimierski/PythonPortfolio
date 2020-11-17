@@ -1,28 +1,24 @@
 '''
 Check Nums from codersbyte
-
 October 2020 Jakub Kazimierski
 '''
 
 def CheckNums(num1,num2):
   '''
-  method checks if first number from input
-  is equal, less or greater than other num from input
+  Have the function CheckNums(num1,num2) 
+  take both parameters being passed and return 
+  the string true if num2 is greater than num1, 
+  otherwise return the string false. 
+  If the parameter values are equal to 
+  each other then return the string -1.
   '''
 
-  #bufors for numbers
-  buf1 = num1
-  buf2 = num2
-
-  #defaul output is emty string
-  output = ""
-
-  #check if tyoe of input are intiger
-  if type(buf1) == int and type(buf2) == int:
-    if buf1 < buf2 :
-      output = "true"
-    elif buf1 == buf2:
-      output = "-1"
-    else:
-      output = "false"  
-  return output
+  #Below works for each comparable type
+  if num1 < num2 :
+    return "true"
+  elif num1 == num2:
+    return "-1"
+  # num2 < num1  
+  else:
+    return "false"  
+  
