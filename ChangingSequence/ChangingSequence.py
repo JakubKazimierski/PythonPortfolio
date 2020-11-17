@@ -43,10 +43,13 @@ def ChangingSequence(arr):
             #increase index
             i += 1
 
+        #region Commentary
         #LAST INDEX IN ARR IS len(arr)-1 not len(arr)!!!
         #if numbers was not increasing in whole arr retun index i
         #above mean if loop ends and i is different than last index
         #it will be index when sequence stop
+        #endregion
+
         if i != len(arr)-1:
             return i
         else:
@@ -63,11 +66,7 @@ def ChangingSequence(arr):
             #Increase index
             i += 1
 
-        #LAST INDEX IN ARR IS len(arr)-1 not len(arr)!!!
-        #if numbers was not decreasing in whole arr retun index i
-        #above mean if loop ends and i is different than last index
-        #it will be index when sequence stop
-        if i != len(arr)-1:
+      if i != len(arr)-1:
             return i
         else:
             #Else sequence was still decreasing

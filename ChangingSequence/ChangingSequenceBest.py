@@ -32,12 +32,14 @@ def ChangingSequence(arr):
     difference = arr[0]-arr[1]
 
     for j in range(0,len(arr)-1):
+        #region Commentary
         #Below works for both increasing and decreasing sequence at once
         #If sequence is increasing difference is negative integer
         #while sequence is increasing value of (arr[j]-arr[j+1]) is also negative integer
         #So difference*(arr[j]-arr[j+1]) is positive integer
         #When sequence changes for decreasing value of (arr[j]-arr[j+1]) becames positive integer 
         #so difference*(arr[j]-arr[j+1]) becames less than 0
+        #endregion
         if difference*(arr[j]-arr[j+1])<0:
             return j
 

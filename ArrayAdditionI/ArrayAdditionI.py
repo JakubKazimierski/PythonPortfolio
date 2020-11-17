@@ -10,6 +10,8 @@ def all_subsets(arr):
     Returns chain of all possible combinations
     of elements in given at input array
     ''' 
+
+    #region Commentary
     #In order to check all possible combinations
     #I'll use collection itertools and it's methods
         
@@ -20,6 +22,7 @@ def all_subsets(arr):
         
     ###combinations()-Given an array of size n, generate and print all possible combinations of r elements in array.
     #where r is length of combination
+    #endregion
 
     return chain(*map(lambda x: combinations(arr, x), range(0, len(arr)+1)))
 
@@ -53,11 +56,13 @@ def ArrayAdditionI(arr):
         #to max element return false         
         return 'false'
 
+        #region Commentary
         #Algorithm is good because it checks
         #all possible combinations
         #but complexity in this case is O(2^n)
         #where n is number of all elements in given arrBuf
         #so it is not fast
-
+        #endregion
+        
     except TypeError:
         return -1
