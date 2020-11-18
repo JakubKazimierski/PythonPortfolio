@@ -27,7 +27,7 @@ def CountingMinutesI(strParam):
             times[-1] += int(timeString.split(':')[0])*60 + int(timeString.split(':')[1][0:-2])
         
         #region Commentary
-        #Below expression is very important it defines that each calculation is in group modulo C_1440 which is whole day in minute
+        #Below math expression is very important it defines that each calculation is in group modulo C_1440 which is whole day in minute
         #So if we e.g. counting expression 2-3 it is not equal -1 because this number is not in this group
         #it will be equal to 1440 - 1 = 1439 because range of available numbers is from 0 to 1439,  there will be no 1440 in this range
         #Because 1440%1440 = 0
