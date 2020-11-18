@@ -5,28 +5,28 @@ November 2020 Jakub Kazimierski
 
 def DashInsert(strParam):
     '''
-    insert dashes ('-') between each two odd numbers in str
-    and return changed output string
+    Have the function DashInsert(str) 
+    insert dashes ('-') between each two 
+    odd numbers in str. For example: if str 
+    is 454793 the output should be 4547-9-3. 
+    Don't count zero as an odd number.
     '''
 
     if type(strParam) == str and len(strParam) > 0 :
+    
         #output string
         #because strings are immutable create new one
         outputString = ""
         
-        #ietrate array taking to values at once
-        for i in range(len(strParam)-1):
+        #Iterate array taking two values at once
+        for i in range(0, len(strParam)-1):
             
-            #take intiger val of string
-            #and find odd ones coming after each other
-            #thwn put '-\ beetwen them in new string
-            if int(strParam[i])%2 == 1 and int(strParam[i+1])%2 == 1 :
-                outputString += strParam[i]
-                outputString += "-"
-            else:
-                outputString += strParam[i]    
+            #put str[i] + '-' if str[i] and str[i+1] are odd
+            #else put just str[i]
+            outputString += (strParam[i] + "-") if int(strParam[i])%2 != 0 \
+                and int(strParam[i+1])%2 != 0 else  strParam[i]            
 
-        #loop dont concatenate last character of strParam
+        #Loop does not concatenate last character of strParam
         outputString += strParam[-1]
 
         return outputString
