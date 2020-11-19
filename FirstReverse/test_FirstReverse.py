@@ -1,5 +1,5 @@
 '''
-Unittests for FirstReverse from codersbyte
+Unittests for FirstReverse.py from Coderbyte
 October 2020 Jakub Kazimierski
 '''
 
@@ -8,36 +8,45 @@ import FirstReverse
 
 class test_FirstReverse(unittest.TestCase):
     '''
-    class with unittests for FirstReverse from codersbyte
+    Class contains unittests for FirstReverse.py
     '''
 
     #region Unittests
-    def test_ProperOutput(self):
+    def test_ExpectedOutput(self):
         '''
-        test checks if output is in reverse oder
-        as expected
+        Checks if output is in reverse order
+        as expected.
         '''
         output = FirstReverse.FirstReverse("abcd")
         self.assertEqual(output, "dcba")
 
     def test_EmptyOutput(self):
         '''
-        test if output is empty for empty input
+        Checks if output is empty for empty input.
         '''
         output = FirstReverse.FirstReverse("")
         self.assertEqual(output, "")
 
     def test_VariousCharctersStringOutput(self):
         '''
-        test if other characters than letters
-        are revrsed as expected
+        Checks if string containing other signs 
+        than letters is reversed as expected.
         '''
         output = FirstReverse.FirstReverse("12345?")
         self.assertEqual(output, "?54321")
+
+    def test_WrongInputType(self):
+        '''
+        Checks if output is equal -1 for wrong input type.
+        '''
+        output = FirstReverse.FirstReverse(32)
+        self.assertEqual(output, -1)
+
+
     #endregion
     
 if __name__ == "__main__":
     '''
-    main method for unittests
+    Main method for unittests.
     '''
     unittest.main()        
