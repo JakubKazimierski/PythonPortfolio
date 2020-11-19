@@ -1,5 +1,5 @@
 '''
-TestUnits for LargestRange from algoexpert
+Unitests for LargestRange from algoexpert
 October 2020 Jakub Kazimierski
 '''
 
@@ -8,40 +8,33 @@ import LargestRange
 
 class test_LargestRange(unittest.TestCase):
     '''
-    class with unittests for LargestRange problem
+    Class contains unittests for LargestRange.py
     '''
     #region Unittests
     def test_ProperOutput(self):
         '''
-        test if returned output is expected range
+        Checks if returned output values are expected range.
         '''
         output = LargestRange.LargestRange([1,11,3,0,15,5,2,4,10,7,12,6])
         self.assertEqual(output, [0,7])
 
-    def test_ProperOutput2(self):
-        '''
-        test if returned output is not equal false range
-        '''
-        output = LargestRange.LargestRange([1,11,3,0,15,5,2,4,10,7,12,6])
-        self.assertNotEqual(output, [1,7])
-
     def test_NotValidInput(self):
         '''
-        test output for not proper input
+        Checks if assertion works for not proper input type.
         '''
-        output = LargestRange.LargestRange([])
-        self.assertEqual(output, [0,0])
+        output = LargestRange.LargestRange(["1","2"])
+        self.assertEqual(output, "Wrong input")
 
     def test_ProperOutputNegativeValues(self):
         '''
-        test method for negative numbers
+        Checks method for negative values of numbers.
         '''
         output = LargestRange.LargestRange([-1,-11,-3,0,-15,-5,-2,-4,-10,-7,-12,-6])
         self.assertEqual(output, [-7, 0])
 
     def test_ProperOutputMixedValues(self):
         '''
-        test method for positive and negative intigers
+        Checks method for positive and negative values of numbers mixed.
         '''
         output = LargestRange.LargestRange([-1,11,-3,0,15,5,-2,-4,10,7,12,6])
         self.assertEqual(output, [-4, 0])
@@ -50,6 +43,6 @@ class test_LargestRange(unittest.TestCase):
 
 if __name__ == "__main__":
     '''
-    main method of unittests class
+    Main method of unittests class.
     '''
     unittest.main()
