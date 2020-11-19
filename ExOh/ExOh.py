@@ -3,32 +3,28 @@ ExOh from codersbyte
 October 2020 Jakub Kazimierski
 '''
 
+#To assert correct input
+import re
+
 def ExOh(strParam):
   '''
-  method checks if number of x is equal
-  number of o in input string
+  Have the function ExOh(str) 
+  take the str parameter being passed 
+  and return the string true if there is
+  an equal number of x's and o's, 
+  otherwise return the string false. 
+  Only these two letters will be entered in the string, 
+  no punctuation or numbers. For example: 
+  if str is "xooxxxxooxo" then the output should return false 
+  because there are 6 x's and 5 o's.
   '''
 
-  #check if input variable has proper type
-  if type(strParam) == str and strParam != "":
-    #counters for x and o
-    counterX = 0
-    counterO = 0
+  #Checks if input variable has proper type (just x or o letters)
+  if re.search("^[xX|oO]+$", strParam) != None:
 
-    #O(n) one traversing is enough for this task
-    for i in strParam:
-      if i == "x" or i == "X":
-        counterX += 1
-      elif i == "o" or i == "O":
-        counterO += 1
-      else:
-        return -1    
-
-    #return true only when both counters are equall
-    if counterO == counterX:
-      return "true"
-    else:
-      return "false"
+    #Below converts letters to lower in order to compare just values of letters
+    return "true" if strParam.lower().count("x") == strParam.lower().count("o") \
+      else "false"
 
   else:
     return -1

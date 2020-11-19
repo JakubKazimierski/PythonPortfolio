@@ -8,29 +8,30 @@ import ExOh
 
 class test_ExOh(unittest.TestCase):
     '''
-    class with unittests for ExOh from codersbyte
+    Class contains unittests for ExOh.py
     '''
 
     #region Unittests
     def test_ProperOutput(self):
         '''
-        check if output is true
-        for equall numbers of x and o
+        Checks if output is true
+        for equall numbers of x and o.
         '''
         output = ExOh.ExOh("oxoxox")
         self.assertEqual(output, "true")
 
     def test_UpperAndLowerCase(self):
         '''
-        check if Upper case change output
+        Checks if for uppercase letters
+        algorithm works the same way as for lowercase.
         '''
         output = ExOh.ExOh("oXOxOx")
         self.assertEqual(output, "true")
 
     def test_NotEqual(self):
         '''
-        check if putput is false
-        for not equal amount of x and o
+        Checks if output is false
+        for not equal amount of x and o letters.
         '''
         output = ExOh.ExOh("xxxo")
         self.assertEqual(output, "false")
@@ -38,23 +39,24 @@ class test_ExOh(unittest.TestCase):
 
     def test_SpaceInside(self):
         '''
-        check if spaces
-        change output
+        Checks if forbdden sign appears in
+        input, output is -1.
         '''
         output = ExOh.ExOh("oXO xOx")
         self.assertEqual(output, -1)
 
     def test_OtherSignsInside(self):
         '''
-        check if other chars than letters
-        change output
+        Checks if forbdden sign appears in
+        input, output is -1.
         '''
         output = ExOh.ExOh("oXO?><xOx")
         self.assertEqual(output, -1)
 
     def test_EmptyString(self):
         '''
-        check output for empty string at input
+        Checks if for empty input, assertion catches it
+        and output is -1.
         '''
         output = ExOh.ExOh("")
         self.assertEqual(output, -1)
@@ -62,7 +64,7 @@ class test_ExOh(unittest.TestCase):
     
 if __name__ == "__main__":
     '''
-    main method for unittests
+    Main method for unittests.
     '''
     unittest.main()
         
