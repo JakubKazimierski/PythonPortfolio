@@ -13,18 +13,15 @@ def LetterCapitalize(strParam):
   Words will be separated by only one space.
   '''
 
-  #Initialize output string
-  outputString = ""
-
-  #Below makes list of words by splitting 
-  #given string at spaces
+  #Below makes list of words by splitting  given string at spaces
   wordsList = strParam.split(" ")
+
+  outputList = []
 
   #Below loop iterates words list and capitalize each one
   for i in wordsList:
-    outputString += i.capitalize()
-    outputString += " "
+     outputList.append(i.capitalize())
+    
 
-  
-  #After loop ends last sign is space, and it is not expected in output
-  return outputString[:-1]
+  #Join capitalized words in list by spaces
+  return " ".join(outputList)
