@@ -1,5 +1,5 @@
 '''
-Unittests for first fatorial
+Unittests for FirstFactorial.py
 October 2020 Jakub Kazimierski
 '''
 
@@ -9,13 +9,13 @@ import FirstFactorial
 
 class test_FirstFactorial(unittest.TestCase):
     '''
-    class of unittests for first factorial
+    Class contains unittests for FirstFactorial.py
     '''
 
     #region Unittests
     def test_ProperOutput(self):
         '''
-        method check for expected output
+        Checks if counted factorial in output is correct.
         '''
         output = FirstFactorial.FirstFactorial(4)
         self.assertEqual(output, 24)
@@ -23,14 +23,14 @@ class test_FirstFactorial(unittest.TestCase):
     #range for input is [0, 18]
     def test_ProperOutputNegatives(self):
         '''
-        method check output for numbers out of range
+        Checks if output is equal -1 for numbers out of range.
         '''
         output = FirstFactorial.FirstFactorial((-4))
         self.assertEqual(output, -1)
 
     def test_ProperOutputZero(self):
         '''
-        method check if output is correct for 0
+        Checks if output is correct for input equal 0.
         '''
         output = FirstFactorial.FirstFactorial(0)
         self.assertEqual(output, 1)
@@ -38,6 +38,6 @@ class test_FirstFactorial(unittest.TestCase):
 
 if __name__ == "__main__":
     '''
-    main method of unittests
+    Main method of unittests.
     '''
     unittest.main()
