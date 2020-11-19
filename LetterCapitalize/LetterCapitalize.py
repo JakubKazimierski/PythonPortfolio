@@ -23,5 +23,5 @@ def LetterCapitalize(strParam):
      outputList.append(i.capitalize())
     
 
-  #Join capitalized words in list by spaces
+  #Joins capitalized words in list by spaces
   return " ".join(outputList)
