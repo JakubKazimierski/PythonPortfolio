@@ -1,44 +1,36 @@
 '''
-LongestWord from codersbyte
+LongestWord from Coderbyte
 October 2020 Jakub Kazimierski
 '''
 
+import string
+
 def LongestWord(sen):
   '''
-  method finds longest alphabetic word
-  in given string
+  Have the function LongestWord(sen) 
+  take the sen parameter being passed and return 
+  the largest word in the string. If there are 
+  two or more words that are the same length, 
+  return the first word from the string with that length. 
+  Ignore punctuation and assume sen will not be empty.
   '''
   
-  #bufor for max length 
-  buforLength = 0
-  #bufor for max word
-  buforWord = ""
-  #concatenate chars while alphabetic
-  concatChars = ""
-  #count length while alphabetic
-  counterLength = 0
+  #string.punctuation contains punctuation signs in python
+  #if intersection of set created from input string and punctuation set is equal to empty set
+  if set(sen).intersection(string.punctuation) == set() and sen != "":
+    #Below creates list of words
+    wordsList = sen.split(" ")
 
-  #traverse string only once so complexity is O(n)
-  for i in sen:
+    longestLength = 0
+    longestWord = ""
 
- 
+    for i in wordsList:
+      #If current word's length is greater
+      if len(i) > longestLength:
+        longestLength = len(i)  
+        longestWord = i
+            
+    return longestWord
 
-    #if char is alphabetic
-    if i.isalpha() == True:
-      concatChars += i
-      counterLength += 1
-    
-    #if new counted chars are longer than previous max
-    #assign new longer value and new word
-    #does not change if value of length is the same          
-    if buforLength < counterLength:
-      buforLength = counterLength
-      buforWord = concatChars
-    
-    #reset values if not alphabettic
-    if i.isalpha() == False:
-      concatChars = ""
-      counterLength = 0
-
-          
-  return buforWord
+  else:
+    return -1

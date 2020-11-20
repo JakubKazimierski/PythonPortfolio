@@ -1,5 +1,5 @@
 '''
-Unittests for LongestWord from codersbyte
+Unittests for LongestWord from Coderbyte
 October 2020 Jakub Kazimierski
 '''
 
@@ -8,43 +8,48 @@ import LongestWord
 
 class test_LongestWord(unittest.TestCase):
     '''
-    class with unittests for LongestWord method
+    Class contains unittests for LongestWord.py
     '''
 
     #region Unittests       
     def test_ProperOutput(self):
         '''
-        check if output is as expected
+        Checks if output is as expected.
         '''
         output  = LongestWord.LongestWord("Aaaaa bbbb ccc")
         self.assertEqual(output, "Aaaaa")
 
-    def test_ProperOutput2(self):
+    def test_SecondLongestWord(self):
         '''
-        check if output is not equal
-        to second longest word
+        Checks if output is not equal to second longest word.
         '''
         output  = LongestWord.LongestWord("Aaaaa bbbbb ccc")
         self.assertNotEqual(output, "bbbbb")
 
     def test_ProperOutput3(self):
         '''
-        check if numbers are not count as word
+        Checks if numbers are count as word.
         '''
-        output  = LongestWord.LongestWord("bbbb ccc1234ddddd ")
-        self.assertEqual(output, "ddddd")
+        output  = LongestWord.LongestWord("bbbb ccc1234ddddd")
+        self.assertEqual(output, "ccc1234ddddd")
 
-    def test_NotValidInpit(self):
+    def test_EmptyInput(self):
         '''
-        check if output is empty
-        for empty input
+        Checks if output is equal -1 for empty input.
         '''
         output = LongestWord.LongestWord("")
-        self.assertEqual(output, "")
+        self.assertEqual(output, -1)
+
+    def test_PunctuationInInput(self):
+        '''
+        Checks if output is equal -1 for punctuation in input.
+        '''
+        output = LongestWord.LongestWord("asd, ff")
+        self.assertEqual(output, -1)    
     #endregion
             
 if __name__ == "__main__":
     '''
-    main method for unittests
+    Main method for unittests.
     '''
     unittest.main()        
