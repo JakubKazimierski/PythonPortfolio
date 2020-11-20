@@ -6,36 +6,40 @@ November 2020 Jakub Kazimierski
 
 def LetterCountI(strParam):
     '''
-    method returns word witch most repeated 
-    amount of letters
-    if letters dont repeat in any word return -1
+    Have the function LetterCountI(str) 
+    take the str parameter being passed 
+    and return the first word with the 
+    greatest number of repeated letters. 
+    For example: "Today, is the greatest day ever!" 
+    should return greatest because it has 2 e's (and 2 t's) 
+    and it comes before ever which also has 2 e's. 
+    If there are no words with repeating letters return -1. 
+    Words will be separated by spaces.
     '''
     
     try:
-        #to get rid of spaces and make list of words
+        #Below splits words into list
         words = strParam.split(" ")
-        #default we assume each letter appear once
+        #By default we assume each letter appear once
         most_repeated = 1
-        #if each letter appear once answer is -1
+        #If each letter appear once answer is -1
         answer = -1
 
-        #i assume complexity is O(n^2)
-        #traverse list of words
+        #I assume complexity is O(n*m^2) where n is number of words and m is amount of letters in word
         for word in words:
-            #traverse letters in each word
+            #Below traverses letters in each word
             for i in word:            
                 #count() method returns the number of occurrences of a substring
                 if word.count(i) > most_repeated:
-                    #assign new most common value if new is larger than previous one
+                    #Assign new most common value if new value is larger than previous one
                     most_repeated = word.count(i)
                     #answer becames word with most common amount of repeated letters
-                    #in that case
-                    #and also here comes type change of answer (from int to string)
+                    #then type of ansew changes from int to string
                     answer = word
 
         return answer
 
     #catch exception
-    except Exception:
+    except (AttributeError, TypeError):
         return -2
     
