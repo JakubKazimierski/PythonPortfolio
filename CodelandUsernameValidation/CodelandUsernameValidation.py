@@ -3,7 +3,6 @@ CodelandUsernameValidation from codersbyte
 October 2020 Jakub Kazimierski
 '''
 
-#To use regex formula
 import re
 
 def CodelandUsernameValidation(strParam):
@@ -21,24 +20,21 @@ def CodelandUsernameValidation(strParam):
   otherwise return the string false.
   '''
 
-  #If length is not proper 
-  if not (len(strParam) <= 25 and len(strParam) >= 4):
-    return "false"
-  
-  #If first sign is not a letter 
-  if not strParam[0].isalpha():
-    return "false"
+  # compile regex which validate string as object to match
+  pattern = re.compile(r"^[a-zA-Z][a-zA-Z0-9_]{2,23}[a-zA-Z0-9]$")
+  result = pattern.search(strParam)
 
-  # re.earch unlike re.match checks for a match anywhere in the string
-  #Expression [^A-Za-z0-9_] matches each sign out of Unicode word characters
-  #If match is not found
-  if re.search("[^A-Za-z0-9_]", strParam):       
-    return "false"
-  
-  #If last element is equal to "_"    
-  if strParam[-1] == "_":
-    return "false"
+  return "true"  if result != None else "false"
+    
+def _input():
 
-  #If none of forbidden conditions had place
-  #return true
-  return "true"
+  sampleString = "abc_de"
+
+  return sampleString
+
+def _output():
+
+  sampleString = "true" 
+
+  return sampleString 
+
