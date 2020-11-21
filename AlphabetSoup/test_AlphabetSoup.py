@@ -21,9 +21,9 @@ class test_AlphabetSoup(unittest.TestCase):
 
     def test_WrongInput(self):
         '''
-        Checks if output is -1 when input has forbidden signs.
+        Checks if output is -1 when input is wrong type.
         '''
-        output = AlphabetSoup.AlphabetSoup("ccd1dbbaa")
+        output = AlphabetSoup.AlphabetSoup(112)
         self.assertEqual(output, -1)
 
     #Big letters are first before lowercase
