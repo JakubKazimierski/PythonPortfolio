@@ -53,14 +53,6 @@ class test_ArithGeo(unittest.TestCase):
         output = ArithGeo.ArithGeo([0,1,2,3])
         self.assertEqual(output, -1)
 
-    def test_InputContainsSameElements(self):
-        '''
-        Checks if for same elements in input 
-        output is "Input array contains same elements".
-        '''
-        output = ArithGeo.ArithGeo([1,1,1,1])
-        self.assertEqual(output, "Input array contains same elements")
-
     #endregion
 
 if __name__ == "__main__":

@@ -17,44 +17,36 @@ def ArithGeo(arr):
     and no array will contain all the same elements.
     '''
     try:
-        #Those var will define output
-        #default both are True
-        isArythmetic = "True"
-        isGeometric = "True"
 
-        #Differences in sequences
-        diffArytm = arr[1] - arr[0]
-        sequenceArythmetic = arr[0]
-        
-        #If division output is different than integer
-        #bufGeo will be float
+
+        diffArytm = arr[1] - arr[0]        
         diffGeo = arr[1]/arr[0]
-        sequenceGeometric = arr[0]
 
-        #Complexity O(n)
-        for i in arr:
-            #In arythmetic sequence, difference beetween
-            #each element coming up from previous one is const
-            if sequenceArythmetic != i:
-                isArythmetic = "False" 
-            sequenceArythmetic += diffArytm        
+        # If all elements are true
+        if all(arr[i+1]-arr[i] == diffArytm for i in range(0,len(arr)-1)):
+            return "Arithmetic"
 
-            #In geometric sequence value of division beetwen 
-            #two coming up elements of sequence is const
-            if sequenceGeometric != i:
-                isGeometric = "False"
-            sequenceGeometric *= diffGeo    
+        if all(arr[i+1]/arr[i] == diffGeo for i in range(0,len(arr)-1)):
+            return "Geometric"
 
-        #First condition assert that sequence will not be 
-        #geometric and arithmetic at the same time
-        if isArythmetic == "True" and isGeometric == "True":
-            return "Input array contains same elements"
-        elif isArythmetic == "True":
-            return "Arithmetic"               
-        elif isGeometric == "True":
-            return "Geometric"    
-        else:    
-            return -1
+        # If none of above was true
+        return -1
             
     except ZeroDivisionError:
         return -1
+
+def _input():
+    '''
+    Returns sample input for ArithGeo()
+    '''
+    sampleList = [1,2,3,4]
+
+    return sampleList
+
+def _output():
+    '''
+    Returns sample output for ArithGeo()
+    '''
+    sampleString = "Arithmetic"
+
+    return sampleString
