@@ -32,4 +32,12 @@ def AdditivePersistence(num):
         return additionCounter
 
     else:
-        return -1    
+        return -1
+
+def _input():
+  '''
+  Example input method for AdditivePersistence(), returns integer.
+  '''
+  integerInput = 1234
+
+  return integerInput

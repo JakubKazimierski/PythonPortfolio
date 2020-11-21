@@ -26,4 +26,12 @@ def AdditivePersistence(num):
             return 1 + AdditivePersistence(sum(map(int, str(num))))    
 
     else:
-        return -1    
+        return -1
+
+def _input():
+  '''
+  Example input method for AdditivePersistence(), returns integer.
+  '''
+  integerInput = 1234
+
+  return integerInput
