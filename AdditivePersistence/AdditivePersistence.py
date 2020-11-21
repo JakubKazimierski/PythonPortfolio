@@ -15,28 +15,21 @@ def AdditivePersistence(num):
     because 2 + 7 + 1 + 8 = 18 and 1 + 8 = 9 and you stop at 9.
     '''
 
-    #Assert correct input type
+    # Assert correct input type
     if type(num) == int and num >= 0: 
-        #To does not work on input directly
-        numBufor = num
-        #Counter of addition
-        counter = 0
+        
+        numCopy = num
+        additionCounter = 0
 
-        #While sum of digits will be more than one
-        while len(str(numBufor)) > 1:
-                
-            #In order to split digits, convert int
-            #to string and next while traversing string sum up int val of
-            #characters of string (substrings len 1)    
-            listOfDigits = [int(i) for i in str(numBufor)]
+        # While digits' length of sum is greater than one
+        while len(str(numCopy)) > 1:
+            
+            # sum up all digits
+            numCopy = sum([int(i) for i in str(numCopy)])
+            
+            additionCounter += 1
 
-            #Assign sum of digits as a new value
-            numBufor = sum(listOfDigits)        
-
-            #Count steps
-            counter += 1
-
-        return counter
+        return additionCounter
 
     else:
         return -1    
