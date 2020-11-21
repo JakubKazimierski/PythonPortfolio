@@ -53,7 +53,7 @@ class test_ChangingSequence(unittest.TestCase):
         catches empty input.
         '''
         output = ChangingSequenceBest.ChangingSequence([])
-        self.assertEqual(output, "Input is empty")
+        self.assertEqual(output, "Wrong Input")
 
     def test_InputHasWrongType(self):
         '''
@@ -61,7 +61,7 @@ class test_ChangingSequence(unittest.TestCase):
         catches wrong type in input.
         '''
         output = ChangingSequenceBest.ChangingSequence([10,9,"8"])
-        self.assertEqual(output, "Wrong Input Type")
+        self.assertEqual(output, "Wrong Input")
 
     #endregion
 
