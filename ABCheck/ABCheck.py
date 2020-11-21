@@ -17,22 +17,19 @@ def ABCheck(strParam):
   Otherwise return the string false.
   '''
 
-  #assert correct type
   if type(strParam) == str and len(strParam) > 0:
-    #upper/lower case letters have the same value in this task
-    #make all letters lower
-    string = strParam.lower()
+    
+    equalizedLettersString = strParam.lower()
 
-    #algorithm does not have to traverse whole string
-    for i in range(len(string)-4):
-      #if a is first checks if b is separated by 3 indexes from a
-      if string[i] == 'a' and string[i+4] == 'b':
+    for letterIndex in range(0, len(equalizedLettersString)-4):
+      # if a is first checks if b is separated by 3 indexes from a
+      if equalizedLettersString[letterIndex] == 'a' and equalizedLettersString[letterIndex+4] == 'b':
         return 'true'
-      #if b is first checks if a is separated by 3 indexes from b  
-      if string[i] == 'b' and string[i+4] == 'a':
+      # if b is first checks if a is separated by 3 indexes from b  
+      if equalizedLettersString[letterIndex] == 'b' and equalizedLettersString[letterIndex+4] == 'a':
         return 'true'
 
-    #complexity of above is O(n)    
+    # complexity of above is O(n)    
     return 'false'
   
   else:
