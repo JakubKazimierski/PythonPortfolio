@@ -17,22 +17,34 @@ def BracketMatcher(strParam):
   If str contains no brackets return 1.
   '''
 
-  
-  #Below counts "("" as 1 and ")" as -1
-  countSum = 0
+  countBracketsSum = 0
   for i in strParam:
 
     if i == '(':
-      countSum += 1
+      countBracketsSum += 1
     elif i == ')':
-      countSum -= 1
+      countBracketsSum -= 1
 
-    #Below checks if ")" bracket appear before "("  bracket
-    #If it appears without previous pair with "(" bracket
-    #output cannot be correct
-    if countSum < 0:
+    # If ")" appears without previous pair with "(" bracket
+    # output cannot be correct
+    if countBracketsSum < 0:
       return 0
 
-  #Bellow checks if there is not "(" bracket without pair
-  return 1 if countSum == 0 else 0
+  # Bellow checks if there is "(" bracket without pair
+  return 1 if countBracketsSum == 0 else 0
   
+def _input():
+  '''
+  Sample input for BracketMatcher()
+  '''
+  sampleString = "ab(cd)"
+
+  return sampleString
+
+def _output():
+  '''
+  Sample output for BracketMatcher()
+  '''
+  sampleOutput = 1
+
+  return sampleOutput
