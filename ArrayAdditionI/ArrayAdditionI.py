@@ -10,21 +10,17 @@ def all_subsets(arr):
     Returns chain of all possible combinations
     of elements in given at input array
     ''' 
+  
+    # chain() -It is a function that takes a series of iterables and returns one iterable.
+        
+    # map() -function returns a map object(which is an iterator) of the results after applying
+    # the given function to each item of a given iterable
+        
+    # combinations()-Given an array of size n, generate and print all possible combinations of r elements in array.
+    # where r is length of combination
+    
 
-    #region Commentary
-    #In order to check all possible combinations
-    #I'll use collection itertools and it's methods
-        
-    ###chain() -It is a function that takes a series of iterables and returns one iterable.
-        
-    ###map() -function returns a map object(which is an iterator) of the results after applying
-    #the given function to each item of a given iterable
-        
-    ###combinations()-Given an array of size n, generate and print all possible combinations of r elements in array.
-    #where r is length of combination
-    #endregion
-
-    return chain(*map(lambda x: combinations(arr, x), range(0, len(arr)+1)))
+    return chain(*map(lambda x: combinations(arr, x), range(1, len(arr)+1)))
 
 
 def ArrayAdditionI(arr):
@@ -41,19 +37,16 @@ def ArrayAdditionI(arr):
     and may contain negative numbers.
     '''
     try:
-        #lists are mutable in python
-        #max element
         maxElement = max(arr)
 
-        #Remove max elem from arrBuf
-        arr.remove(maxElement)
+        arr.remove(max(arr))
 
         for subset in all_subsets(arr):
             if sum(subset) == maxElement:
                 return "true"
 
-        #If sum of any combination was not equal 
-        #to max element return false         
+        # If sum of any combination was not equal
+        # to max element return false         
         return 'false'
 
         #region Commentary
