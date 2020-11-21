@@ -4,6 +4,8 @@ Method for task ABCheck from coderbyte
 Jakub Kazimierski October 2020
 '''
 
+import re
+
 def ABCheck(strParam):
 
   '''
@@ -21,17 +23,12 @@ def ABCheck(strParam):
     
     equalizedLettersString = strParam.lower()
 
-    for letterIndex in range(0, len(equalizedLettersString)-4):
-      
-      if equalizedLettersString[letterIndex] == 'a' and equalizedLettersString[letterIndex+4] == 'b':
+    # dot in regex match every character
+    if re.findall("a.{3}b|b.{3}a", equalizedLettersString):
         return "true"
-      
-      if equalizedLettersString[letterIndex] == 'b' and equalizedLettersString[letterIndex+4] == 'a':
-        return 'true'
+    else:
+        return "false"    
 
-    # complexity of above is O(n)    
-    return 'false'
-  
   else:
     return -1
 
