@@ -15,9 +15,9 @@ def AlphabetSoup(strParam):
 
   try:
  
-    sortedString = sorted(strParam)
+    sortedStringList = sorted(strParam)
     
-    return "".join(sortedString)
+    return "".join(sortedStringList)
 
   except (AttributeError, TypeError):
     return -1
