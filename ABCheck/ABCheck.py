@@ -43,3 +43,11 @@ def _input():
   stringInput = "example text"
 
   return stringInput
+
+def _output():
+  '''
+  Example output method for ABCheck(), returns string.
+  '''
+  stringOutput = "false"
+
+  return stringOutput

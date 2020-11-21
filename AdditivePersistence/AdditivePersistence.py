@@ -41,3 +41,11 @@ def _input():
   integerInput = 1234
 
   return integerInput
+
+def _output():
+  '''
+  Example output method for AdditivePersistence(), returns integer.
+  '''
+  integerOutput = 2
+
+  return integerOutput
