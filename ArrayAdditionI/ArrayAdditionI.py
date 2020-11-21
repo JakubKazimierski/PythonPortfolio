@@ -61,17 +61,13 @@ def ArrayAdditionI(arr):
         return -1
 
 def _input():
-    '''
-    Returns sample input for ArrayAdditionI()
-    '''
+
     sampleList = [4, 6, 23, 10, 1, 3]
 
     return sampleList
 
 def _output():
-    '''
-    Returns sample output for ArrayAdditionI()
-    '''
+
     sampleString = "true"
 
     return sampleString

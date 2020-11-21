@@ -34,17 +34,13 @@ def BracketMatcher(strParam):
   return 1 if countBracketsSum == 0 else 0
   
 def _input():
-  '''
-  Sample input for BracketMatcher()
-  '''
+
   sampleString = "ab(cd)"
 
   return sampleString
 
 def _output():
-  '''
-  Sample output for BracketMatcher()
-  '''
+
   sampleOutput = 1
 
   return sampleOutput

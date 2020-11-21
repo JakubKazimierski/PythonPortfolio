@@ -23,17 +23,13 @@ def AlphabetSoup(strParam):
     return -1
 
 def _input():
-  '''
-  Returns example input for AlphabetSoup()
-  '''
+
   sampleString = "abcde"
 
   return sampleString
 
 def _output():
-  '''
-  Returns example output for AlphabetSoup()
-  '''
+
   sampleString = "edcba"
 
   return sampleString  

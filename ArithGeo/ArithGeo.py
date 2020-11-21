@@ -36,17 +36,13 @@ def ArithGeo(arr):
         return -1
 
 def _input():
-    '''
-    Returns sample input for ArithGeo()
-    '''
+
     sampleList = [1,2,3,4]
 
     return sampleList
 
 def _output():
-    '''
-    Returns sample output for ArithGeo()
-    '''
+
     sampleString = "Arithmetic"
 
     return sampleString

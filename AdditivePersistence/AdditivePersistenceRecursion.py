@@ -23,23 +23,19 @@ def AdditivePersistence(num):
         else:
             # map as integer every charater of stringified num
             # sum it up and pass ass input to recursive call of AdditivePersistence()
-            return 1 + AdditivePersistence(sum(map(int, str(num))))    
+            return 1 + AdditivePersistence( sum( map( int, str(num))))   
 
     else:
         return -1
 
 def _input():
-  '''
-  Example input method for AdditivePersistence(), returns integer.
-  '''
+
   integerInput = 1234
 
   return integerInput
 
 def _output():
-  '''
-  Example output method for AdditivePersistence(), returns integer.
-  '''
+
   integerOutput = 2
 
   return integerOutput
