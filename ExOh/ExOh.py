@@ -3,7 +3,6 @@ ExOh from codersbyte
 October 2020 Jakub Kazimierski
 '''
 
-#To assert correct input
 import re
 
 def ExOh(strParam):
@@ -19,10 +18,10 @@ def ExOh(strParam):
   because there are 6 x's and 5 o's.
   '''
 
-  #Checks if input variable has proper type (just x or o letters)
+  # Checks if input matches x or o letters
   if re.search("^[xX|oO]+$", strParam) != None:
 
-    #Below converts letters to lower in order to compare just values of letters
+    # Below converts letters to lower in order to compare just values of letters
     return "true" if strParam.lower().count("x") == strParam.lower().count("o") \
       else "false"
 
