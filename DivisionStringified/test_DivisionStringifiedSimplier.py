@@ -16,8 +16,8 @@ class test_DivisionStringified(unittest.TestCase):
         '''
         Checks if input has correct type.
         '''
-        output = DivisionStringifiedSimplier.DivisionStringified(1.0,2)
-        self.assertEqual(output, "Input type has to be Integer")
+        output = DivisionStringifiedSimplier.DivisionStringified("1",2)
+        self.assertEqual(output, "Not correct input")
 
     def test_ComaTests(self):
         '''
@@ -45,7 +45,7 @@ class test_DivisionStringified(unittest.TestCase):
         Checks if for num2 equal 0 assertion works properly.
         '''
         output = DivisionStringifiedSimplier.DivisionStringified(123456789 , 0)
-        self.assertEqual(output, "num2 cannot be 0")
+        self.assertEqual(output, "Not correct input")
 
     #endregion
 

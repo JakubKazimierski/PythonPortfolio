@@ -3,7 +3,6 @@ DivisionStringified from Coderbyte
 November 2020 Jakub Kazimierski
 '''
 
-#Import for proper math rounding
 from decimal import Decimal, ROUND_HALF_UP
 
 def DivisionStringified(num1,num2):
@@ -16,25 +15,15 @@ def DivisionStringified(num1,num2):
     For example: if num1 is 123456789 and num2 is 10000 the output should be "12,346".
     '''
 
-    #Assertion for input values to be integers
-    if type(num1) == int and type(num2) == int:
-        
-        try:
+    try:
 
-            #region Commentary
-            #Output has to be stringified, and also (important!!!)
-            #if we use just built in round() it rounds number to closest even number
-            #Below uses method form collection decimal for proper math rounding
-            #endregion
+        # Below uses decimal collection for proper math rounding
+        divResult = Decimal(num1/num2).to_integral_value(rounding=ROUND_HALF_UP)
 
-            divResult = Decimal(num1/num2).to_integral_value(rounding=ROUND_HALF_UP)
+        # Here format() is used to create string output of decimal number          
+        return '{:,}'.format(divResult)
 
-            #Built in method to format output in declared way            
-            return '{:,}'.format(divResult)
-
-        except ZeroDivisionError:
-            return "num2 cannot be 0"
-    else:
-        return "Input type has to be Integer"
+    except (AttributeError, TypeError,ZeroDivisionError):
+        return "Not correct input"
   
     
