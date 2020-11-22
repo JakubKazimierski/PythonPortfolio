@@ -23,19 +23,12 @@ def FindIntersection(strArr):
   '''
   try:
 
-    #region Commentary
-    #We can use built in method intersection
-    #which is method for sets
-    #so we have to make sets from our string array
-
-    #Below splits values, we dont want char "," in our intersection
-    #we are working on strings 
-    #endregion
-    arrayX = set(strArr[0].split(", "))
-    arrayY = set(strArr[1].split(", "))
+    # intersection() is method for sets, so below converts arrays to sets
+    arrayFirst = set(strArr[0].split(", "))
+    arraySecond = set(strArr[1].split(", "))
 
     #Sorts using integer value of str as key  
-    result = sorted(list(arrayX.intersection(arrayY)), key=lambda str: int(str))
+    result = sorted(list(arrayFirst.intersection(arraySecond)), key=lambda str: int(str))
 
     #join() concatenate elements of set with separator  
     return ','.join(result) if len(result) > 0 else False
