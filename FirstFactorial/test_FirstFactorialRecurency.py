@@ -20,7 +20,7 @@ class test_FirstFactorial(unittest.TestCase):
         output = FirstFactorialRecurency.FirstFactorial(4)
         self.assertEqual(output, 24)
 
-    #range for input is [0, 18]
+    #range for input is [1, 18]
     def test_ProperOutputNegatives(self):
         '''
         Checks if output is equal -1 for numbers out of range.
@@ -28,12 +28,6 @@ class test_FirstFactorial(unittest.TestCase):
         output = FirstFactorialRecurency.FirstFactorial((-4))
         self.assertEqual(output, -1)
 
-    def test_ProperOutputZero(self):
-        '''
-        Checks if output is correct for input equal 0.
-        '''
-        output = FirstFactorialRecurency.FirstFactorial(0)
-        self.assertEqual(output, 1)
     #endregion
 
 if __name__ == "__main__":
