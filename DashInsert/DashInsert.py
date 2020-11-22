@@ -12,24 +12,20 @@ def DashInsert(strParam):
     Don't count zero as an odd number.
     '''
 
-    if type(strParam) == str and len(strParam) > 0 :
-    
-        #output string
-        #because strings are immutable create new one
+    try:    
         outputString = ""
-        
-        #Iterate array taking two values at once
+
         for i in range(0, len(strParam)-1):
             
-            #put str[i] + '-' if str[i] and str[i+1] are odd
-            #else put just str[i]
-            outputString += (strParam[i] + "-") if int(strParam[i])%2 != 0 \
-                and int(strParam[i+1])%2 != 0 else  strParam[i]            
+            if int(strParam[i])%2 != 0 and int(strParam[i+1])%2 != 0:   
+                outputString += (strParam[i] + "-")  
+            else:
+                outputString += strParam[i]            
 
         #Loop does not concatenate last character of strParam
         outputString += strParam[-1]
 
         return outputString
 
-    else:
+    except(AttributeError, TypeError, IndexError):
         return -1
