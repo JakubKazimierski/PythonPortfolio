@@ -41,7 +41,8 @@ def LargestRange(array):
     #endregion
 
     try:
-
+        # create dictionary of numbers (0 mean unvisited, 1 visited) 
+        # dict in python is based on hashtables
         numbers = {x:0 for x in array}
 
         #range velues: left and right, default zero
