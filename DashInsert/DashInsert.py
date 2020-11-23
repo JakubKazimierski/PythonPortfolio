@@ -29,3 +29,15 @@ def DashInsert(strParam):
 
     except(AttributeError, TypeError, IndexError):
         return -1
+
+def _input():
+
+    exampleInput = "56730"
+
+    return exampleInput
+
+def _output():
+
+    exampleOutput = "567-30"
+
+    return exampleOutput     

@@ -33,3 +33,15 @@ def LetterChanges(strParam):
     return output
   else:
     return -1
+
+def _input():
+
+    exampleInput = "bbb ccc ddd"
+
+    return exampleInput
+
+def _output():
+
+    exampleOutput = "ccc ddd EEE"
+
+    return exampleOutput    

@@ -19,7 +19,7 @@ def LongestWord(sen):
     try:
         
         # replace each non alphabetic and non whitespace sign with empty string
-        ignoredPunctuationString = re.sub("[^\w\s]","",sen)
+        ignoredPunctuationString = re.sub(r"[^\w\s]","",sen)
 
         # same effect will be gain thanks to below
         # ignoredPunctuationString = sen.translate(str.maketrans("","", string.punctuation))
@@ -30,3 +30,15 @@ def LongestWord(sen):
 
     except(AttributeError, TypeError):
       return -1
+
+def _input():
+
+    exampleInput = "Abcde abc"
+
+    return exampleInput
+
+def _output():
+
+    exampleOutput = "Abcde"
+
+    return exampleOutput

@@ -18,3 +18,15 @@ def FirstReverse(strParam):
 
     except TypeError:
       return -1
+
+def _input():
+
+    exampleInput = "abcd"
+
+    return exampleInput
+
+def _output():
+
+    exampleOutput = "dcba"
+
+    return exampleOutput          

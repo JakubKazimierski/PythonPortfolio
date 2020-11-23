@@ -41,4 +41,15 @@ def LetterCountI(strParam):
 
     except (AttributeError, TypeError):
         return -2
-    
+
+def _input():
+
+    exampleInput = "Today, is the greatest day ever!"
+
+    return exampleInput
+
+def _output():
+
+    exampleOutput = "greatest"
+
+    return exampleOutput    

@@ -26,4 +26,16 @@ def DivisionStringified(num1,num2):
     except (AttributeError, TypeError,ZeroDivisionError):
         return "Not correct input"
   
-    
+def _input():
+
+    exampleInput_one = 1000000
+    exampleInput_two = 1
+
+    return (exampleInput_one, exampleInput_two)
+
+def _output():
+
+    exampleOutput = "1,000,000"
+
+    return exampleOutput     
+   

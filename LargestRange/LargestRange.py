@@ -85,3 +85,15 @@ def LargestRange(array):
 
     except TypeError:
         return "Wrong input"
+
+def _input():
+
+    exampleInput = [1,11,3,0,15,5,2,4,10,7,12,6]
+
+    return exampleInput
+
+def _output():
+
+    exampleOutput = [0,7]
+
+    return exampleOutput    
