@@ -18,28 +18,27 @@ def LetterCountI(strParam):
     '''
     
     try:
-        #Below splits words into list
+        
         words = strParam.split(" ")
-        #By default we assume each letter appear once
-        most_repeated = 1
-        #If each letter appear once answer is -1
+        
+        # By default we assume each letter appear once
+        biggestRepetitionNumber = 1
+        # If each letter appear once answer is -1
         answer = -1
 
-        #I assume complexity is O(n*m^2) where n is number of words and m is amount of letters in word
+        # I assume complexity is O(n*m^2) where n is number of words and m is amount of letters in word
         for word in words:
-            #Below traverses letters in each word
-            for i in word:            
-                #count() method returns the number of occurrences of a substring
-                if word.count(i) > most_repeated:
-                    #Assign new most common value if new value is larger than previous one
-                    most_repeated = word.count(i)
-                    #answer becames word with most common amount of repeated letters
-                    #then type of ansew changes from int to string
+        
+            for letter in word:            
+    
+                if word.count(letter) > biggestRepetitionNumber:
+                    # Assign new most common value if new value is larger than previous one
+                    biggestRepetitionNumber = word.count(letter)
+                    # catched word becomes answer (answer changes type)
                     answer = word
 
         return answer
 
-    #catch exception
     except (AttributeError, TypeError):
         return -2
     
