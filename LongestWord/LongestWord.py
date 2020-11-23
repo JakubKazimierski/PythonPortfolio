@@ -3,34 +3,30 @@ LongestWord from Coderbyte
 October 2020 Jakub Kazimierski
 '''
 
-import string
+import re
+# import string
 
 def LongestWord(sen):
-  '''
-  Have the function LongestWord(sen) 
-  take the sen parameter being passed and return 
-  the largest word in the string. If there are 
-  two or more words that are the same length, 
-  return the first word from the string with that length. 
-  Ignore punctuation and assume sen will not be empty.
-  '''
-  
-  #string.punctuation contains punctuation signs in python
-  #if intersection of set created from input string and punctuation set is equal to empty set
-  if set(sen).intersection(string.punctuation) == set() and sen != "":
-    #Below creates list of words
-    wordsList = sen.split(" ")
+    '''
+    Have the function LongestWord(sen) 
+    take the sen parameter being passed and return 
+    the largest word in the string. If there are 
+    two or more words that are the same length, 
+    return the first word from the string with that length. 
+    Ignore punctuation and assume sen will not be empty.
+    '''
+    
+    try:
+        
+        # replace each non alphabetic and non whitespace sign with empty string
+        ignoredPunctuationString = re.sub("[^\w\s]","",sen)
 
-    longestLength = 0
-    longestWord = ""
+        # same effect will be gain thanks to below
+        # ignoredPunctuationString = sen.translate(str.maketrans("","", string.punctuation))
 
-    for i in wordsList:
-      #If current word's length is greater
-      if len(i) > longestLength:
-        longestLength = len(i)  
-        longestWord = i
-            
-    return longestWord
+        wordsList = ignoredPunctuationString.split(" ")
+         
+        return max(wordsList, key=len)
 
-  else:
-    return -1
+    except(AttributeError, TypeError):
+      return -1

@@ -35,17 +35,17 @@ class test_LongestWord(unittest.TestCase):
 
     def test_EmptyInput(self):
         '''
-        Checks if output is equal -1 for empty input.
+        Checks if output is empty for empty input.
         '''
         output = LongestWord.LongestWord("")
-        self.assertEqual(output, -1)
+        self.assertEqual(output, "")
 
     def test_PunctuationInInput(self):
         '''
-        Checks if output is equal -1 for punctuation in input.
+        Checks if punctuation is ignored.
         '''
-        output = LongestWord.LongestWord("asd, ff")
-        self.assertEqual(output, -1)    
+        output = LongestWord.LongestWord("as,d, ff")
+        self.assertEqual(output, "asd")    
     #endregion
             
 if __name__ == "__main__":
