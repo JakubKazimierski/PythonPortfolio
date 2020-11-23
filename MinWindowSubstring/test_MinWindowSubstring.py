@@ -1,5 +1,5 @@
 '''
-Unittests for MinWindowSubstring from codersbyte
+Unittests for MinWindowSubstring from Coderbyte
 October 2020 Jakub Kazimierski
 '''
 
@@ -9,49 +9,49 @@ import MinWindowSubstring
 
 class test_MinWindowSubstring(unittest.TestCase):
     '''
-    class contains unittests fro MinWindowSubstring from codersbyte
+    Class contains unittests fro MinWindowSubstring.py
     '''
 
     #region Unittests
-    def test_ValidOutputLength(self):
+    def test_ValidOutput(self):
         '''
-        check if output is as expeted
+        Checks if output is as expeted.
         '''
         output = MinWindowSubstring.MinWindowSubstring(["aaabaaddae", "aed"])
         self.assertEqual(output, "dae")
 
     def test_NotValidOutput(self):
         '''
-        check if output is false when is no common substring
+        Checks if output is false when is no common substring.
         '''
         output = MinWindowSubstring.MinWindowSubstring(["aaabaadda", "aed"])
         self.assertEqual(output, False)
 
     def test_SameSymbolsNotSameCount(self):
         '''
-        check if output is false when number of symbols is not the same
-        in strings
+        Checks if output is false when occurance of same symbols is at least not the same
+        in both strings.
         '''
         output = MinWindowSubstring.MinWindowSubstring(["aaddef", "aaeedd"])
         self.assertEqual(output, False)
 
-    def test_NotValidInput(self):
+    def test_SecondStringIsEmptyInput(self):
         '''
-        check if output is false for empty input at second string
+        Checks if output is false if second string is empty.
         '''
         output = MinWindowSubstring.MinWindowSubstring(["aaddef", ""])
         self.assertEqual(output, False)
 
-    def test_NotValidInput2(self):
+    def test_FirstStringIsEmptyInput(self):
         '''
-        checkif output is false when input is empty at first string
+        Checks if output is false when first string is empty.
         '''
         output = MinWindowSubstring.MinWindowSubstring(["", "ass"])
         self.assertEqual(output, False)
 
-    def test_NotValidInput3(self):
+    def test_BothStringsAreEmpty(self):
         '''
-        check if output is false for both input strings empty
+        Checks if output is false if both strings are empty.
         '''
         output = MinWindowSubstring.MinWindowSubstring(["", ""])
         self.assertEqual(output, False)    
@@ -59,6 +59,6 @@ class test_MinWindowSubstring(unittest.TestCase):
     
 if __name__ == "__main__":
     '''
-    main method of unittests class
+    Main method of unittests class.
     '''
     unittest.main()        

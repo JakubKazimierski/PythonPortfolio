@@ -5,59 +5,71 @@ October 2020 Jakub Kazimierski
 
 from collections import Counter
 
-#A Counter is a dict subclass for counting hashable objects
-#>>> cnt = Counter()
-#>>> for word in ['red', 'blue', 'red', 'green', 'blue', 'blue']:
-#        cnt[word] += 1
-#>>> cnt
-#Counter({'blue': 3, 'red': 2, 'green': 1})
-
 EMPTY_COUNTER = Counter()
 
 def MinWindowSubstring(strArr):
-  '''
-  method for finding min substring of first from
-  two give strings, which has to contain all letters from second one
-  '''
-  
-  #N - left first parameter
-  # K - second parameter  
-  N, K = strArr
+    '''
+    Have the function MinWindowSubstring(strArr) 
+    take the array of strings stored in strArr, 
+    which will contain only two strings, 
+    the first parameter being the string N 
+    and the second parameter being a string K 
+    of some characters, and your goal is to determine 
+    the smallest substring of N that contains all the 
+    characters in K. For example: if strArr is ["aaabaaddae", "aed"] 
+    then the smallest substring of N that contains the characters a, e, and d is "dae" 
+    located at the end of the string. 
+    So for this example your program should return the string dae.
 
-  #count uniqe elements in K   
-  #uniqe will be letters
-  frequencyK = Counter(K)
-  options = []
+    Another example: if strArr is ["aabdccdbcacd", "aad"] 
+    then the smallest substring of N that contains all of 
+    the characters in K is "aabd" which is located at the 
+    beginning of the string. Both parameters will be strings 
+    ranging in length from 1 to 50 characters and all of K's 
+    characters will exist somewhere in the string N. 
+    Both strings will only contains lowercase alphabetic characters.
+    '''
+    
 
-  #iterate over N complexity O(n)
-  for i in range(0, len(N)):
-    #counter for N (check if it has same count values like K)
-    curr = Counter()
+    firstString, secondString = strArr
 
-    #O(n)
-    #iterate from i to end of N
-    for j in range(i, len(N)):
-      curr[N[j]] += 1
+    #count appearence of letters in SecondString
+    secondStringLettersCounter = Counter(secondString)  
+    substringsList = []
 
-      #if we found vlid syntax (same symbols in N and K)
-      #even before j == len(N)-1 what is [last index in N]
-      #N can contain more symbols at this moment than K
-      #we want to be sure that all symbols from K are in N at this moment
-      if frequencyK - curr == EMPTY_COUNTER and frequencyK != EMPTY_COUNTER:
+    # O(n)
+    for i in range(0, len(firstString)):
+      
+        firstStringLettersCounter = Counter()
 
-        #add our window to our optional outputs  
-        options.append(N[i:j + 1])
-        #go to i = i+1 and repeat process
-        break
+      # O(n)
+        for j in range(i, len(firstString)):
+            firstStringLettersCounter[firstString[j]] += 1
 
-  #return min of valid windows, so key is length 
-  # if there are any non empty options 
-  if options != []:
-    return min(options, key=len)
-  else:
-      return False    
-  #above program is based on Counters of  hashable objects
-  # and also  based on left and right pointers (in this case i is left pointer and j is right pointer)    
-  
+            # if firstStringLettersCounter contains at least the same elements as secondStringLettersCounter
+            if secondStringLettersCounter - firstStringLettersCounter == EMPTY_COUNTER and secondStringLettersCounter != EMPTY_COUNTER:
 
+                  # strings indexing to j element
+                  substringsList.append(firstString[i:j + 1])
+                  
+                  # go to i = i+1 and repeat process
+                  break
+
+    # return min of valid windows, key is length 
+    if substringsList != []:
+        return min(substringsList, key=len)
+    else:
+        return False    
+    
+def _input():
+
+    exampleInput =  ["aaabaaddae", "aed"] 
+
+    return exampleInput
+
+def _output():
+
+    exampleOutput = "dae" 
+
+    return exampleOutput
 
