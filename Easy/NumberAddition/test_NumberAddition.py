@@ -8,31 +8,28 @@ import NumberAddition
 
 class test_NumberAddition(unittest.TestCase):
     '''
-    class contains unittests for NumberAddition.py
+    Class contains unittests for NumberAddition.py
     '''
 
     #region Unittests
     def test_SimpleExpectedOutput(self):
         '''
-        check if fro simple input alghoritm works
-        properly
+        Checks if numbers from string are summed up.
         '''
-        output = NumberAddition.NumberAddition("7Number9")
-        self.assertEqual(output, 16)
+        output = NumberAddition.NumberAddition("3 7Number9")
+        self.assertEqual(output, 19)
     
     def test_NumberOfManyDigits(self):
         '''
-        check if for numbers concatenate from many 
-        digits input alghoritm works
-        properly
+        Checks if for numbers concatenated from many 
+        digits output sum is correct.
         '''
-        output = NumberAddition.NumberAddition("7Nu44mber9")
+        output = NumberAddition.NumberAddition("7Nu44mbaer9")
         self.assertEqual(output, 60)
     
     def test_WrongTypeInput(self):
         '''
-        check if for wrong input type
-        alghoritm return proper error
+        Checks if for wrong input type alghoritm returns proper error.
         '''
         output = NumberAddition.NumberAddition(7)
         self.assertEqual(output, -1)
@@ -43,6 +40,6 @@ class test_NumberAddition(unittest.TestCase):
 
 if __name__ == "__main__":
     '''
-    main method for unittests
+    Main method for unittests.
     '''
     unittest.main()    

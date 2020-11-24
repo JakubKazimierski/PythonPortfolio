@@ -3,6 +3,8 @@ NumberAddition from Coderbyte
 November 2020 Jakub Kazimierski
 '''
 
+import re
+
 def NumberAddition(strParam):
     '''
     Have the function NumberSearch(str) 
@@ -20,46 +22,11 @@ def NumberAddition(strParam):
 
     try:
 
-        #numBufor
-        numberBufor = ""
-        #List of numbers
-        numberList = []
-        #final sum
-        finalSum = 0
+        # regex split return empty values, so below filters list to not have them
+        listOfNumbers = list(filter(None, re.split(r"[a-zA-Z ]", strParam)))
 
-        #complexity is O(n)
-
-        #traverse strParam array
-        #if sign is digit add to buforNum
-        #is sign is not digit add bufor to list of nums
-        #and reset bufor
-
-        for i in strParam:
-            
-            if i.isdigit():
-                numberBufor += i
-                #if we get last elem which is digit
-                #else statement will not get to work
-                #so append last num to bufor
-                if i == strParam[-1]:
-                    numberList.append(numberBufor)
-                    numberBufor = ""        
-            else:
-                numberList.append(numberBufor)    
-                numberBufor = ""
-
-
-        #O(n) also
-        #so whole function works in O(n) time
-        #add up each value from list
-        for j in numberList:
-            #to avoid empty elements of list
-            #which symbolize letters
-            if j.isdigit():
-                finalSum += int(j)
-
-        return finalSum
+        return sum(int(i) for i in listOfNumbers)
 
     #if input type is wrong return error
-    except TypeError:
+    except (AttributeError, TypeError):
         return -1
