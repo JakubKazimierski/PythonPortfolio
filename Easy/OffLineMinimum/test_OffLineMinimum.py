@@ -8,40 +8,37 @@ import OffLineMinimum
 
 class test_OffLineMinimum(unittest.TestCase):
     '''
-    class contains unittests for
-    OffLineMinimum.py
+    Class contains unittests for OffLineMinimum.py
     '''
 
     #region Unittests
 
     def test_ExpectedOutput(self):
         '''
-        check if for knowing output
-        function returns it
+        Checks if output is as expected.
         '''
-        output = OffLineMinimum.OffLineMinimum(["5","4","6","E","1","7","E","E","3","2"])
-        self.assertEqual(output, "4,1,5")
+        output = OffLineMinimum.OffLineMinimum(["5","4","4","6","E","1","7","E","E","3","2"])
+        self.assertEqual(output, "4,1,4")
     
     def test_E_atFirstIndex(self):
         '''
-        check if for E
-        at first index
-        function does not return error
+        Checks if for E at first index
+        function does not return error.
         '''
         output = OffLineMinimum.OffLineMinimum(["E","5","4","6","E","1","7","E","E","3","2"])
         self.assertEqual(output, "4,1,5")
     
     def test_EmptyInput(self):
         '''
-        check if for Empty input
-        function returns -1
+        Checks if for Empty input
+        function returns ""
         '''
         output = OffLineMinimum.OffLineMinimum([])
-        self.assertEqual(output, -1)
+        self.assertEqual(output, "")
 
     def test_WrongInputType(self):
         '''
-        check if for wrong type of input
+        Checks if for wrong type of input
         function returns -1
         '''
         output = OffLineMinimum.OffLineMinimum(["E","2","3", 4,"E"])
@@ -52,6 +49,6 @@ class test_OffLineMinimum(unittest.TestCase):
 
 if __name__ == "__main__":
     '''
-    main method for unittests
+    Main method for unittests.
     '''
     unittest.main()

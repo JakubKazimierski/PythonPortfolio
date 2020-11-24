@@ -3,65 +3,58 @@ Off Line Minimum from Coderbyte
 November 2020 Jakub Kazimierski
 '''
 
+import collections
+import string
+
 def OffLineMinimum(strArr):
     '''
+    Have the function OffLineMinimum(strArr) 
     take the strArr parameter being passed 
-    which will be an array of integers ranging from 1...n and the letter "E" 
-    return the correct subset based on the following rules. 
-    The input will be in the following format: ["I","I","E","I",...,"E",...,"I"] 
-    where the I's stand for integers and the E means: 
-    -take out the smallest integer currently in the whole set (set mean intigers till E letter). 
-    When finished, your program should return that new set
-    created from taken out integers separated by commas
-    '''
+    which will be an array of integers ranging 
+    from 1...n and the letter "E" and return 
+    the correct subset based on the following rules. 
+    
+    The input will be in the following format: 
+    ["I","I","E","I",...,"E",...,"I"] 
+    where the I's stand for integers and the E 
+    means take out the smallest integer currently 
+    in the whole set. 
+    
+    When finished, your program should return 
+    that new set with integers separated by commas. 
+    For example: if strArr is ["5","4","6","E","1","7","E","E","3","2"] 
+    then your program should return 4,1,5.
 
-    #assert input type str and len
-    if len(strArr) > 0:
-        for i in strArr:
-            if type(i) != str:
-                return -1
-    else:
+    '''
+    try:
+
+        result = []
+        currentNumbersList = []
+
+        for value in strArr:
+
+            if value.isdigit():
+                currentNumbersList.append(value)
+
+            if value.isalpha() and len(currentNumbersList) > 0:
+                currentNumbersList = sorted(currentNumbersList)
+                result.append(currentNumbersList[0])
+                currentNumbersList.pop(0)
+            
+        result = ",".join(result)
+        return result
+    
+    except (ValueError, AttributeError, TypeError):
         return -1
 
-    #bufor list of integers till E letter
-    buforList = []
+def _input():
 
-    #output list
-    outputList = []
+    exampleInput = ["5","4","6","E","1","7","E","E","3","2"] 
 
-    #output string because output has to be in string format
-    output = ""
+    return exampleInput
 
-    #traverse input array
-    for i in strArr:
+def _output():
 
-        #add integers to buforList till E letter
-        if i != "E":
-            buforList.append(int(i))
-        #when E letter
-        else:
-            #assert that in bufor list is at least one number
-            if len(buforList) > 0:
-                #add min integer to output
-                outputList.append(min(buforList))
-                #remove min element from buforList
-                buforList.remove(min(buforList))
-            else:
-                continue
+    exampleOutput = "4,1,5"
 
-        #continue process till end of strArr    
-
-
-    #prepare output string
-    for i in outputList:
-
-        #assign str value of integer
-        output += str(i)
-            
-        #separate with coma if not last elemnt in list
-        if i != outputList[-1]:
-            output += ","
-
-
-
-    return output
+    return exampleOutput
