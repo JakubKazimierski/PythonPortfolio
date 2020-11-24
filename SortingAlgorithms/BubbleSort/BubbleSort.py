@@ -1,5 +1,7 @@
 def BubbleSort(array):
-    
+    '''
+    BubbleSort algorithm.
+    '''
     try:
         # if array is not already sorted change to False
         isSorted = True
