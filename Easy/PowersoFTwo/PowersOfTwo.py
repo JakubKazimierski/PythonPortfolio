@@ -3,44 +3,44 @@ PowersOfTwo from Coderbyte
 November 2020 Jakub Kazimierski
 '''
 
+import math
+
 def PowersOfTwo(num):
     '''
-    return the string true if input is a power of two.
-    If it's not return the string false
+    Have the function PowersofTwo(num) 
+    take the num parameter being passed 
+    which will be an integer and return 
+    the string true if it's a power of two. 
+    If it's not return the string false.
+
+    For example if the input is 16 then your 
+    program should return the string true but 
+    if the input is 22 then the output should 
+    be the string false.
     '''
 
-    if type(num) == int:
-        #work on variable with input value
-        #not directly on input
-        buforNum = num
 
+    try:
+        # if logarithm of base 2 from absolute value of given number 
+        # is integer, diff between float form and int form of result is equal 0
+        # and number is power of two
+        if math.log2(abs(num)) - int(math.log2(abs(num))) == 0 :
+            return "true"
+        else:
+            return "false"     
 
-        #while 2^2 to check condition 2^1 and dont get 1 after division which is power of 2
-        #also make it real for negatives
-        while buforNum > 2 or buforNum <(-2):
-
-            #if odd
-            if (buforNum)%2 != 0:
-                return "false"
-                
-            else:
-                #if division gives odd
-                if(buforNum/2)%2 != 0:
-                    return "false"
-                else:
-                    #assert type division gives float output
-                    buforNum = int(buforNum/2)
-
-            #odd number cannot be power of two
-            #so if it is odd return false
-            #if it is even divide it and check if output is even
-            #if not return "false", else continue process
-            #if any of conditions defining false output wasnt used
-            #then number is power of two
-
-        return "true"
-
-    else:
-        return -1
+    except (AttributeError, TypeError, ValueError):
+        return -1    
 
     
+def _input():
+
+    exampleInput = -8
+
+    return exampleInput
+
+def _output():
+
+    exampleOutput = "true"
+
+    return exampleOutput

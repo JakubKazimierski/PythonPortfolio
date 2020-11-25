@@ -24,3 +24,15 @@ def Palindrome(strParam):
 
     except(AttributeError, TypeError):
         return -1
+
+def _input():
+
+    exampleInput = "racecar" 
+
+    return exampleInput
+
+def _output():
+
+    exampleOutput = "true"
+
+    return exampleOutput

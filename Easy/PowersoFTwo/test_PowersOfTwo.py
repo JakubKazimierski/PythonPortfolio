@@ -8,32 +8,28 @@ import PowersOfTwo
 
 class test_PowersOfTwo(unittest.TestCase):
     '''
-    class contains unittests for
-    PowersOfTwo.py 
+    Class contains unittests for PowersOfTwo.py 
     '''
 
     #region Unittests
 
     def test_InputIsPowerOfTwo(self):
         '''
-        check if output is equall
-        to true for powerOfTwo input
+        Checks if output is equall true for powerOfTwo input.
         '''
         output = PowersOfTwo.PowersOfTwo(1024)
         self.assertEqual(output, "true")
 
     def test_NotPowerOfTwo(self):
         '''
-        check if output is equall
-        to false if itput is not power of two
+        Checks if output is equall false if input is not power of two.
         '''
         output = PowersOfTwo.PowersOfTwo(7)
         self.assertEqual(output, "false")
 
     def test_NegativePowerOfTwo(self):
         '''
-        check if output is equall
-        to true if itput is negative power of two
+        Checks if output is equall to true if input is negative power of two.
         '''
         output = PowersOfTwo.PowersOfTwo(-8)
         self.assertEqual(output, "true")
@@ -41,8 +37,7 @@ class test_PowersOfTwo(unittest.TestCase):
 
     def test_NotProperInput(self):
         '''
-        check if output is equall
-        to -1 if input type is wrong
+        Checks if output is equall -1 if input type is wrong.
         '''
         output = PowersOfTwo.PowersOfTwo("7")
         self.assertEqual(output, -1)
@@ -51,6 +46,6 @@ class test_PowersOfTwo(unittest.TestCase):
 
 if __name__ == "__main__":
     '''
-    main method of unittests
+    Main method of unittests.
     '''
     unittest.main()
