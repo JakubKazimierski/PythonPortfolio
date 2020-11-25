@@ -4,45 +4,23 @@ October 2020 Jakub Kazimierski
 '''
 
 def Palindrome(strParam):
-  '''
-  method return true if given input string is palindrome
-  false if not, and -1 for wrong input
-  '''
+    '''
+    Have the function Palindrome(str) 
+    take the str parameter being passed 
+    and return the string true if the parameter 
+    is a palindrome, (the string is the same forward as it is backward) 
+    otherwise return the string false. 
+    For example: "racecar" is also "racecar" backwards. 
+    Punctuation and numbers will not be part of the string.
+    '''
+    
+    try:
 
-  #dont accept other types and empty string
-  if type(strParam) == str and strParam != "":
+        # ignore size of letters
+        if strParam[::-1].lower() == strParam.lower():
+            return "true"
+        else:
+            return "false"      
 
-    #in python strings are immutable
-    #so i wor with new ones
-    stringBackward = ""
-    stringForward = ""
-
-    #O(n)
-    #copy input string
-    for j in range(0, len(strParam), +1):
-      #number of letter is const so O(1)
-      if strParam[j].isalpha():
-        stringForward += strParam[j]
-
-
-    #O(n)
-    #copy reversed input string
-    #range (from, to, step)
-    for i in range(1,len(strParam)+1):
-      #number of letter is const so O(1)
-      if strParam[-i].isalpha():
-        stringBackward += strParam[-i]
-      elif strParam[-i] == " ":
-          #if space do nothing
-          pass
-      else:
-          #if there are other chars than spaces and letters
-          return -1  
-    #O(n) because method lower()
-    if stringBackward.lower() == stringForward.lower():
-      return "true"
-    else:
-      return "false"
-
-  else:
-    return -1
+    except(AttributeError, TypeError):
+        return -1

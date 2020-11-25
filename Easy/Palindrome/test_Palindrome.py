@@ -9,37 +9,27 @@ import Palindrome
 
 class test_Palindrome(unittest.TestCase):
     '''
-    class with unittests for Palindrome.py
+    Class contains unittests for Palindrome.py
     '''
 
     #region Unittests
     def test_CorrectOutput(self):
         '''
-        check if output is true when input string
-        is palindrome
+        Checks if output is equal true when input string is palindrome.
         '''
         output = Palindrome.Palindrome("aassaa")
         self.assertEqual(output, "true")
 
-    def test_CorrectOutputMeanLetters(self):
+    def test_NotPalindrome(self):
         '''
-        check if space characters make true output still valid
+        Checks if output is equal false when input string is not a palindrome.
         '''
         output = Palindrome.Palindrome("a   assaa")
-        self.assertEqual(output, "true")
-
-    def test_IncorrectSignsInInput(self):
-        '''
-        check if output is -1 when in string are other signs
-        than alphabetical and spaces
-        '''
-        output = Palindrome.Palindrome("aa2ss2aa")
-        self.assertEqual(output, -1)
+        self.assertEqual(output, "false")
 
     def test_UpperAndLowerCase(self):
         '''
-        check if output is true when in input string
-        are uppercase and lowercase mixed
+        Checks if case of letters is ignored in comparition. 
         '''
         output = Palindrome.Palindrome("aAsSaa")
         self.assertEqual(output, "true")
@@ -47,6 +37,6 @@ class test_Palindrome(unittest.TestCase):
 
 if __name__ == "__main__":
     '''
-    main method of unittests class
+    Main method of unittests class.
     '''
     unittest.main()        
