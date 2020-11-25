@@ -6,7 +6,7 @@ def BubbleSort(array):
         # if array is not already sorted change to False
         isSorted = True
 
-        #O(n^2)
+        # O(n^2) for reverse sorted array, O(n) for sorted 
         for i in range(0, len(array)):
             # biggest element in each iteration get to highest possible place
             # so each time we can iterate one place less

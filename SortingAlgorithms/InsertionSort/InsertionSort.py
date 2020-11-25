@@ -3,7 +3,7 @@ def InsertionSort(array):
     InsertionSort algorithm.
     '''
     try:
-        # O(n^2)
+        # Worst case is O(n^2) for reverse sorted, best case is O(n) for sorted array
         for i in range(0, len(array)-1):
             # compare array[i] and array[i+1]
             if array[i]>array[i+1]:

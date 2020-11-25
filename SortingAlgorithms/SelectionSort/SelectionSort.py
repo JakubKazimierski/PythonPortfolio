@@ -2,7 +2,7 @@ def SelectionSort(array):
     '''
     SelectionSort algorithm.
 
-    Takes default min element, and compare it with others.
+    Takes default min as first element of main loop, and compare it with others.
     If any element is smaller, swap them. When inner loop ends
     First element is minimum of array.
 
@@ -13,7 +13,8 @@ def SelectionSort(array):
     '''
     try:
         
-        # Worst Case complexity is O(n^2)
+        # Worst Case complexity is O(n^2) for reverse sorted array
+        # best case is O(n) for sorted array
         
         # last element is compared in second loop
         for i in range(0, len(array)-1):
