@@ -15,7 +15,7 @@ def SelectionSort(array):
         
         # Worst Case complexity is O(n^2)
         
-        # last element is not compared in second loop
+        # last element is compared in second loop
         for i in range(0, len(array)-1):
 
             for j in range(i+1, len(array)):
