@@ -11,7 +11,8 @@ def BubbleSort(array):
             # biggest element in each iteration get to highest possible place
             # so each time we can iterate one place less
             for j in range(0, len(array)-i-1): 
-                if array[j] > array[j+1]:
+        
+                if array[j] > array[j+1]:        
                     array[j], array[j+1] = array[j+1], array[j]
                     isSorted = False
 

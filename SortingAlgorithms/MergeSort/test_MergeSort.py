@@ -6,7 +6,7 @@ November 2020 Jakub Kazimierski
 import unittest
 import MergeSort
 
-class test_InsertionSort(unittest.TestCase):
+class test_MergeSort(unittest.TestCase):
     '''
     Class contains unittests for MergeSort.py
     '''
