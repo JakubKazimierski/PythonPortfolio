@@ -25,3 +25,14 @@ def SimpleAdding(num):
     return -1
   
 
+def _input():
+
+  exampleInput = 4
+
+  return exampleInput
+
+def _output():
+
+  exampleOutput = 10
+
+  return exampleOutput  
