@@ -1,40 +1,44 @@
 '''
 Third Greatest from Coderbyte
 November 2020 Jakub Kazimierski
-Parsing input is changed than in originall task
-i think it is more challenging (a litte bit)
 '''
 
 
 def ThirdGreatest(strArr):
     '''
-    take the string stored in strArr
-    and return the third largest word within it
-    index where word start defines if it is greater than
-    other string with same amount of letters
-    The array will have at least three strings
-    and each string will only contain letters.
+    Have the function ThirdGreatest(strArr) 
+    take the array of strings stored in strArr 
+    and return the third largest word within it. 
+    
+    So for example: if strArr is ["hello", "world", "before", "all"] 
+    your output should be "world" because "before" is 6 letters long, 
+    and "hello" and "world" are both 5, but the output should be world because 
+    it appeared as the last 5 letter word in the array.
+    
+    If strArr was ["hello", "world", "after", "all"] the output
+    should be after because the first three words are all 5 letters long, 
+    so return the last one. 
+    
+    The array will have at least three strings and each string will only contain letters.
     '''
 
     try:
-            
-        #check if type of string is correct
-        #it can contain only letters and spaces
-        for i in strArr:
-            if i.isalpha() != True:
-                if i != " ":
-                    return -1
-
-
-        #split words by spaces
-        words = strArr.split(" ")
-        #sort by length, first word with same length as nexr will be first in this array
-        #so order is correct
-        words.sort(reverse = True, key = len)
-        
-        #return third longest element 
-        return words[2]
-
-    #assert correct type
-    except TypeError:
+        # if elements have the same lenght, element with higher index, 
+        # will have higher index in sorted array
+        strArr.sort(reverse = True, key = len)
+        return strArr[2]
+    
+    except (AttributeError, TypeError):
         return -1
+
+def _input():
+
+    exampleInput = ["hello", "world", "before", "all"]
+
+    return exampleInput
+
+def _output():
+
+    exampleOutput = "world"
+
+    return exampleOutput
