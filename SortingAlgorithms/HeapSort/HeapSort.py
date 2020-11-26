@@ -41,7 +41,9 @@ def HeapSort(array):
 # heapify creates proper complete binary tree with sorted elements
 # parent is greater than both children nodes
 def Heapify(array, numberOfElements, root_Index):
-    
+    '''
+    Creates max binary heap.
+    '''
     largestElem_Index = root_Index  # Initialize largest as root
     leftChild_Index = 2 * root_Index + 1     
     rightChild_Index = 2 * root_Index + 2    
