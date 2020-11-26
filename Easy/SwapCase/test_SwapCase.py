@@ -8,33 +8,29 @@ import SwapCase
 
 class test_SwapCase(unittest.TestCase):
     '''
-    class contains unittests
-    for SwapCase.py
+    Class contains unittests for SwapCase.py
     '''
 
     #region Unittests
     def test_ExpectedOutput(self):
         '''
-        check if alghoritm
-        returns expected output
+        Checks if alghoritm returns expected output.
         '''
         output = SwapCase.SwapCase("aBcD")
         self.assertEqual(output, "AbCd")
 
     def test_LetterAndOtherCharacters(self):
         '''
-        check if alghoritm
-        returns expected output
-        for letters and leave other signs at it was
+        Checks if alghoritm returns expected output
+        for letters and leave other signs.
         '''
         output = SwapCase.SwapCase("aB12cD?")
         self.assertEqual(output, "Ab12Cd?")
 
     def test_LetterAndSpaces(self):
         '''
-        check if alghoritm
-        returns expected output
-        for letters and leave spaces signs at it was
+        Checks if alghoritm returns expected output
+        for letters and leave spaces.
         '''
         output = SwapCase.SwapCase(" aB cD ")
         self.assertEqual(output, " Ab Cd ")
@@ -42,8 +38,7 @@ class test_SwapCase(unittest.TestCase):
 
     def test_WrongInputType(self):
         '''
-        check if alghoritm catch
-        exception for wrong input
+        Checks if alghoritm catch exception for wrong input type.
         '''
         output = SwapCase.SwapCase(123)
         self.assertEqual(output, -1)
@@ -53,6 +48,6 @@ class test_SwapCase(unittest.TestCase):
 
 if __name__ == "__main__":
     '''
-    main method for Unittests
+    Main method for Unittests.
     '''
     unittest.main()

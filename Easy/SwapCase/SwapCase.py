@@ -5,32 +5,30 @@ November 2020 Jakub Kazimierski
 
 def SwapCase(strParam):
     '''
-    take the str parameter and swap
-    the case of each character
-    then return changed string
+    Have the function SwapCase(str) 
+    take the str parameter and swap 
+    the case of each character. 
+    
+    For example: if str is "Hello World" 
+    the output should be hELLO wORLD. 
+    Let numbers and symbols stay the way they are.
     '''
 
     try:
-        #strings in python are immutable so 
-        #use new one
-        strParamOutput = ""
+        # swapcase() changes case of each letter
+        return strParam.swapcase()
 
-        #iterate over strParam
-        #complexity is O(n)
-        for i in strParam:
-            #check if letter is lower or upper case
-            #complexity of built in isupper() and islower() O(1)
-            if i.isupper():
-                #and assign changed letter to output
-                strParamOutput += i.lower()
-            elif i.islower():
-                strParamOutput += i.upper()
-            else:
-                #if character is not alphabetic leave at it is
-                strParamOutput += i 
+    except (AttributeError, TypeError):
+        return -1
 
-        return strParamOutput
+def _input():
 
-    except TypeError:
-        #catch wrong type of input
-        return -1    
+    exampleInput = "aB cD"
+
+    return exampleInput
+
+def _output():
+
+    exampleOutput = "Ab Cd"
+
+    return exampleOutput
