@@ -68,6 +68,8 @@ def MergeSort(array):
                 indexArray += 1
                     
             return array
+        else:
+            return array    
 
     except (AttributeError, TypeError, ValueError):
         return -1    
