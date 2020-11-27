@@ -1,28 +1,24 @@
 '''
-VowelCount from codersbyte
+VowelCount from Coderbyte
 October 2020 Jakub Kazimierski
 '''
 
 def VowelCount(strParam):
-  '''
-  function take the str string parameter being passed
-  and return the number of vowels the string contains
-  'y' is not count as a vowel
-  '''
+    '''
+    Have the function VowelCount(str) 
+    take the str string parameter being 
+    passed and return the number of vowels 
+    the string contains 
+    (ie. "All cows eat grass and moo" would return 8). 
+    Do not count y as a vowel for this challenge.
+    '''
 
-  #check if type of input parameter is correct
-  if type(strParam) == str:
-    #y is not consider as vowel here  
-    vovels = ["A", "E", "I", "O", "U", "a", "e", "i", "o", "u"]
-    counter = 0 
+    try:
 
-    #O(n)
-    for i in strParam:
-      #O(1) cause list of vovels is const
-      if i in vovels:
-        counter += 1
+        # y is not consider as vowel here  
+        vovels = ["a", "e", "i", "o", "u"]
+ 
+        return sum(1 for letter in strParam if letter.lower() in vovels)
 
-    #if there is no vowels output is 0
-    return counter
-  else:
-    return -1
+    except (AttributeError, TypeError):
+        return -1
