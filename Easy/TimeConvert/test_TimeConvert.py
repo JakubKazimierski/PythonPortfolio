@@ -1,6 +1,5 @@
 '''
-Unittests for TimeCOnvert.py
-from codersbyte
+Unittests for TimeConvert.py
 October 2020 Jakub Kazimierski
 '''
 
@@ -9,48 +8,36 @@ import TimeConvert
 
 
 class test_TimeConvert(unittest.TestCase):
-
     '''
-    class with unittests for TimeConvert.py
+    Class contains unittests for TimeConvert.py
     '''
 
     #region Unittests
     def test_ExpectedOutput(self):
         '''
-        check if output is as expected
-        return true if is
+        Checks if output is as expected.
         '''
         output = TimeConvert.TimeConvert(100)
         self.assertEqual(output, "1:40")
 
-    def test_WrongOutput(self):
-        '''
-        check if after division of hours
-        output has no floating numbers
-        '''
-        output = TimeConvert.TimeConvert(100)
-        self.assertNotEqual(output, "1,6666666:40")
-
     def test_WrongInput(self):
         '''
-        check if output is 0:0
-        if input is wrong in range
+        Checks if output is equal -1 for negative input.
         '''
         output = TimeConvert.TimeConvert(-100)
-        self.assertEqual(output, "0:0")
+        self.assertEqual(output, -1)
 
-    def test_WrongOutputFLoat(self):
+    def test_InputFloat(self):
         '''
-        check if output is 0:0 if
-        input has wrong type
+        Checks if output is proper if input is float.
         '''
         output = TimeConvert.TimeConvert(100.0)
-        self.assertEqual(output, "0:0")
+        self.assertEqual(output, "1:40")
     #endregion
 
 
 if __name__ == "__main__":
     '''
-    main method of unittests class
+    Main method of unittests.
     '''
     unittest.main()        
