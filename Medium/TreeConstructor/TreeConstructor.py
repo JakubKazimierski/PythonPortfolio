@@ -1,79 +1,103 @@
 '''
-TreeConstructor from codersbyte
+TreeConstructor from Coderbyte
 October 2020 Jakub Kazimierski
 '''
 
 from collections import Counter
 
 def TreeConstructor(strArr):
-  '''
-  Function return true if input array form proper binary tree
-  input format: array of (i1,i2), where i1 represents a child node
-  in a tree and the second integer i2 signifies that it is the parent of i1.
-  '''
-  try:
+    '''
+    Have the function TreeConstructor(strArr) 
+    take the array of strings stored in strArr, 
+    which will contain pairs of integers in the 
+    following format: (i1,i2), where i1 represents 
+    a child node in a tree and the second integer 
+    i2 signifies that it is the parent of i1. 
     
-    #create list of parents and children
-    #map gives to function (here it is lambda) elements from iteration from object
-    #(here it is strArr ), last thing is what lambda does
-    #lambda changes brackets at empty char, and splits numbers 
-    #then for parents go second element of splited string
-    #for children goes first element of splited list
-    parents = list(map(lambda x:x.replace('(','').replace(')','').split(',')[1],strArr))
-    children = list(map(lambda x:x.replace('(','').replace(')','').split(',')[0],strArr))
+    For example: if strArr is ["(1,2)", "(2,4)", "(7,2)"], 
+    then this forms the following tree:
+
+          (4)
+        /  
+      (2)
+      / \
+    (1) (7)
+
+    which you can see forms a proper binary tree. 
+    Your program should, in this case, return the 
+    string true because a valid binary tree can be formed. 
     
+    If a proper binary tree cannot be formed with the integer pairs, 
+    then return the string false. All of the integers within the tree 
+    will be unique, which means there can only be one node in the tree 
+    with the given integer value.  
+    '''
+    try:
+      
+        # extraction of children and parents nodes to lists
+        parents = list(map(lambda x:x.replace('(','').replace(')','').split(',')[1],strArr))
+        children = list(map(lambda x:x.replace('(','').replace(')','').split(',')[0],strArr))
+        
+        # {"node":"appearence"}
+        count_parents = Counter(parents)
+        count_children = Counter(children)
+        
+        # number of parents cannot be more than 2 (each parent has at most 2 children)
+        if count_parents.most_common(1)[0][1] > 2:
+            return 'false'
+        
+        #number of children canot be more than 1
+        if count_children.most_common(1)[0][1] > 1:
+            return 'false'
 
-    #A Counter is a dict subclass for counting hashable objects
-    #here it will be used to count how many times each parent node was in input string
-    #hash value does not change during program, and can be compared to other objects
-    count_parents = Counter(parents)
+        roots = 0
+        root_list = []
 
-    #most_common returns most common objects in counter [elem][counter]
-    #number of parents cannot be more than 2 (each parent has at most 2 children)
-    if count_parents.most_common(1)[0][1] > 2:
-      return 'false'
-    count_children = Counter(children)
-    #number of children canot be more than 1
-    if count_children.most_common(1)[0][1] > 1:
-      return 'false'
+        # below finds root if tree    
+        for element in count_parents.elements():
+          
+            if element not in count_children.elements():
 
-    roots = 0
-    root_list = []
+              if element not in root_list:
+                  root_list.append(element)
+                  roots +=1
+          
+        if roots != 1:
+            return 'false'
 
-    #return elements each time it occurs 
-    for element in count_parents.elements():
-      #if parent is no one child
-      if element not in count_children.elements():
-        if element not in root_list:
-          #add as root (there can be only one root)
-          #and there must be at least one root
-          root_list.append(element)
-          roots +=1
-    if roots != 1:
-      return 'false'
+        # Counter.keys() method helps to see the unique elements in the list
+        leafs = [node for node in count_children.keys() if node not in count_parents.keys()]
+      
+        nodes = []
 
-    #list of nodes which are not parents (key() returns values of counter not their count)
-    leafs = [node for node in count_children.keys() if node not in count_parents.keys()]
-    #return root from parents who are not children
-    root = [node for node in count_parents.keys() if node not in count_children.keys()]
-    nodes = []
+        # below creates list of children from given input
+        for leaf in leafs:
+            actual = leaf
+            while actual != root_list[0]:
+                index = children.index(actual)
+                # leaves and parents have same indexes in lists, due to extraction process
+                actual = parents[index]
+                if index not in nodes:
+                    nodes.append(index)
 
-    for leaf in leafs:
-      actual = leaf
-      #while leaf is not a root of tree
-      while actual != root[0]:
-        index = children.index(actual)
-        #go up to the root
-        actual = parents[index]
-        if index not in nodes:
-          #make list of all nodes (iterate over all children and go up to the root)
-          nodes.append(index)
+        # if amount of nodes from our iteration is different than amount of input children
+        # tree is not a proper binary tree
+        if len(nodes) != len(children):
+            return 'false'
 
-    #if amount of nodes from our iteration is different than amount of input children
-    #our tree is not a proper binary tree
-    if len(nodes) != len(children):
-      return 'false'
+        return 'true'
+    
+    except IndexError:
+        return 'false'
 
-    return 'true'
-  except IndexError:
-    return 'false'
+def _input():
+
+    exampleInput = ["(1,2)","(3,2)","(2,5)","(6,5)"]
+
+    return exampleInput
+
+def _output():
+
+    exampleOutput = "true"
+
+    return exampleOutput  
