@@ -10,7 +10,7 @@ class test_Superincreasing(unittest.TestCase):
     '''
     Class contains unittests for Superincreasing.py
     '''
-
+    # region Unittests
     def test_ExpectedOutput(self):
         '''
         Cheks if output is as expected.
@@ -33,6 +33,7 @@ class test_Superincreasing(unittest.TestCase):
         output = Superincreasing.Superincreasing([1, "3", 6, 9, 54])
         self.assertEquals(output, -1)
 
+    # endregion
 
 if __name__ == "__main__":
     '''
