@@ -1,3 +1,8 @@
+'''
+OverlappingRanges from Coderbyte
+November 2020 Jakub Kazimierski
+'''
+
 def OverlappingRanges(arr):
     '''
     Have the function OverlappingRanges(arr) 
