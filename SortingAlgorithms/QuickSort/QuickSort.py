@@ -5,7 +5,7 @@ def QuickSort(arr):
     Worst case complexity is if pivot is the biggest
     or the smallest element in array, then tree of partition
     is not balanced. Then number of operations will be
-    sum in range 1<= i < n of i this is equal ((n-1)+1)/2*(n-1)
+    sum in range 1<= i < n of i this is equal (((n-1)+1)/2)*(n-1)
     so complexity is O(n^2).
 
     Best case scenario is alike to merge sort when array is halved

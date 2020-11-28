@@ -14,7 +14,7 @@ def SelectionSort(array):
     try:
         
         # Worst Case complexity is O(n^2) for reverse sorted array
-        # best case is O(n^2) for sorted array
+        # best case is O(n^2) 
         
         # last element is compared in second loop
         for i in range(0, len(array)-1):
