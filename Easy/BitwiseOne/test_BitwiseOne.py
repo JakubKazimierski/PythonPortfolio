@@ -13,7 +13,19 @@ class test_BitwiseOne(unittest.TestCase):
 
     # region Unittests
     def test_ExpectedOutput(self):
-        pass
+        '''
+        Cheks if output is as expected.
+        '''
+        output = BitwiseOne.BitwiseOne(["1001", "0100"])
+        self.assertEquals(output, "1101")
+
+    def test_WrongInput(self):
+        '''
+        Checks if for wrong input output is equal -1.
+        '''
+        output = BitwiseOne.BitwiseOne([1001, "0100"])
+        self.assertEquals(output, -1)
+
 
     # endregion
 
