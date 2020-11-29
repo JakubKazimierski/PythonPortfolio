@@ -17,14 +17,14 @@ class test_OtherProducts(unittest.TestCase):
         Cheks if output is as expected.
         '''
         output = OtherProducts.OtherProducts([1,2,3,4,5])
-        self.assertEquals(output, "120-60-40-30-24")
+        self.assertEqual(output, "120-60-40-30-24")
 
     def test_WrongInput(self):
         '''
         Cheks if output is equal -1 for worng input type.
         '''
         output = OtherProducts.OtherProducts(["1",2,3,4,5])
-        self.assertEquals(output, -1)
+        self.assertEqual(output, -1)
 
     # endregion
 
