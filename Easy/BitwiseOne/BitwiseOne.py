@@ -22,15 +22,11 @@ def BitwiseOne(strArr):
 
     try:
 
-        outputString = ""
-        for bitI, bitII in zip(strArr[0], strArr[1]):
-            if bitI == bitII:
-                outputString += bitI
-            else:
-                outputString += "1"    
+        # below changes values into binary format, first two bit does not represent value so cut them
+        # fill with zeros missing indexes in range of length input 
+        val = bin(int(strArr[0], 2) | int(strArr[1], 2))[2:].zfill(len(strArr[0]))
+        return val
 
-
-        return outputString
     except (AttributeError, TypeError):
         return -1
         
