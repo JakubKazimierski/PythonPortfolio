@@ -21,22 +21,33 @@ def WaveSorting(arr):
     The input array will always contain at least 2 elements.
     '''
 
+    try:
 
-    
-    frequecy = {}
+        
+        sortedArray = sorted(arr)
 
-    # if any element occurs more times than half lenght of array
-    # it will be not possible to surround it with other various elements (Dirrichlet pigeonhole principle)
-    for element in arr:
-        frequecy[element] = frequecy.get(element, 0) + 1
+        oddIndexesMetcher = 0
+        # first half of sorted array, assign at odd indexes of primal array
+        for index in range(0, int(len(sortedArray)/2)):
+            arr[int((2*oddIndexesMetcher+1)%len(arr))] = sortedArray[index]
+            oddIndexesMetcher += 1
+        
+        evenIndexesMatcher = 0
+        # second half of sorted array, assign at even indexes of primal array
+        for index in range(int(len(sortedArray)/2), len(sortedArray)):
+            arr[int((2*evenIndexesMatcher)%len(arr))] = sortedArray[index]
+            evenIndexesMatcher += 1
+        # in that case lower numbers will be surrounded by greater
 
-    mostCommon = max(value for key, value in frequecy.items())
+        # below checks odd indexes
+        for index in range(1, len(arr)-1, 2):
+            if arr[index-1] <= arr[index] or arr[index] >= arr[index+1]:
+                return "false"
 
-    if mostCommon > len(arr)//2:
-        return "false"
-    else:
-        return "true"    
+        return "true"        
 
+    except(AttributeError, TypeError):
+        return -1    
 
 
 def _input():
