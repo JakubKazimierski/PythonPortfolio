@@ -2,6 +2,7 @@
 Array Matching from Coderbyte
 November 2020 Jakub Kazimierski
 '''
+import itertools
 
 def ArrayMatching(strArr):
     '''
@@ -33,8 +34,8 @@ def ArrayMatching(strArr):
         listI = [int(x) for x in stringI.split(",")]
         listII = [int(x) for x in stringII.split(",")]
 
-        # join elements of sum products' list with "-"
-        return "-".join(str(sum_product) for sum_product in [elemI + elemII for elemI, elemII in zip(listI, listII)])
+        # below zips to the longest list (shorter is filled with zeros) next joins elements of sum products' list with "-"
+        return "-".join(str(sum_product) for sum_product in [elemI + elemII for elemI, elemII in itertools.zip_longest(listI, listII, fillvalue=0)])
     
     except (AttributeError, TypeError):
         return -1

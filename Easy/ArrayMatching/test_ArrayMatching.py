@@ -18,7 +18,15 @@ class test_ArrayMatching(unittest.TestCase):
         '''
         output = ArrayMatching.ArrayMatching(["[1, 2, 5, 6]", "[5, 2, 8, 11]"])
         self.assertEquals(output, "6-4-13-17")
-        pass
+        
+
+    def test_DifferentLenght(self):
+        '''
+        Cheks if output is as expected for different lenght of lists.
+        '''
+        output = ArrayMatching.ArrayMatching(["[1, 2, 5, 6]", "[5, 2, 8]"])
+        self.assertEquals(output, "6-4-13-6")
+        
 
     def test_WrongInput(self):
         '''
@@ -26,7 +34,7 @@ class test_ArrayMatching(unittest.TestCase):
         '''
         output = ArrayMatching.ArrayMatching([[1, 2, 5, 6], "[5, 2, 8, 11]"])
         self.assertEquals(output, -1)
-        pass
+        
 
     # endregion
 
