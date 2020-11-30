@@ -1,14 +1,14 @@
 '''
-Unittests for BinaryReversal.py
+Unittests for NextPalindrome.py
 November 2020 Jakub Kazimierski
 '''
 
 import unittest
-import BinaryReversal
+import NextPalindrome
 
-class test_BinaryReversal(unittest.TestCase):
+class test_NextPalindrome(unittest.TestCase):
     '''
-    Class contains unittests for BinaryReversal.py
+    Class contains unittests for NextPalindrome.py
     '''
 
     # region Unittests
@@ -16,18 +16,17 @@ class test_BinaryReversal(unittest.TestCase):
         '''
         Cheks if output is as expected.
         '''
-        output = BinaryReversal.BinaryReversal("47")
-        self.assertEquals(output, 244)
-                
+        output = NextPalindrome.NextPalindrome(2)
+        self.assertEquals(output, 3)
+               
 
     def test_WrongInput(self):
         '''
         Checks if for wrong input output is equal -1.
         '''
-        output = BinaryReversal.BinaryReversal(5)
+        output = NextPalindrome.NextPalindrome("5")
         self.assertEquals(output, -1)
         
-
     # endregion
 
 if __name__ == "__main__":
