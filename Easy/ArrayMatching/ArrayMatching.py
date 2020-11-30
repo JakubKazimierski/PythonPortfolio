@@ -28,15 +28,13 @@ def ArrayMatching(strArr):
     where at least one element will exist in each array.
     '''
     try:
-        stringI = strArr[0].strip(r'\[ | \]')
-        stringII = strArr[1].strip(r'\[ | \]')
 
-        listI = [int(x) for x in stringI.split(",")]
-        listII = [int(x) for x in stringII.split(",")]
+        # evaluate string expression
+        lists = list(map(eval, strArr))
+        # map sum for two elements of zipped list (to the longest one, shorter is filled with zeros) 
+        output = map(sum, itertools.zip_longest(lists[0], lists[1], fillvalue=0))
+        return "-".join(map(str, output))
 
-        # below zips to the longest list (shorter is filled with zeros) next joins elements of sum products' list with "-"
-        return "-".join(str(sum_product) for sum_product in [elemI + elemII for elemI, elemII in itertools.zip_longest(listI, listII, fillvalue=0)])
-    
     except (AttributeError, TypeError):
         return -1
     
