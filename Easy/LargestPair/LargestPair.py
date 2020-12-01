@@ -22,12 +22,12 @@ def LargestPair(num):
 
 def _input():
 
-    exampleInput = ""
+    exampleInput = 4759472
 
     return exampleInput
 
 def _output():
 
-    exampleOutput = "true"
+    exampleOutput = 94
 
     return exampleOutput  
