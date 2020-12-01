@@ -41,13 +41,17 @@ def TwoSum(arr):
             if sum(pair) == arr[0]:
                 valid_pair_list.append(pair)
 
-        for pair in valid_pair_list:
-            string_pair_list.append(",".join(str(number) for number in pair))
+        if len(valid_pair_list) != 0:
+            for pair in valid_pair_list:
+                string_pair_list.append(",".join(str(number) for number in pair))
+            
+            return " ".join(string_pair for string_pair in string_pair_list)
 
-        return " ".join(string_pair for string_pair in string_pair_list)
-
+        else:
+            return -1
+            
     except(AttributeError, TypeError):
-        return -1
+        return -2
 
 
 def _input():
