@@ -1,14 +1,14 @@
 '''
-Unittests for NonrepeatingCharacter.py
+Unittests for TwoSum.py
 December 2020 Jakub Kazimierski
 '''
 
 import unittest
-import NonrepeatingCharacter
+import TwoSum
 
-class test_NonrepeatingCharacter(unittest.TestCase):
+class test_TwoSum(unittest.TestCase):
     '''
-    Class contains unittests for NonrepeatingCharacter.py
+    Class contains unittests for TwoSum.py
     '''
 
     #region Unittests
@@ -16,14 +16,14 @@ class test_NonrepeatingCharacter(unittest.TestCase):
         '''
         Checks if output is as expected.
         '''
-        output = NonrepeatingCharacter.NonrepeatingCharacter("agettkgaeee")
-        self.assertEqual(output, "k")
+        output = TwoSum.TwoSum([7, 3, 5, 2, -4, 8, 11])
+        self.assertEqual(output, "5,2 -4,11")
 
     def test_WrongInput(self):
         '''
         Checks if output is equal -1 for wrong input.
         '''
-        output = NonrepeatingCharacter.NonrepeatingCharacter(123)
+        output = TwoSum.TwoSum(11)
         self.assertEqual(output, -1)
 
     #endregion
