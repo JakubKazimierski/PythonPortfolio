@@ -19,12 +19,10 @@ def NonrepeatingCharacter(strParam):
 
     try:
 
-        counter_of_elements = collections.Counter(strParam)
+        for char in strParam:
+            if strParam.count(char) == 1:
+                return char
 
-        for key, value in zip(counter_of_elements.keys(), counter_of_elements.values()):
-            if value == 1:
-                return key
-                
     except(AttributeError, TypeError):
         return -1
     
