@@ -6,7 +6,7 @@ December 2020 Jakub Kazimierski
 import unittest
 import LargestPair
 
-class test_CheckNums(unittest.TestCase):
+class test_LargestPair(unittest.TestCase):
     '''
     Class contains unittests for CheckNums.py
     '''

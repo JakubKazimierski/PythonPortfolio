@@ -16,17 +16,8 @@ def LargestPair(num):
     The input will always contain at least two positive digits.
     '''
 
-    stringNum = str(num)
-
-    greatest_pair = (0,0)
-    for i in range(0, len(stringNum)-1):
-        if (int(stringNum[i]),int(stringNum[i+1])) > greatest_pair:
-            greatest_pair = (int(stringNum[i]),int(stringNum[i+1]))
-
-    
-    outputString = "".join(str(digit) for digit in greatest_pair)
-
-    return int(outputString)  
+    # below finds max number in list created from number's combinatios of 2digit numbers 
+    return max([int(str(num)[i] + str(num)[i+1]) for i in range(0,len(str(num))-1)])
 
 
 def _input():
