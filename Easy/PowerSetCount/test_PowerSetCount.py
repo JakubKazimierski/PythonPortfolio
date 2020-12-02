@@ -24,7 +24,6 @@ class test_PowerSetCount(unittest.TestCase):
         '''
         Checks is output is equal -1 if input is wrong.
         '''
-        pass
         output = PowerSetCount.PowerSetCount(10111)
         self.assertEqual(output, -1)
 
