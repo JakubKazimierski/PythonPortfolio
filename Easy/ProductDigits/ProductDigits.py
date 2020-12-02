@@ -40,6 +40,7 @@ def ProductDigits(num):
 
             # below cheks how many 9 is needed to get the number
             # and ceil it to the next integer (it is number of digits which are needed)
+            # it is kind of "O(9)"" assurance
             output = int(math.ceil(math.log(num, 9)))
             return output
 
