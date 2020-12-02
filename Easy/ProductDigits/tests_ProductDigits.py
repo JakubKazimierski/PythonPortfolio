@@ -23,7 +23,7 @@ class test_ProductDigits(unittest.TestCase):
         '''
         Checks if for prime number at input, output is proper warning.
         '''
-        output = ProductDigits.ProductDigits(2017)
+        output = ProductDigits.ProductDigits(23)
         self.assertEqual(output, "This is prime number")
 
 
