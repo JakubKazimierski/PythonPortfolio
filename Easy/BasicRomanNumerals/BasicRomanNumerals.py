@@ -29,29 +29,21 @@ def BasicRomanNumerals(strParam):
     '''
     try:
         Roman_Decimal_dict = {"I":1, "V":5, "X":10, "L":50, "C":100, "D":500, "M":1000}
-        decimal_param = []
-        indexes_list = []
         decimal_output = 0
 
-        # create list of digitals from given input
-        for value in strParam:
-            decimal_param.append(Roman_Decimal_dict[value]) 
+        # create list of decimal values from param
+        decimal_param = [Roman_Decimal_dict[value] for value in strParam]
 
-        # below add to output values get by substraction in Roman notation (e.g. CD = 400 = (500 - 100))
-        for param_id in range(1, len(decimal_param)):
-            # if number before next is less, add abs(substraction) of those numbers to output
+        decimal_output += decimal_param[-1]
+
+        # below traverses given param from right to left, first from right is already summed
+        for param_id in range(len(decimal_param)-1, 0, -1):
+            # if number at the left is less, substract it from sum
             if decimal_param[param_id-1] < decimal_param[param_id]:
-                decimal_output += (decimal_param[param_id] - decimal_param[param_id-1])
-                # below remembers indexes of used values
-                indexes_list.append(param_id-1)
-                indexes_list.append(param_id)
-
-        # assign value of 0 to previously counted elements
-        for param_id in indexes_list:
-            decimal_param[param_id] = 0
-
-        # sum up rest of values
-        decimal_output += sum(decimal_param)
+                decimal_output -= decimal_param[param_id-1]
+            else:
+                # else add it to sum
+                decimal_output += decimal_param[param_id-1]    
 
         return decimal_output
 
