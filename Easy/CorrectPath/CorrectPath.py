@@ -40,7 +40,7 @@ def CorrectPath(strParam):
     path and there will always be at least 
     one question mark within the input string.
     '''
-    
+
     # below solution is brute force, so in some cases it won't be fast, but it returns 100% proper way
     try:
         moves_dict = {"u":(-1,0), "r":(0,1), "d":(1,0), "l":(0,-1) }
@@ -73,7 +73,9 @@ def CorrectPath(strParam):
                     break
 
                 visited.append(position)
-
+            # else is executed if no break statement in all iterations had place
+            # so it assert that program ends before fuul path is found
+            else:
                 # end point
                 if position == (4,4):
                     return path
