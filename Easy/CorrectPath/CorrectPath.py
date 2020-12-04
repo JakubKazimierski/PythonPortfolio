@@ -73,11 +73,9 @@ def CorrectPath(strParam):
                     break
 
                 visited.append(position)
-            # else is executed if no break statement in all iterations had place
-            # so it assert that program ends before fuul path is found
-            else:
+            
                 # end point
-                if position == (4,4):
+                if position == (4,4) and len(path) == len(strParam):
                     return path
 
     except(AttributeError, TypeError, KeyError):
