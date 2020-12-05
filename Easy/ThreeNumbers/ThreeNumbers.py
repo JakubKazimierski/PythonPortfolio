@@ -54,12 +54,12 @@ def ThreeNumbers(strParam):
 
 def _input():
 
-    sampleList = ["[5, 9]", "[1, 2, 6, 7]"]
+    sampleList = "2hell6o3 wor6l7d2"
 
     return sampleList
 
 def _output():
 
-    sampleString = "2,6"
+    sampleString = "true"
 
     return sampleString
