@@ -24,7 +24,7 @@ class test_ThreeNumbers(unittest.TestCase):
         '''
         Checks if output is equal false for adjacent digits in input.
         '''
-        output = ThreeNumbers.ThreeNumbers("2hell6o3 wor617d2")
+        output = ThreeNumbers.ThreeNumbers("21aa3a ggg4g4g6ggg")
         self.assertEqual(output, "false")
 
     def test_WrongInput(self):

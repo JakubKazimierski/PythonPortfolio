@@ -34,11 +34,23 @@ def ThreeNumbers(strParam):
             # split numeric characters
             only_numbers = list(filter(None, re.split(r"[a-zA-z]", word)))
             
-            if len(only_numbers) == 3:
+            # integers has to be uniqe
+            if len(set(only_numbers)) == 3:
                 # if any splitted character has lenght > 1 return false
                 for number in only_numbers:
-                    if len(number) > 2:
-                        return "false" 
+                    if len(number) > 1:
+                        return "false"
+
+            # if two integers are adjacent     
+            elif len(set(only_numbers)) == 2:
+                visited = []                
+                for number in only_numbers:
+                    if number in visited:
+                        return "false"
+                    # check if those integers are uniqe, and at most lenght of 2
+                    if (len(number) == 2 and len(set(number)) < 2) or len(number) > 2:
+                        return "false"     
+                    visited.append(number)            
             else:
                 return "false"    
 
