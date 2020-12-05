@@ -26,18 +26,28 @@ def ThreeNumbers(strParam):
     '''
     
     try:
-        # split numeric characters
-        only_numbers = list(filter(None, re.split(r"[a-zA-z ]", strParam)))
 
-        # if any splitted character has lenght > 1 return false
-        for number in only_numbers:
-            if len(number) > 1:
-                return "false" 
+        only_words = re.split(" ", strParam)
         
+        for word in only_words:
+
+            # split numeric characters
+            only_numbers = list(filter(None, re.split(r"[a-zA-z]", word)))
+            
+            if len(only_numbers) == 3:
+                # if any splitted character has lenght > 1 return false
+                for number in only_numbers:
+                    if len(number) > 1:
+                        return "false" 
+            else:
+                return "false"    
+
+        # if none of forbidden case had place
         return "true"
+
     except(AttributeError, TypeError):
         return -1
-        
+
 
 def _input():
 
