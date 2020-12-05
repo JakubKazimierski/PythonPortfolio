@@ -19,15 +19,18 @@ def AlphabetSearching(strParam):
     some characters appear more than once.
     '''
 
-    all_letters = string.ascii_lowercase
+    try:
 
-    # below gets all alpha chars from strParam.lower()
-    only_alpha = set(re.findall(r'[a-zA-z]', strParam.lower()))
+        all_letters = string.ascii_lowercase
 
-    # if all letters from ascii letters lowercase, are in strParam return "true"
-    return "true" if all(char in only_alpha for char in all_letters) else  "false"
+        # below gets all alpha chars from strParam.lower()
+        only_alpha = set(re.findall(r'[a-zA-z]', strParam.lower()))
 
+        # if all letters from ascii letters lowercase, are in strParam return "true"
+        return "true" if all(char in only_alpha for char in all_letters) else  "false"
 
+    except(AttributeError, TypeError):
+        return -1
 
 def _input():
 
