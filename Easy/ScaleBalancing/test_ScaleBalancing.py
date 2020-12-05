@@ -19,6 +19,14 @@ class test_ScaleBalancing(unittest.TestCase):
         output = ScaleBalancing.ScaleBalancing(["[5, 9]", "[1, 2, 6, 7]"])
         self.assertEqual(output, "2,6")
 
+    def test_WrongInput(self):
+        '''
+        Checks if output is equal -1 for wrong input.
+        '''
+        output = ScaleBalancing.ScaleBalancing(12)
+        self.assertEqual(output, -1)
+
+
     #endregion
 
 if __name__ == "__main__":

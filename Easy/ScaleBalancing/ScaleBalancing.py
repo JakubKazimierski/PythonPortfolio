@@ -36,13 +36,30 @@ def ScaleBalancing(strArr):
     If it is not possible to balance the scale then your 
     program should return the string not possible.
     '''
-    weights_to_balance = [int(weight) for weight in strArr[0].strip("[]").split(",")]
-    available_weights = [int(weight) for weight in strArr[1].strip("[]").split(",")]
-    
 
-    
-    return "2,6"
+    try:    
 
+        left, right = min(eval(strArr[0])), max(eval(strArr[0]))
+        avail_weights = eval(strArr[1])
+        for weight in avail_weights:
+            if weight + left == right:
+                return str(weight)
+            
+        for index_I in range(0, len(avail_weights)):
+            for index_II in range(0, len(avail_weights)):
+                if index_I == index_II:
+                    continue
+                else:
+                    if left + avail_weights[index_I] + avail_weights[index_II] == right \
+                        or left + avail_weights[index_I] == right + avail_weights[index_II] \
+                            or left + avail_weights[index_II] == right + avail_weights[index_I]:
+                                return "{},{}".format(min(avail_weights[index_I],avail_weights[index_II]), \
+                                                        max(avail_weights[index_I],avail_weights[index_II]))
+                
+        return "not possible"
+
+    except(AttributeError, TypeError):
+        return -1
 
 def _input():
 
