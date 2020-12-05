@@ -37,7 +37,7 @@ def ThreeNumbers(strParam):
             if len(only_numbers) == 3:
                 # if any splitted character has lenght > 1 return false
                 for number in only_numbers:
-                    if len(number) > 1:
+                    if len(number) > 2:
                         return "false" 
             else:
                 return "false"    
