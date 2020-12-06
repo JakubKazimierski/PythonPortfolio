@@ -1,14 +1,14 @@
 '''
-Unittests for TriangleRow.py
+Unittests for VowelSquare.py
 December 2020 Jakub Kazimierski
 '''
 
 import unittest
-import TriangleRow
+import VowelSquare
 
-class test_TriangleRow(unittest.TestCase):
+class test_VowelSquare(unittest.TestCase):
     '''
-    Class contains unittests for TriangleRow.py
+    Class contains unittests for VowelSquare.py
     '''
 
     #region Unittests
@@ -16,14 +16,14 @@ class test_TriangleRow(unittest.TestCase):
         '''
         Checks if output is sorted in alphabetical order.
         '''
-        output = TriangleRow.TriangleRow(5)
-        self.assertEqual(output, 32)
+        output = VowelSquare.VowelSquare(["aqrst", "ukaei", "ffooo"])
+        self.assertEqual(output, "1-2")
 
     def test_WrongInput(self):
         '''
         Checks if output is -1 when input is wrong type.
         '''
-        output = TriangleRow.TriangleRow("as")
+        output = VowelSquare.VowelSquare(12)
         self.assertEqual(output, -1)
 
     #endregion
