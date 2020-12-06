@@ -45,10 +45,12 @@ def VowelSquare(strArr):
                         # below adds top-left index as key into dict, with sum of indexes as value
                         possible_outputs[str(y_index)+"-"+str(x_index)] = y_index + x_index     
         
-        # below finds min value in dict, and assigns to variable it's key
-        min_output =  min(possible_outputs.keys(), key=(lambda k: possible_outputs[k]))
-
-        return min_output
+        if len(possible_outputs) != 0:    
+            # below finds min value in dict, and assigns to variable it's key
+            min_output =  min(possible_outputs.keys(), key=(lambda k: possible_outputs[k]))
+            return min_output
+        else:
+            return "not found"
 
     except(AttributeError, TypeError):
         return -1
