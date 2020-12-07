@@ -3,7 +3,6 @@ Unittests for NumberStream.py
 December 2020 Jakub Kazimierski
 '''
 
-
 import unittest
 import NumberStream
 
