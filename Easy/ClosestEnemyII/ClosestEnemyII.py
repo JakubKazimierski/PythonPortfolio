@@ -43,6 +43,8 @@ def ClosestEnemyII(strArr):
     one_X_coord = 0
     one_Y_coord = 0
     
+    steps_list = []
+
     # endregion
 
     # below finds one coordinates
@@ -67,7 +69,7 @@ def ClosestEnemyII(strArr):
 
             while up_down_steps_l <= 3 :
                 if strArr[go_up_left][go_left] == "2" or strArr[go_down_left][go_left] == "2":
-                    return left_steps + up_down_steps_l
+                    steps_list.append(left_steps + up_down_steps_l)
 
                 # below traverses up and down at once
                 go_up_left = (go_up_left - 1) % lenght
@@ -76,7 +78,7 @@ def ClosestEnemyII(strArr):
             
             while up_down_steps_r <= 3 :
                 if strArr[go_up_right][go_right] == "2" or strArr[go_down_right][go_right] == "2":
-                    return right_steps + up_down_steps_r
+                    steps_list.append(right_steps + up_down_steps_r)
 
                 # below traverses up and down at once
                 go_up_right = (go_up_right - 1) % lenght
@@ -88,18 +90,19 @@ def ClosestEnemyII(strArr):
             left_steps += 1
             right_steps += 1
         
+        return min(steps_list)
         # endregion
     else:
         return 0
 
 def _input():
 
-    sampleInp = [1, 0, 0, 0, 2, 2, 2]
+    sampleInp = ["0000", "2010", "0000", "2002"]
 
     return sampleInp 
 
 def _output():
 
-    sampleOut = 4
+    sampleOut = 2
 
     return sampleOut

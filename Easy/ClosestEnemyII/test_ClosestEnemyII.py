@@ -16,7 +16,7 @@ class test_ClosestEnemyII(unittest.TestCase):
         '''
         Checks if output is sorted in alphabetical order.
         '''
-        output = ClosestEnemyII.ClosestEnemyII(["0000", "1000", "0002", "0002"])
+        output = ClosestEnemyII.ClosestEnemyII(["0000", "2010", "0000", "2002"])
         self.assertEqual(output, 2)
 
     def test_ZeroOutput(self):
