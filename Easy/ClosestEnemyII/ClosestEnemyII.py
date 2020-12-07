@@ -61,13 +61,13 @@ def ClosestEnemyII(strArr):
         # region LookForEnemy
 
         # below traverses left and right at once
-        while left_steps <=3 :
+        while left_steps <= width//2 + 1 :
 
             up_down_steps_r = 0
             up_down_steps_l = 0
             go_up_left = go_down_left = go_up_right = go_down_right = one_Y_coord
 
-            while up_down_steps_l <= 3 :
+            while up_down_steps_l <= lenght//2 + 1 :
                 if strArr[go_up_left][go_left] == "2" or strArr[go_down_left][go_left] == "2":
                     steps_list.append(left_steps + up_down_steps_l)
 
@@ -76,7 +76,7 @@ def ClosestEnemyII(strArr):
                 go_down_left = (go_down_left + 1) % lenght
                 up_down_steps_l += 1
             
-            while up_down_steps_r <= 3 :
+            while up_down_steps_r <= lenght//2 + 1 :
                 if strArr[go_up_right][go_right] == "2" or strArr[go_down_right][go_right] == "2":
                     steps_list.append(right_steps + up_down_steps_r)
 
