@@ -28,14 +28,3 @@ def HammingDistance(strArr):
     except (AttributeError, TypeError):
         return -1
 
-def _input():
-
-    exampleInput =  ["coder", "codec"] 
-
-    return exampleInput
-
-def _output():
-
-    exampleOutput = 1
-
-    return exampleOutput  

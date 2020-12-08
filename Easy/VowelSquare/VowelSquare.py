@@ -54,15 +54,3 @@ def VowelSquare(strArr):
 
     except(AttributeError, TypeError):
         return -1
-
-def _input():
-
-    sampleInp = ["aqrst", "ukaei", "ffooo"]
-
-    return sampleInp 
-
-def _output():
-
-    sampleOut = "1-2"
-
-    return sampleOut

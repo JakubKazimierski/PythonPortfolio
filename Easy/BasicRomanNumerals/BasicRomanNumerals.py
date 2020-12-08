@@ -50,14 +50,3 @@ def BasicRomanNumerals(strParam):
     except(AttributeError, TypeError):
         return -1
 
-def _input():
-
-    sampleList = "XLVI"
-
-    return sampleList
-
-def _output():
-
-    sampleString = 46
-
-    return sampleString

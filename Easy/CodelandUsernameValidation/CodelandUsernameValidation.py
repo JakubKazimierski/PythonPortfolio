@@ -26,15 +26,3 @@ def CodelandUsernameValidation(strParam):
 
   return "true"  if result != None else "false"
     
-def _input():
-
-  sampleString = "abc_de"
-
-  return sampleString
-
-def _output():
-
-  sampleString = "true" 
-
-  return sampleString 
-

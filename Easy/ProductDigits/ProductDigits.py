@@ -51,14 +51,3 @@ def ProductDigits(num):
     except(AttributeError, TypeError):
         return -1
 
-def _input():
-
-    sampleList = 24
-
-    return sampleList
-
-def _output():
-
-    sampleString = 2
-
-    return sampleString

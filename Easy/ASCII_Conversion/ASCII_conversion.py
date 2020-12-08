@@ -30,14 +30,3 @@ def ASCII_conversion(strParam):
     except(AttributeError, TypeError):
         return -1
 
-def _input():
-
-  exampleInp = "hello world" 
-
-  return exampleInp
-
-def _output():
-
-  exampleOut = "104101108108111 119111114108100"
-
-  return exampleOut

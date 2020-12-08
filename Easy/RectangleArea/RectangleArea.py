@@ -38,14 +38,3 @@ def RectangleArea(strArr):
     except(AttributeError, TypeError):
         return -1
 
-def _input():
-
-    exampleInput = ["(0 0)", "(3 0)", "(0 2)", "(3 2)"]  
-
-    return exampleInput
-
-def _output():
-
-    exampleOutput = 6
-
-    return exampleOutput      

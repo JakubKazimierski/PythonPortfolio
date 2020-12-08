@@ -20,15 +20,3 @@ def SwapCase(strParam):
 
     except (AttributeError, TypeError):
         return -1
-
-def _input():
-
-    exampleInput = "aB cD"
-
-    return exampleInput
-
-def _output():
-
-    exampleOutput = "Ab Cd"
-
-    return exampleOutput

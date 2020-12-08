@@ -50,14 +50,3 @@ def WaveSorting(arr):
         return -1    
 
 
-def _input():
-
-    exampleInput = [0, 4, 22, 4, 14, 4, 2]
-
-    return exampleInput
-
-def _output():
-
-    exampleOutput = "true"
-
-    return exampleOutput

@@ -32,14 +32,3 @@ def AlphabetSearching(strParam):
     except(AttributeError, TypeError):
         return -1
 
-def _input():
-
-    sampleList = "zacxyjbbkfgtbhdaielqrm45pnsowtuv" 
-
-    return sampleList
-
-def _output():
-
-    sampleString = "true"
-
-    return sampleString

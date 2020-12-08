@@ -37,15 +37,3 @@ def OverlappingRanges(arr):
             return "false"           
 
     
-
-def _input():
-
-    exampleInput = [5,11,1,5,1]
-
-    return exampleInput
-
-def _output():
-
-    exampleOutput = "true"
-
-    return exampleOutput  

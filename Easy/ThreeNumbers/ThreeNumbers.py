@@ -51,15 +51,3 @@ def ThreeNumbers(strParam):
     except(AttributeError, TypeError):
         return -1
 
-
-def _input():
-
-    sampleList = "2hell6o3 wor6l7d2"
-
-    return sampleList
-
-def _output():
-
-    sampleString = "true"
-
-    return sampleString

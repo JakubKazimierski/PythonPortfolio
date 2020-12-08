@@ -32,19 +32,3 @@ def ABCheck(strParam):
   else:
     return -1
 
-
-def _input():
-  '''
-  Example input method for ABCheck(), returns string.
-  '''
-  stringInput = "example text"
-
-  return stringInput
-
-def _output():
-  '''
-  Example output method for ABCheck(), returns string.
-  '''
-  stringOutput = "false"
-
-  return stringOutput

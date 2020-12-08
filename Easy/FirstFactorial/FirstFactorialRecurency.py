@@ -23,14 +23,3 @@ def FirstFactorial(num):
         else:
             return num * FirstFactorial(num-1)
 
-def _input():
-
-    exampleInput = 4
-
-    return exampleInput
-
-def _output():
-
-    exampleOutput = 24
-
-    return exampleOutput             

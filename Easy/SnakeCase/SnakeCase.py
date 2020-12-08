@@ -29,14 +29,3 @@ def SnakeCase(strParam):
     except(TypeError):
         return -1
 
-def _input():
-
-  exampleInp = "BOB loves-coding" 
-
-  return exampleInp
-
-def _output():
-
-  exampleOut = "bob_loves_coding"
-
-  return exampleOut

@@ -74,14 +74,3 @@ def PalindromeCreator(strParam):
     except(AttributeError, TypeError):
         return -1
 
-def _input():
-
-    sampleList = "abjchba"
-
-    return sampleList
-
-def _output():
-
-    sampleString = "jc"
-
-    return sampleString

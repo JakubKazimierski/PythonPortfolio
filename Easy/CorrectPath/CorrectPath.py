@@ -80,15 +80,3 @@ def CorrectPath(strParam):
 
     except(AttributeError, TypeError, KeyError):
         return -1
-
-def _input():
-
-    sampleList = "???rrurdr?"
-
-    return sampleList
-
-def _output():
-
-    sampleString = "dddrrurdrd"
-
-    return sampleString

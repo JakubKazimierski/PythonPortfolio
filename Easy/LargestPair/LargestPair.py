@@ -20,14 +20,3 @@ def LargestPair(num):
     return max([int(str(num)[i] + str(num)[i+1]) for i in range(0,len(str(num))-1)])
 
 
-def _input():
-
-    exampleInput = 4759472
-
-    return exampleInput
-
-def _output():
-
-    exampleOutput = 94
-
-    return exampleOutput  

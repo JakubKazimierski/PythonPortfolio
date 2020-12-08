@@ -61,14 +61,3 @@ def ScaleBalancing(strArr):
     except(AttributeError, TypeError):
         return -1
 
-def _input():
-
-    sampleList = ["[5, 9]", "[1, 2, 6, 7]"]
-
-    return sampleList
-
-def _output():
-
-    sampleString = "2,6"
-
-    return sampleString

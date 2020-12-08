@@ -38,14 +38,3 @@ def SimpleSymbols(strParam):
 
     return "true"
   
-def _input():
-
-    exampleInput = "++d+===+c++==a"
-
-    return exampleInput
-
-def _output():
-
-    exampleOutput = "false"
-
-    return exampleOutput

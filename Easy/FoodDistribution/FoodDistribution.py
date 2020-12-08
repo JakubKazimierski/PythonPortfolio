@@ -134,13 +134,3 @@ def diff_sum(arr):
     return diff
 
 
-def _input():
-
-    sampleList = [5, 2, 3, 4, 5]
-
-    return sampleList
-
-def _output():
-
-    sampleString = 1
-    return sampleString

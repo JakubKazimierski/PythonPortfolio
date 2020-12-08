@@ -31,14 +31,3 @@ def LongestWord(sen):
     except(AttributeError, TypeError):
       return -1
 
-def _input():
-
-    exampleInput = "Abcde abc"
-
-    return exampleInput
-
-def _output():
-
-    exampleOutput = "Abcde"
-
-    return exampleOutput

@@ -36,14 +36,3 @@ def FindIntersection(strArr):
     except(AttributeError, TypeError):
         return -1
 
-def _input():
-
-    exampleInput = ["1, 3, 4, 7, 13", "1, 2, 4, 13, 15"]
-
-    return exampleInput
-
-def _output():
-
-    exampleOutput = "1,4,13"
-
-    return exampleOutput     

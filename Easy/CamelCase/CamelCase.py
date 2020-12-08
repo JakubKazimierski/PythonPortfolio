@@ -30,15 +30,4 @@ def CamelCase(strParam):
 
     except(AttributeError, TypeError):
         return -1
-        
-def _input():
 
-  exampleInp = "BOB loves-coding" 
-
-  return exampleInp
-
-def _output():
-
-  exampleOut = "bobLovesCoding"
-
-  return exampleOut

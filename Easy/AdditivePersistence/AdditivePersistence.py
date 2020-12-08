@@ -34,14 +34,3 @@ def AdditivePersistence(num):
     else:
         return -1
 
-def _input():
-
-  integerInput = 1234
-
-  return integerInput
-
-def _output():
-  
-  integerOutput = 2
-
-  return integerOutput

@@ -18,14 +18,3 @@ def WordCount(strParam):
     except (AttributeError, TypeError):
         return -1
 
-def _input():
-
-    exampleInput = "All cows eat grass and moo"
-
-    return exampleInput
-
-def _output():
-
-    exampleOutput = 6
-
-    return exampleOutput

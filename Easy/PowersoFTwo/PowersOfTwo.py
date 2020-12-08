@@ -32,15 +32,3 @@ def PowersOfTwo(num):
     except (AttributeError, TypeError, ValueError):
         return -1    
 
-    
-def _input():
-
-    exampleInput = -8
-
-    return exampleInput
-
-def _output():
-
-    exampleOutput = "true"
-
-    return exampleOutput

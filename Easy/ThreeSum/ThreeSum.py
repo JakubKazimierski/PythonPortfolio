@@ -34,14 +34,3 @@ def ThreeSum(arr):
     except(AttributeError, TypeError):
         return -1
 
-def _input():
-
-    sampleList = [8, 2, 1, 4, 10, 5, -1, -1]
-
-    return sampleList
-
-def _output():
-
-    sampleString = "true"
-
-    return sampleString

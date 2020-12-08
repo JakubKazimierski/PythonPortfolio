@@ -31,14 +31,3 @@ def NumberAddition(strParam):
     except (AttributeError, TypeError):
         return -1
 
-def _input():
-
-    exampleInput = "88Hello 3World!"
-
-    return exampleInput
-
-def _output():
-
-    exampleOutput = 91
-
-    return exampleOutput        

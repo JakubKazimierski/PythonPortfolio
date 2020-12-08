@@ -50,14 +50,3 @@ def TimeDifference(strArr):
     except(AttributeError, TypeError):
         return -1
 
-def _input():
-
-    sampleList = ["2:10pm", "1:30pm", "10:30am", "4:42pm"] 
-
-    return sampleList
-
-def _output():
-
-    sampleString = 40
-
-    return sampleString

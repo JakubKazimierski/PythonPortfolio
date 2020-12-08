@@ -18,14 +18,3 @@ def LetterCapitalize(strParam):
       # return capitalized words joined by spaces         
       return " ".join((word.capitalize() for word in wordsList))
 
-def _input():
-
-    exampleInput = "so it's begin"
-
-    return exampleInput
-
-def _output():
-
-    exampleOutput = "So It's Begin"
-
-    return exampleOutput    

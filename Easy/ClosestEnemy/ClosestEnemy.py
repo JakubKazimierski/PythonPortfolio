@@ -45,14 +45,3 @@ def ClosestEnemy(arr):
     except(AttributeError, TypeError):
         return -1
         
-def _input():
-
-    sampleInp = [1, 0, 0, 0, 2, 2, 2]
-
-    return sampleInp 
-
-def _output():
-
-    sampleOut = 4
-
-    return sampleOut

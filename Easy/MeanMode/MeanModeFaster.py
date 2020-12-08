@@ -35,15 +35,3 @@ def MeanModeFaster(arr):
     except TypeError:
         return "Wrong Type Input"
 
-def _input():
-
-    exampleInput = [5, 3, 3, 3, 1] 
-
-    return exampleInput
-
-def _output():
-
-    exampleOutput = 1
-
-    return exampleOutput
-

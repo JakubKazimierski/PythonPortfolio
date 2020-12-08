@@ -30,14 +30,3 @@ def TriangleRow(num):
     except(AttributeError,TypeError):
         return -1
         
-def _input():
-
-    sampleInt = 4
-
-    return sampleInt
-
-def _output():
-
-    sampleInt = 16
-
-    return sampleInt

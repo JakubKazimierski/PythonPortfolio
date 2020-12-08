@@ -95,14 +95,3 @@ def ClosestEnemyII(strArr):
     else:
         return 0
 
-def _input():
-
-    sampleInp = ["0000", "2010", "0000", "2002"]
-
-    return sampleInp 
-
-def _output():
-
-    sampleOut = 2
-
-    return sampleOut

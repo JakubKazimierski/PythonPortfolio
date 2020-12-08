@@ -35,16 +35,4 @@ def ChangingSequence(arr):
     except:
         return "Wrong Input"
 
-def _input():
-
-    exampleInput = [1, 2, 4, 6, 4, 3, 1]
-
-    return exampleInput
-
-def _output():
-
-    exampleOutput = 3
-
-    return exampleOutput
-
 

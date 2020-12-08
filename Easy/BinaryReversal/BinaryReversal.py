@@ -40,14 +40,3 @@ def BinaryReversal(strParam):
     else:
         return -1
 
-def _input():
-
-    exampleInput = "47"
-
-    return exampleInput
-
-def _output():
-
-    exampleOutput = 244
-    return exampleOutput
-    

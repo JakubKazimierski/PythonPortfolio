@@ -33,14 +33,3 @@ def OtherProducts(arr):
     except(AttributeError, TypeError):
         return -1
         
-def _input():
-
-    exampleInput = [1, 2, 3, 4, 5]
-
-    return exampleInput
-
-def _output():
-
-    exampleOutput = "120-60-40-30-24"
-
-    return exampleOutput

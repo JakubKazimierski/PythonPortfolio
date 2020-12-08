@@ -34,14 +34,3 @@ def MultiplicativePersistence(num):
     except ValueError:
         return -1    
 
-def _input():
-
-    exampleInput = 39
-
-    return exampleInput
-
-def _output():
-
-    exampleOutput = 3
-
-    return exampleOutput

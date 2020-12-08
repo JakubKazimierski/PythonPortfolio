@@ -62,14 +62,3 @@ def QuestionsMarks(strParam):
     except(AttributeError, TypeError, ValueError):
        return -1
 
-def _input():
-    
-    exampleInput = "arrb6???4xxbl5???eee5" 
-
-    return exampleInput
-
-def _input():
-    
-    exampleOutput = "true"
-
-    return exampleOutput

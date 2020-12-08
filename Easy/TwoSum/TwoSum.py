@@ -54,14 +54,3 @@ def TwoSum(arr):
         return -2
 
 
-def _input():
-
-    exampleInput = [7, 3, 5, 2, -4, 8, 11]
-
-    return exampleInput
-
-def _output():
-
-    exampleOutput = "5,2 -4,11"
-
-    return exampleOutput  

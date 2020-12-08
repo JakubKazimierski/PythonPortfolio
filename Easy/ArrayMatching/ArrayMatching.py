@@ -39,14 +39,3 @@ def ArrayMatching(strArr):
         return -1
     
 
-def _input():
-
-    exampleInput = ["[1, 2, 5, 6]", "[5, 2, 8, 11]"]
-
-    return exampleInput
-
-def _output():
-
-    exampleOutput = "6-4-13-17"
-    return exampleOutput
-    

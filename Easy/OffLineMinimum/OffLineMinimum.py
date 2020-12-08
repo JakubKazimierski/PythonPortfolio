@@ -47,14 +47,3 @@ def OffLineMinimum(strArr):
     except (ValueError, AttributeError, TypeError):
         return -1
 
-def _input():
-
-    exampleInput = ["5","4","6","E","1","7","E","E","3","2"] 
-
-    return exampleInput
-
-def _output():
-
-    exampleOutput = "4,1,5"
-
-    return exampleOutput

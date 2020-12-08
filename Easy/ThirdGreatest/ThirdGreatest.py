@@ -31,14 +31,3 @@ def ThirdGreatest(strArr):
     except (AttributeError, TypeError):
         return -1
 
-def _input():
-
-    exampleInput = ["hello", "world", "before", "all"]
-
-    return exampleInput
-
-def _output():
-
-    exampleOutput = "world"
-
-    return exampleOutput

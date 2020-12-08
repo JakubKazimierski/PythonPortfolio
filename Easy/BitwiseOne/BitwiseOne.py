@@ -30,15 +30,3 @@ def BitwiseOne(strArr):
     except (AttributeError, TypeError):
         return -1
         
-def _input():
-
-    exampleInput = ["1001", "0100"]
-
-    return exampleInput
-
-def _output():
-
-    exampleOutput = "1101"
-
-    return exampleOutput
-    

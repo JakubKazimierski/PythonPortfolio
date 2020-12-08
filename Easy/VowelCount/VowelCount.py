@@ -23,14 +23,3 @@ def VowelCount(strParam):
     except (AttributeError, TypeError):
         return -1
 
-def _input():
-
-    exampleInput = "All cows eat grass and moo"
-
-    return exampleInput
-
-def _output():
-
-    exampleOutput = 8
-
-    return exampleOutput

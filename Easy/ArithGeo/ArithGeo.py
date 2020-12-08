@@ -34,15 +34,3 @@ def ArithGeo(arr):
             
     except ZeroDivisionError:
         return -1
-
-def _input():
-
-    sampleList = [1,2,3,4]
-
-    return sampleList
-
-def _output():
-
-    sampleString = "Arithmetic"
-
-    return sampleString

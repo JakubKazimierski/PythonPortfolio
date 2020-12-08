@@ -42,14 +42,3 @@ def SecondGreatLow(arr):
     except (AttributeError, TypeError, ValueError):
         return -1
 
-def _input():
-
-    exampleInput = [7, 7, 12, 98, 106] 
-
-    return exampleInput
-
-def _output():
-
-    exampleOutput = "12 98"
-
-    return exampleOutput    

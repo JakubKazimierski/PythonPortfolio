@@ -28,14 +28,3 @@ def ExOh(strParam):
     else:
       return -1
 
-def _input():
-
-    exampleInput = "oxoxox"
-
-    return exampleInput
-
-def _output():
-
-    exampleOutput = "true"
-
-    return exampleOutput     

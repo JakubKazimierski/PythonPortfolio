@@ -40,14 +40,3 @@ def PowerSetCount(arr):
     except(AttributeError, TypeError):
         return -1
 
-def _input():
-
-    sampleList = ["10111", "01101"]
-
-    return sampleList
-
-def _output():
-
-    sampleString = "00101"
-
-    return sampleString

@@ -22,14 +22,3 @@ def AlphabetSoup(strParam):
   except (AttributeError, TypeError):
     return -1
 
-def _input():
-
-  sampleString = "abcde"
-
-  return sampleString
-
-def _output():
-
-  sampleString = "edcba"
-
-  return sampleString  

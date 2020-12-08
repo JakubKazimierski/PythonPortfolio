@@ -26,15 +26,3 @@ def NonrepeatingCharacter(strParam):
     except(AttributeError, TypeError):
         return -1
     
-
-def _input():
-
-    exampleInput = "agettkgaeee"
-
-    return exampleInput
-
-def _output():
-
-    exampleOutput = "k"
-
-    return exampleOutput  

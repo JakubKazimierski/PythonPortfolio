@@ -29,14 +29,3 @@ def CountingMinutesI(strParam):
     else:
         return "Wrong Input"
 
-def _input():
-
-    exampleInput = "10:00pm-9:00pm"
-
-    return exampleInput
-
-def _output():
-
-    exampleOutput = 1380
-
-    return exampleOutput     

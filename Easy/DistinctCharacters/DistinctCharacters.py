@@ -27,14 +27,3 @@ def DistinctCharacters(strParam):
     except(AttributeError, TypeError):
         return -1
 
-def _input():
-
-  exampleInp = "abc123kkmmmm?"
-
-  return exampleInp
-
-def _output():
-
-  exampleOut = "false"
-
-  return exampleOut

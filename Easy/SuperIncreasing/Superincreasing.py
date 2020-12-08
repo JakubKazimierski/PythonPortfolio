@@ -31,14 +31,3 @@ def Superincreasing(arr):
         return -1
 
 
-def _input():
-
-    exampleInput =  [1, 3, 6, 13, 54]
-
-    return exampleInput
-
-def _output():
-
-    exampleOutput = "true"
-
-    return exampleOutput  

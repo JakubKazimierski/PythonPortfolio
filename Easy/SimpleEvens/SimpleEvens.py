@@ -23,14 +23,3 @@ def SimpleEvens(num):
     except(ValueError):
         return -1
 
-def _input():
-
-  exampleInp = 4602225 
-
-  return exampleInp
-
-def _output():
-
-  exampleOut = "false"
-
-  return exampleOut

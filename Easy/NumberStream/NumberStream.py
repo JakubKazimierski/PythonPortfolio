@@ -27,14 +27,3 @@ def NumberStream(strParam):
 
     return "false"
 
-def _input():
-
-  exampleInp = "example text"
-
-  return exampleInp
-
-def _output():
-
-  exampleOut = "false"
-
-  return exampleOut

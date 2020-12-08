@@ -22,16 +22,3 @@ def CheckNums(num1,num2):
     else:
         return "false"
 
-
-def _input():
-
-    num1 = 2
-    num2 = 3
-
-    return num1, num2
-
-def _output():
-
-    exampleOutput = "true"
-
-    return exampleOutput  

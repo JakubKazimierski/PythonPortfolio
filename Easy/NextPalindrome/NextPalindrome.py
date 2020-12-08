@@ -25,13 +25,3 @@ def NextPalindrome(num):
     else:
         return -1
 
-def _input():
-
-    exampleInput = 24
-
-    return exampleInput
-
-def _output():
-
-    exampleOutput = 33
-    return exampleOutput

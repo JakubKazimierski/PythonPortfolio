@@ -60,14 +60,3 @@ def ArrayAdditionI(arr):
     except TypeError:
         return -1
 
-def _input():
-
-    sampleList = [4, 6, 23, 10, 1, 3]
-
-    return sampleList
-
-def _output():
-
-    sampleString = "true"
-
-    return sampleString
