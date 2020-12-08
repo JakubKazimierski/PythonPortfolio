@@ -29,15 +29,15 @@ def LargestFour(arr):
             return sum(largest_list)
     except(AttributeError, TypeError):
         return -1
-        
+
 def _input():
 
-  exampleInp = "example text"
+  exampleInp = [4, 5, -2, 3, 1, 2, 6, 6] 
 
   return exampleInp
 
 def _output():
 
-  exampleOut = "false"
+  exampleOut = 21
 
   return exampleOut
