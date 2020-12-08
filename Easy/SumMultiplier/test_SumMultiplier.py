@@ -16,18 +16,16 @@ class test_SumMultiplier(unittest.TestCase):
         '''
         Checks if returned output is as expected.
         '''
-        pass
-#        output = SumMultiplier.SumMultiplier("BOB loves-coding")
-#        self.assertEqual(output, "bob_loves_coding")
+        output = SumMultiplier.SumMultiplier([2, 5, 6, -6, 16, 2, 3, 6, 5, 3])
+        self.assertEqual(output, "true")
 
     
     def test_WrongInput(self):
         '''
         Checks if output is equal -1 for wrong input.
         '''
-        pass        
-#        output = SumMultiplier.SumMultiplier(6)
-#        self.assertEqual(output, -1)
+        output = SumMultiplier.SumMultiplier(["a", "b"])
+        self.assertEqual(output, -1)
 
     # endregion
 
