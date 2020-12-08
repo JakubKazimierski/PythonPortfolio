@@ -16,17 +16,16 @@ def ASCII_conversion(strParam):
     '''
     
     try:
-    
-        words = strParam.split()
-        ascii_words = []
 
-        for word in words:
-            ascii_word = ""
-            for char in word:
-                ascii_word += str(ord(char))
-            ascii_words.append(ascii_word)    
+        ascii_word = ""
+        for char in strParam:
 
-        return " ".join(ascii_words)    
+            if char == " ":
+                ascii_word += " "
+            else:
+                ascii_word += str(ord(char))    
+
+        return ascii_word 
     
     except(AttributeError, TypeError):
         return -1
