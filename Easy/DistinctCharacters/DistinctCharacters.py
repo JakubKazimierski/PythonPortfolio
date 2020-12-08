@@ -17,7 +17,8 @@ def DistinctCharacters(strParam):
     adds up to 9.
     '''
     try:
-        if len(set(strParam)) == 10:
+
+        if len(set(strParam)) >= 10:
             return "true"
         else:
             return "false"       
