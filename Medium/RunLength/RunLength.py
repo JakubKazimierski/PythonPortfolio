@@ -20,18 +20,33 @@ def RunLength(strParam):
     '''
     try:
 
-        letters = dict.fromkeys(strParam)
-        occurence_list = []
-        output_string = ""
+        char_occurences = []
+        # below remembers previous element
+        memory = strParam[0]
+        # below counts occurences
+        counter = 0
+        for char_id in range(0, len(strParam)):
+            if strParam[char_id] == memory:
+                counter += 1
+                
+                # if it is last index and previous was the same
+                if char_id == len(strParam)-1:
+                    char_occurences.append(str(counter) + memory)
+            else:
+                if char_id == len(strParam)-1:
+                    # if it is last index and previous was different
+                    char_occurences.append(str(counter) + memory)
+                    char_occurences.append(str(counter) + strParam[char_id])
+                else:
+                    char_occurences.append(str(counter) + memory)
 
-        # below iterates by keys
-        for letter in letters:
-            occurence_list.append(strParam.count(letter))
+                # reset counter    
+                counter=1
 
-        for occurence, letter in zip(occurence_list, list(letters.keys())):
-            output_string += str(occurence) + str(letter)
+            memory = strParam[char_id] 
 
-        return output_string
+
+        return "".join(char_occurences)
 
     except(TypeError):
         return -1

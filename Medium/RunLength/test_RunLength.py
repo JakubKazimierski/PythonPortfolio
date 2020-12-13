@@ -16,8 +16,8 @@ class test_RunLength(unittest.TestCase):
         '''
         Checks if returned output is as expected.
         '''
-        output = RunLength.RunLength("wwwggopp")
-        self.assertEqual(output, "3w2g1o2p")
+        output = RunLength.RunLength("wwwggop")
+        self.assertEqual(output, "3w2g1o1p")
 
     
     def test_WrongInput(self):
