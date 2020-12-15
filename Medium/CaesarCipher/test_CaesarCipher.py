@@ -16,8 +16,8 @@ class test_CaesarCipher(unittest.TestCase):
         '''
         Checks if returned output is as expected.
         '''
-        output = CaesarCipher.CaesarCipher("Caesar Cipher", 2)
-        self.assertEqual(output, "Ecguct Ekrjgt")
+        output = CaesarCipher.CaesarCipher("Caesar, Cipher", 2)
+        self.assertEqual(output, "Ecguct, Ekrjgt")
 
     # endregion
 

@@ -23,13 +23,7 @@ def CaesarCipher(strParam,num):
     letters_low = string.ascii_lowercase
     letters_Capital = string.ascii_uppercase
     
-    output = ""
-    for char in strParam:
-        if char in letters_low:
-            output += letters_low[(letters_low.index(char) + num) % len(letters_low)]
-        elif char in letters_Capital:
-            output += letters_Capital[(letters_Capital.index(char) + num) % len(letters_Capital)]
-        else:
-            output += char
 
-    return output        
+    # create table of letters where num is beginning of new alphabet
+    table_trans = letters_low[num:] + letters_low[:num] + letters_Capital[num:] + letters_Capital[:num]
+    return strParam.translate(strParam.maketrans(letters_low + letters_Capital, table_trans))
