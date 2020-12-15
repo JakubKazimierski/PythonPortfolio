@@ -14,6 +14,6 @@ def FormattedDivision(num1,num2):
     should be "12,345.6789". The output must contain a number in the 
     one's place even if it is a zero.
     '''
-    
+
     # format number witch commas and 4 significant digits
-    return str('{:,.4f}'.format(num1/num2))
+    return '{:,.4f}'.format(num1/num2)
