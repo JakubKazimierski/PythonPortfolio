@@ -10,6 +10,7 @@ def is_prime(num):
     # isslice only needs to memorize the initial arguments you provide
     # and generates every number on-the-fly
     # if num%i == 0 then bool(0) == False
+    # count() is used to generate consecutive data points
 
     return num > 1 and all(num % i for i in islice(count(2), int(sqrt(num)-1)))
 
