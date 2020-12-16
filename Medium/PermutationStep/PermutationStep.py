@@ -16,20 +16,8 @@ def PermutationStep(num):
     has no greater permutations, return -1 (ie. 999).
     '''
     
-    str_num = str(num)
-
-    # make permutations without repeatitions
-    num_permutations = set(permutations(str_num, len(str_num)))
-    numbers_from_permutations = []
-
-    for permutation in num_permutations:
-        numbers_from_permutations.append(int("".join(permutation)))
-
-    numbers_from_permutations = sorted(numbers_from_permutations)    
-
-    next_greater_id = numbers_from_permutations.index(num) + 1
-
-    if next_greater_id < len(numbers_from_permutations):
-        return numbers_from_permutations[next_greater_id]
-        
-    return -1
+    try: 
+        # this is cool
+        return min(int(''.join(perm)) for perm in permutations(str(num)) if int(''.join(perm)) > num)
+    except: 
+        return -1
