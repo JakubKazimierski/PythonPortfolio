@@ -20,12 +20,12 @@ def CountingMinutes(strParam):
     the output should be 1320.
     '''
     
-    # hours minutes am/pm
+    # hours : minutes am/pm
     FMT = '%I:%M%p'
 
     start, stop = re.split(r'-', strParam)[0], re.split(r'-', strParam)[1]
 
-    # time diff
+    # time diff, strptime() method creates a datetime object from the given string
     tdelta = datetime.strptime(stop, FMT) - datetime.strptime(start, FMT)
 
     return tdelta.seconds/60
