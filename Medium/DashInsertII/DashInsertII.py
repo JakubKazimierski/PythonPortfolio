@@ -3,6 +3,8 @@ Dash Insert II from Coderbyte
 December 2020 Jakub Kazimierski
 '''
 
+import re
+
 def DashInsertII(num):
     '''
     Have the function DashInsertII(num) 
@@ -15,6 +17,23 @@ def DashInsertII(num):
     Don't count zero as an odd or even number.
     '''
     
+
+    num = str(num)
+    
+    # ?= matches at the current position, 
+    # but it will not consume any characters for the match. 
+    # E.g. the regex a(?=b) will match an a followed by b, 
+    # but won't return the b as part of the match.
+    
+    # \1 mean first bracketed expression \- is inserted after this expression  
+    num = (re.sub(r'([13579])(?=([13579]))',r'\1-',num))
+    num = (re.sub(r'([2468])(?=([2468]))',r'\1*',num))
+
+    return num
+
+    '''
+    # more algorithmic method
+
     str_num = str(num)
     output = [str_num[0]]
 
@@ -29,4 +48,5 @@ def DashInsertII(num):
         else:
             output.append(elem)
 
-    return "".join(output)        
+    return "".join(output)
+    '''        
