@@ -28,7 +28,7 @@ def SwapII(strParam):
         if char_id < len(strParam_list) - 2:
             if strParam_list[char_id].isdigit() and strParam_list[char_id+1].isalpha():
                 next_digit_id = char_id + 1
-                while strParam_list[next_digit_id].isalpha():
+                while next_digit_id <= len(strParam_list)-1 and strParam_list[next_digit_id].isalpha():
                     next_digit_id += 1
 
                 if strParam_list[next_digit_id].isdigit():
