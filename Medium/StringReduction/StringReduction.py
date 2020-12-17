@@ -44,7 +44,8 @@ def StringReduction(strParam):
             temp_pair = []
 
             temp_pair.append(list_str_param.pop(0))
-            temp_pair.append(list_str_param.pop(0))
+            if len(list_str_param) > 0:
+                temp_pair.append(list_str_param.pop(0))
 
             # if those are different letters
             if len(set(temp_pair)) > 1:
