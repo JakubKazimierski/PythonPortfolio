@@ -4,6 +4,7 @@ December 2020 Jakub Kazimierski
 '''
 
 import string
+import re
 
 def SwapII(strParam):
     '''
@@ -20,19 +21,13 @@ def SwapII(strParam):
     strParam_list = list(strParam)
  
     for char_id in range(0, len(strParam_list)):
-
         if strParam_list[char_id].isalpha():
             strParam_list[char_id] = strParam_list[char_id].swapcase()
 
-        # digit which can be swap has to be at most at index 3rd from end and last one
-        if char_id < len(strParam_list) - 2:
-            if strParam_list[char_id].isdigit() and strParam_list[char_id+1].isalpha():
-                next_digit_id = char_id + 1
-                while next_digit_id <= len(strParam_list)-1 and strParam_list[next_digit_id].isalpha():
-                    next_digit_id += 1
+    strParam = "".join(strParam_list)
 
-                if strParam_list[next_digit_id].isdigit():
-                    strParam_list[char_id], strParam_list[next_digit_id] = \
-                        strParam_list[next_digit_id], strParam_list[char_id]
+    # swap 3rd group with first group where first and third are numbers and second are alphabetic signs
+    strParam = re.sub(r'([\d])([\w]+)([\d])',r'\3\2\1',strParam)
 
-    return "".join(strParam_list)            
+
+    return strParam           
