@@ -27,7 +27,7 @@ def SwapII(strParam):
     strParam = "".join(strParam_list)
 
     # swap 3rd group with first group where first and third are numbers and second are alphabetic signs
-    strParam = re.sub(r'([\d])([\w]+)([\d])',r'\3\2\1',strParam)
+    strParam = re.sub(r'([0-9])([a-zA-Z]+)([0-9])',r'\3\2\1',strParam)
 
 
     return strParam           
