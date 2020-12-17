@@ -19,16 +19,9 @@ def TripleDouble(num1,num2):
     If this isn't the case, return 0.
     '''
     
-    digit_list_num1 = list(str(num1))
-    digit_list_num2 = list(str(num2))
+    for num in set(str(num1)):
+        if str(num) * 3 in str(num1) and str(num) * 2 in str(num2):
+            return 1
 
-    if len(digit_list_num1) >=3 and len(digit_list_num2) >= 2:
-        for index in range(2, len(digit_list_num1)):
-            if digit_list_num1[index-2] == digit_list_num1[index-1] and\
-                digit_list_num1[index-1] == digit_list_num1[index]:
-                for index2 in range(1, len(digit_list_num2)):
-                    if digit_list_num2[index2-1] == digit_list_num2[index2] and\
-                        digit_list_num2[index2] == digit_list_num1[index]:
-                        return 1
+    return 0
 
-    return 0                
