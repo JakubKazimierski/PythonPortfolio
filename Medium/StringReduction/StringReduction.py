@@ -4,6 +4,7 @@ December 2020 Jakub Kazimierski
 '''
 
 def Diff(li1, li2):
+    # return diff of two lists
     return (list(list(set(li1)-set(li2)) + list(set(li2)-set(li1))))
 
 def StringReduction(strParam):
@@ -37,34 +38,34 @@ def StringReduction(strParam):
     # temporary list of reduced elements
     trans_list = []
 
+    # append to trans_list first leeter from list_str_param    
+    trans_list.append(list_str_param.pop(0))    
+
     while reducable == True:
 
         while len(list_str_param) > 0:
-            # pair of letters to eventually reduce
-            temp_pair = []
+                        
+            # if appended letter and next letter in list_str_param are different
+            if trans_list[-1] != list_str_param[0]:
 
-            temp_pair.append(list_str_param.pop(0))
-            if len(list_str_param) > 0:
-                temp_pair.append(list_str_param.pop(0))
-
-            # if those are different letters
-            if len(set(temp_pair)) > 1:
-                # swap with third different
-                swap_with = Diff(letters, temp_pair)[0]
-
-                # add reduce elem to list of reduced elements
-                trans_list.append(swap_with)    
+                pair = [trans_list[-1], list_str_param[0]]    
+                
+                # swap those letters with third different
+                swap_with = Diff(letters, pair)[0]
+                trans_list[-1] = swap_with
+                list_str_param.pop(0)
+            
             else:
-                trans_list.extend(temp_pair)
+                trans_list.append(list_str_param.pop(0))
 
         # override old list with list of reduced elements
         list_str_param = trans_list
-        # clear new list
+        # clear temporary list
         trans_list = []
         
-        # if list contains different letters
+        # if list contains different letters continue process
         if len(set(list_str_param)) > 1:
-            reducable = True
+            trans_list.append(list_str_param.pop(0))
         else:
             reducable = False
 

@@ -16,7 +16,7 @@ class test_StringReduction(unittest.TestCase):
         '''
         Checks if returned output is as expected.
         '''
-        output = StringReduction.StringReduction( "bcab")
+        output = StringReduction.StringReduction("aabc")
         self.assertEqual(output, 1)
 
    # endregion
