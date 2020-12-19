@@ -37,11 +37,18 @@ def OverlappingRectangles(strArr):
         rec_II_X.add(point[0]) 
         rec_II_Y.add(point[1])
 
-    if max(rec_I_X) <= min(rec_II_X) or max(rec_I_Y) <= min(rec_II_Y):
+    Y_max_range_common = min(max(rec_I_Y),max(rec_II_Y))
+    Y_min_range_common = max(min(rec_I_Y),min(rec_II_Y))
+
+    X_max_range_common = min(max(rec_I_X),max(rec_II_X))
+    X_min_range_common = max(min(rec_I_X),min(rec_II_X))
+
+    # condition for all quarters of Cartesian coordinates
+    if Y_max_range_common <= Y_min_range_common or X_max_range_common <= X_min_range_common: 
         return 0
 
     area_I = (max(rec_I_X) - min(rec_I_X))*((max(rec_I_Y) - min(rec_I_Y)))    
 
-    common_area = (max(rec_I_X) - min(rec_II_X))*(max(rec_I_Y) - min(rec_II_Y))
+    common_area = (X_max_range_common - X_min_range_common)*(Y_max_range_common - Y_min_range_common)
 
     return area_I/common_area
