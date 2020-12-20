@@ -22,7 +22,8 @@ def MissingDigit(strParam):
     '''
     
     # althought it is a brute force it is still O(1) complexity
-    for num in range(0, 10):
+    for num in range(1, 10):
+        # below checks all digits from 1 to 9
         possible_x = strParam.replace("x", str(num))
 
         left_side, right_side = possible_x.split("=")[0], possible_x.split("=")[1]        
@@ -31,4 +32,5 @@ def MissingDigit(strParam):
         if eval(left_side) == eval(right_side):
             return num
 
-    return -1
+    # if none of digit was correct, 0 left, and does not raise error if e.g division was in formula
+    return 0
