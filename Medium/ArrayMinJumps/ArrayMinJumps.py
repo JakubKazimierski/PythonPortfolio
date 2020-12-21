@@ -23,6 +23,7 @@ def min_Jumps_l(arr):
     for index in range(1, len(arr)):
         jumps[index] = sys.maxsize
         for previous_id in range(index):
+            # if index is in range of jump
             if (index <= previous_id + arr[previous_id]) and (jumps[previous_id] != sys.maxsize):
                 jumps[index] = min(jumps[index], jumps[previous_id] + 1)
                 break

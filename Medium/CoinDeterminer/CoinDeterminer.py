@@ -15,7 +15,7 @@ def coin_change(coins, to_change, cache):
     next for each stack level we try each of c coins' value, to get best result
     best solutions are storing in chache, and next are based on this cache.
     This solution finds shortest way from Val_to_change to 1, and each time improve solution
-    based on values stored in cache.
+    based on values stored i cache.
     '''
 
     # region Conditions for recursive call
