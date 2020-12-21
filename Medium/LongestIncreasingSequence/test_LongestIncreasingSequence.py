@@ -16,7 +16,6 @@ class test_LRU_Cache(unittest.TestCase):
         '''
         Checks if returned output is as expected.
         '''
-        pass
         input_val = [4, 3, 5, 1, 6]
         output = LongestIncreasingSequence.LongestIncreasingSequence(input_val)
         self.assertEqual(output, 3)
