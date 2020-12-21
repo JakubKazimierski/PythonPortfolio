@@ -3,32 +3,6 @@ Binary Tree LCA from Coderbyte
 December 2020 Jakub Kazimierski
 '''
 
-def Find_Node_val(node_id, strArr, val, arr_parent):
-    '''
-    Returns arr_parent with parent node element.
-    Due to problem that recurrency work at stack, i could not
-    get the same result by simple return, list was
-    necessary to remember found element, while recursion
-    still works. That's why I'm not 100% glad from this
-    solution.
-    '''
-    if val == strArr[node_id]:
-        arr_parent.append(strArr[node_id])
-
-    left_child_id = 2*node_id + 1
-    right_child_id = 2*node_id + 2
-
-    # return parent node of value
-    if right_child_id <= len(strArr):
-        if strArr[left_child_id] != val and strArr[right_child_id] != val:
-            Find_Node_val(left_child_id, strArr, val, arr_parent)
-            Find_Node_val(right_child_id, strArr, val, arr_parent) 
-        else:
-            arr_parent.append(strArr[node_id])
-
-    return arr_parent
-
-
 def BinaryTreeLCA(strArr):
     '''
     Have the function BinaryTreeLCA(strArr) 
@@ -62,41 +36,48 @@ def BinaryTreeLCA(strArr):
     exist somewhere in the tree.      
     '''
     
-    tree_string_values = strArr[0].replace("[","").replace("]", "").replace(" ","") 
-    tree_Arr = tree_string_values.split(",")
+    treeArr = strArr[0].replace("[","").replace("]", "").replace(" ","").split(",")
     val_1, val_2 = strArr[1], strArr[2]
 
-    # list with one elem is returned
-    parent_val_1 = Find_Node_val(0, tree_Arr, val_1, [])[0]
-    parent_val_2 = Find_Node_val(0, tree_Arr, val_2, [])[0]
+    # values are unique
+    id_val_1 = treeArr.index(val_1)
+    id_val_2 = treeArr.index(val_2)
 
-    # simplest case, one of values is parent of second one
-    if val_1 == parent_val_2:
+    # if one of nodes is root
+    if id_val_1 == 0 or id_val_2 == 0:
+        return treeArr[0]
+
+    # indexes like in binary cheap    
+    parent_id_val_1 = int((id_val_1 - 1)/2)
+    parent_id_val_2 = int((id_val_2 - 1)/2)
+    
+    # if one of nodes is parent second one
+    if id_val_1 == parent_id_val_2:
         return val_1
-    if val_2 == parent_val_1:
-        return val_2    
 
-    if parent_val_1 != parent_val_2:
-        # assume parent_val_2 is lower in tree than parent_val_1
-        ancestors_val_2 = parent_val_2
-        while ancestors_val_2 != tree_Arr[0] and ancestors_val_2 != parent_val_1:
-            # while ancestor is not common, go up
-            ancestors_val_2 = Find_Node_val(0, tree_Arr, ancestors_val_2, [])[0]
-        
-        if  parent_val_1 == ancestors_val_2:
-            return parent_val_1
-     
-        # assume parent_val_1 is lower in tree than parent_val_2
-        ancestors_val_1 = parent_val_1               
-        while ancestors_val_1 != tree_Arr[0] and ancestors_val_1 != parent_val_2:
-            # while ancestor is not common, go up
-            ancestors_val_1 = Find_Node_val(0, tree_Arr, ancestors_val_1, [])[0]
-        
-        if  parent_val_2 == ancestors_val_1:
-            return parent_val_2
-        
-        # if root is LCA
-        if ancestors_val_2 == ancestors_val_1:
-            return ancestors_val_1
+    if id_val_2 == parent_id_val_1:
+        return val_2
 
-    return parent_val_1
+    # if nodes are child of common node
+    if parent_id_val_1 == parent_id_val_2:
+        return treeArr[parent_id_val_1]
+
+    parent_id_val_1_ancestor = parent_id_val_1
+    #assume val_1 is lower in tree than val_2
+    while parent_id_val_1_ancestor > 0:
+        # traverse up
+        parent_id_val_1_ancestor = int((parent_id_val_1_ancestor - 1)/2)
+        if parent_id_val_1_ancestor == parent_id_val_2:
+            return treeArr[parent_id_val_1_ancestor]
+
+    parent_id_val_2_ancestor = parent_id_val_2
+    #assume val_2 is lower in tree than val_1
+    while parent_id_val_2_ancestor > 0:
+        # traverse up
+        parent_id_val_2_ancestor = int((parent_id_val_2_ancestor - 1)/2)
+        if parent_id_val_2_ancestor == parent_id_val_1:
+            return treeArr[parent_id_val_2_ancestor]
+
+
+    # if none of lower nodes was common ancestor return root
+    return treeArr[0]
