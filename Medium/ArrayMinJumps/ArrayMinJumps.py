@@ -6,7 +6,7 @@ import sys
 
 def min_Jumps_l(arr):
     '''
-    Bottom up approach.
+    Bottom up approach. O(n^2)
     '''
     
     jumps = [0 for i in range(len(arr))]
@@ -28,7 +28,9 @@ def min_Jumps_l(arr):
                 jumps[index] = min(jumps[index], jumps[previous_id] + 1)
                 break
     return jumps[-1]
- 
+
+
+   
 
 def ArrayMinJumps(arr):
     '''
