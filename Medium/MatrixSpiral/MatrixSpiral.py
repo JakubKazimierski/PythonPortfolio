@@ -24,71 +24,57 @@ def MatrixSpiral(strArr):
     spiral order which is: 1,2,3,6,9,8,7,4,5
     '''
     
-    strArr = strArr.replace("\"", "")
-    matrix = list(eval(strArr))
+    # evaluate input to integers array
+    matrix = []
+    for row in strArr:
+        row = eval(row)
+        matrix.append(row)
     
+    rows = len(matrix)
+    columns = len(matrix[0])
+     
+    # ranges of moves 
+    border_top = 1
+    border_bottom = rows-1
+    border_left = 0
+    border_right = columns-1
+
+    # Up = "U", Right = "R", Down = "D", Left = "L"
+    direction = 'R'
+    row = column = 0
     output = []
-    # append first element
-    output.append(matrix[0][0])
+    
+    # in range of length of all elements in matrix
+    for _ in range(rows*columns):
+        
+        output.append(str(matrix[row][column]))
 
-    row_id = 0
-    column_id = 0
+        # change direction when element get max range       
+        if direction == 'R':
+            if column == border_right: 
+                direction = 'D'
+                # after raching border, decrement it's range
+                border_right -= 1
+            else: column += 1
 
+        if direction == 'D':
+            if row == border_bottom:
+                direction = 'L'
+                border_bottom -= 1
+            else: row += 1
 
-    down_border = right_border = len(matrix)
-    left_border = up_border = 0
-
-    # while all elements are not appended to output list
-    while len(output) < len(matrix)**2:
-
-
-        # increment row id in order not to append previously visited
-        row_id += 1
-
-        # append elements while going right
-        while row_id < right_border:
-            output.append(matrix[column_id][row_id])
-            row_id += 1
-
-        # decrement index after while loop
-        row_id -= 1    
-
-        # increment column id in order not to append previously visited
-        column_id += 1
-        # at max right side start traversing down
-        while column_id < down_border:
-            output.append(matrix[column_id][row_id])
-            column_id += 1
-
-        column_id -= 1
-
-        # decrement row id in order not to append previously visited
-        row_id -= 1
-        # at the bottom start traversing left
-        while row_id >= left_border:
-            output.append(matrix[column_id][row_id])
-            row_id -= 1
-
-        # increment index after while loop
-        row_id += 1
-
-        # decrement column id in order not to append previously visited
-        column_id -= 1
-        # at left bottom start traversing up but first elem is visited
-        while column_id > up_border:
-            output.append(matrix[column_id][row_id])
-            column_id -= 1
-
-        column_id += 1
-
-        # decrement right and down border
-        down_border -= 1
-        right_border -= 1
-        #increment up and left border
-        up_border += 1
-        left_border += 1
-
-        # continue process for smaller bounds
-        # those are not visited elements
-
-    return ",".join(str(num) for num in output)
+        if direction == 'L':
+            if column == border_left:
+                direction = 'U'
+                border_left += 1
+            else: column -= 1
+            
+        if direction == 'U':
+            if row == border_top:
+                direction = 'R'
+                border_top += 1
+                column += 1
+            else: row -= 1
+    
+    
+    return ','.join(output)

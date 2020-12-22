@@ -16,7 +16,7 @@ class test_MatrixSpiral(unittest.TestCase):
         '''
         Checks if returned output is as expected.
         '''
-        input_val = '"[1, 2, 3]", "[4, 5, 6]", "[7, 8, 9]"'
+        input_val = ["[1, 2, 3]", "[4, 5, 6]", "[7, 8, 9]"]
         output = MatrixSpiral.MatrixSpiral(input_val)
         self.assertEqual(output, "1,2,3,6,9,8,7,4,5")
 
