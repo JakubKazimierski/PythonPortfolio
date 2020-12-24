@@ -4,16 +4,21 @@ December 2020 Jakub Kazimierski
 '''
 
 def TraversePath(strArr, id_row, id_column, path):
-
+    '''
+    Create path of coordinates, of adjacent '1' in matrix.
+    '''
+    path.append((id_row, id_column))
     moves = [(0,1), (1,0), (0,-1), (-1,0)]
 
     try:
         for move in moves:
             next_row = id_row + move[0]
             next_column = id_column + move[1]
+            # if possible point is in range of matrix
             if len(strArr) > next_row >= 0 and len(strArr[0]) > next_column >= 0:
+                # if '1' is at this point and it is not visited yet
                 if strArr[next_row][next_column] == '1' and (next_row, next_column) not in path:
-                    path.append((next_row, next_column))
+                    
                     TraversePath(strArr, next_row, next_column, path)
 
         return path
@@ -55,12 +60,15 @@ def MatrixPath(strArr):
     path_end = []
     path_end_neighbours = set()
 
+    # create path from starting point, and end point
     path_start = TraversePath(strArr, 0, 0, path_start)
     path_end = TraversePath(strArr, len(strArr)-1, len(strArr[0])-1, path_end)
   
+    # return true if end point is in path from start point
     if any(elem == (len(strArr)-1, len(strArr[0])-1) for elem in path_start):
         return "true"
  
+    # check if both paths has common neighbours
     moves = [(0,1), (1,0), (0,-1), (-1,0)]
     for move in moves:    
         for elem in path_start:
@@ -75,6 +83,7 @@ def MatrixPath(strArr):
             if len(strArr) > neighbour_row >= 0 and len(strArr[0]) > neighbour_column >= 0:
                 path_end_neighbours.add((neighbour_row, neighbour_column))    
 
+    # if common neighbours are present return amount of them
     if len(path_start_neighbours.intersection(path_end_neighbours)) > 0:
         return len(path_start_neighbours.intersection(path_end_neighbours))
 

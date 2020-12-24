@@ -16,7 +16,7 @@ class test_MatrixPath(unittest.TestCase):
         '''
         Checks if returned output is as expected.
         '''
-        output = MatrixPath.MatrixPath(["11100", "10011", "10101", "10011"] )
+        output = MatrixPath.MatrixPath(["10", "01"] )
         self.assertEqual(output, 2)
 
    # endregion
