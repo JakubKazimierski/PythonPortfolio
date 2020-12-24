@@ -27,9 +27,14 @@ def MissingDigitII(strParam):
 
     for digit_I in digits:
         for digit_II in digits:
-            left_side = strParam.split("=")[0]
-            right_side = strParam.split("=")[1]
+            left_side = strParam.split(" = ")[0]
+            right_side = strParam.split(" = ")[1]
 
+            if left_side[0] == "?" and digit_I == '0':
+                continue
+            if right_side[0] == "?" and digit_II == '0':
+                continue
+            
             left_side = left_side.replace("?", digit_I)
             right_side = right_side.replace("?", digit_II)
 
