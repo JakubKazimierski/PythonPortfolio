@@ -10,20 +10,16 @@ def TraversePath(strArr, id_row, id_column, path):
     path.append((id_row, id_column))
     moves = [(0,1), (1,0), (0,-1), (-1,0)]
 
-    try:
-        for move in moves:
-            next_row = id_row + move[0]
-            next_column = id_column + move[1]
-            # if possible point is in range of matrix
-            if len(strArr) > next_row >= 0 and len(strArr[0]) > next_column >= 0:
-                # if '1' is at this point and it is not visited yet
-                if strArr[next_row][next_column] == '1' and (next_row, next_column) not in path:
-                    
-                    TraversePath(strArr, next_row, next_column, path)
+    for move in moves:
+        next_row = id_row + move[0]
+        next_column = id_column + move[1]
+        # if possible point is in range of matrix
+        if len(strArr) > next_row >= 0 and len(strArr[0]) > next_column >= 0:
+            # if '1' is at this point and it is not visited yet
+            if strArr[next_row][next_column] == '1' and (next_row, next_column) not in path:
+                TraversePath(strArr, next_row, next_column, path)
 
-        return path
-    except:
-        return    
+    return path
 
 def MatrixPath(strArr):
     '''
