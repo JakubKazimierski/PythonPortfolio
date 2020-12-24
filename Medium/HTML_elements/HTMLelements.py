@@ -27,59 +27,30 @@ def HTMLelements(strParam):
     would be properly formatted.
     '''
     
-    div_count = b_count = i_count = em_count = p_count = 0
-    string_to_split = ""
+    stack_opening = []
+    
+    # below append to stack opening tags 
+    # and when ending tag appears compares it's
+    # first letter with last apppended elem on stack
+    for char_id in range(len(strParam)):
 
-    for char in strParam:
-        if char == '>':
-            string_to_split += char + ' '
-        elif char == '<':
-            string_to_split += ' ' + char
-        else:
-            string_to_split += char    
+        if strParam[char_id] == '<':
+            traverse_id = char_id + 1
 
-    elements_occurence = list(filter(None, string_to_split.split(' ')))
-
-    # only one element is at wrong place, so that's mean tags are not mixed
-    # like <div><b></div></b>
-    for elem in elements_occurence:
-        
-        # if element has no end tag after itself sum is different than 0 
-        if elem == '<div>':
-            div_count += 1        
-        if elem == '</div>' and div_count > 0:
-            div_count -= 1
-
-        if elem == '<b>':
-            b_count += 1 
-        if elem == '</b>' and b_count > 0:
-            b_count -= 1 
-
-        if elem == '<i>':
-            i_count += 1 
-        if elem == '</i>' and i_count > 0:
-            i_count -= 1 
-
-        if elem == '<em>':
-            em_count += 1 
-        if elem == '</em>' and em_count > 0:
-            em_count -= 1 
-
-        if elem == '<p>':
-            p_count += 1 
-        if elem == '</p>' and p_count > 0:
-            p_count -= 1 
-
-    if div_count != 0:
-        return 'div'
-    if b_count != 0:
-        return 'b'
-    if i_count != 0:
-        return 'i'
-    if em_count != 0:
-        return 'em'
-    if p_count != 0:
-        return 'p'
-
+            # if ending tag
+            if strParam[traverse_id] == "/":
+                # compare first letters of last elem at stack and ending tag
+                if strParam[traverse_id + 1] != stack_opening[-1][0]:
+                    return stack_opening[-1]
+                else:
+                    # if tag is nested correct remove it from stack
+                    stack_opening.pop(-1)    
+            else:
+                tag = ""
+                while strParam[traverse_id] != ">":
+                    tag += strParam[traverse_id]
+                    traverse_id += 1
+                # append opening tag to stack
+                stack_opening.append(tag)
 
     return "true"
