@@ -25,13 +25,15 @@ def MatrixChainOrder(arr, start_id, end_id):
                  + MatrixChainOrder(arr, bracket_id + 1, end_id) 
                  + arr[start_id-1] * arr[bracket_id] * arr[end_id]) 
   
+    # rows of matrix by which we multiply, becames rows of matrix multiplied
+    # columns does not change, so first case 1*2 * 4 is when we multiply first matrix
+    # at the end, by rows of created matrix by multiplications in parenthesis -> (1*2)((2*3)*(3*4))
+
         if count < _min: 
             _min = count 
   
     # Return minimum count 
     return _min 
-  
-  
   
 
 def MatrixChains(arr):
