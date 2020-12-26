@@ -3,23 +3,6 @@ Longest Matrix Path from Coderbyte
 December 2020 Jakub Kazimierski
 '''
 
-def TraverseLongest(matrix, path, row_id, column_id):
-
-    moves = [(0,1), (0,-1), (1,0), (-1,0)]
-
-    for move in moves:
-        next_row = row_id + move[0]
-        next_column = column_id + move[1]
-
-        # if next elem exists in matrix, and is greater by 1 than previous
-        if len(matrix) > next_row >= 0 and len(matrix[0]) > next_column >= 0:
-            if int(matrix[next_row][next_column]) == int(matrix[row_id][column_id])+1:
-                # increment path each time, after finding next num in sequence
-                path.append(matrix[next_row][next_column])
-                TraverseLongest(matrix, path, next_row, next_column)
-
-    return path        
-
 def LongestMatrixPath(strArr):
     '''
     Have the function LongestMatrixPath(strArr) 
@@ -43,11 +26,31 @@ def LongestMatrixPath(strArr):
     There may not necessarily always be a longest path within the matrix.
     '''
     
-    paths_lenghts = []
-    for row_id in range(0, len(strArr)):
-        for column_id in range(0, len(strArr[row_id])):
-            path = []
-            paths_lenghts.append(TraverseLongest(strArr, path, row_id, column_id))
+    matrix = [[int(digit) for digit in row] for row in strArr]
 
+    rows, columns = len(matrix), len(matrix[0])
+    path_from_points = [[0] * columns for i in range(rows)]
 
-    return len(max(paths_lenghts, key=len))
+    def find_longest(row_id, column_id):
+        '''
+        Nested function (can use variables of LongestMatrixPath(strArr)).
+        Uses recurency to find longest possible sequence in matrix.
+        '''
+        # for unvisited points
+        if path_from_points[row_id][column_id] == 0:
+
+            val = matrix[row_id][column_id]
+            # get lenght of longest sequence, traverse in all directions
+            path_from_points[row_id][column_id] = 1 + max(
+                # if there is no next elem in sequence returns 0, but each step is counted in recurency call by
+                # path_from_points[row_id][column_id] = 1 + max(...)
+                find_longest(row_id - 1, column_id) if row_id > 0 and val > matrix[row_id - 1][column_id] else 0,
+                find_longest(row_id + 1, column_id) if row_id < row_id - 1 and val > matrix[row_id + 1][column_id] else 0,
+                find_longest(row_id, column_id - 1) if column_id > 0 and val > matrix[row_id][column_id - 1] else 0,
+                find_longest(row_id, column_id + 1) if column_id < columns - 1 and val > matrix[row_id][column_id + 1] else 0)
+        
+        return path_from_points[row_id][column_id]
+        
+    # do not count starting element in sequence
+    return max(find_longest(row_id, column_id) for row_id in range(rows) for column_id in range(columns)) - 1
+
