@@ -45,12 +45,12 @@ def LongestMatrixPath(strArr):
                 # if there is no next elem in sequence returns 0, but each step is counted in recurency call by
                 # path_from_points[row_id][column_id] = 1 + max(...)
                 find_longest(row_id - 1, column_id) if row_id > 0 and val > matrix[row_id - 1][column_id] else 0,
-                find_longest(row_id + 1, column_id) if row_id < row_id - 1 and val > matrix[row_id + 1][column_id] else 0,
+                find_longest(row_id + 1, column_id) if row_id < rows - 1 and val > matrix[row_id + 1][column_id] else 0,
                 find_longest(row_id, column_id - 1) if column_id > 0 and val > matrix[row_id][column_id - 1] else 0,
                 find_longest(row_id, column_id + 1) if column_id < columns - 1 and val > matrix[row_id][column_id + 1] else 0)
         
         return path_from_points[row_id][column_id]
-        
+
     # do not count starting element in sequence
     return max(find_longest(row_id, column_id) for row_id in range(rows) for column_id in range(columns)) - 1
 
