@@ -3,6 +3,48 @@ Histogram Area from Coderbyte
 December 2020 Jakub Kazimierski
 '''
 
+def max_area_histogram(histogram): 
+      
+    stack = list() 
+  
+    max_area = 0 
+  
+    index = 0
+    while index < len(histogram): 
+  
+        # while next bar is higher than last appended, append it position to the stack
+        if (not stack) or (histogram[stack[-1]] <= histogram[index]): 
+            stack.append(index) 
+            index += 1
+        else: 
+            # else remove last appended elem from the stack
+            top_of_stack = stack.pop() 
+            # count area created by this element
+            # (e.g if 2 is after 3, 3 was removed before 2
+            # so 2 start from position of 3, and area counted at 2
+            # is 2*2= 4)
+            area = (histogram[top_of_stack] * 
+                   ((index - stack[-1] - 1)  
+                   if stack else index)) 
+  
+            # update max possible area
+            max_area = max(max_area, area) 
+  
+    while stack: 
+        # repeat procees for elements' positions which still are on stack
+        # (e.g. it can be positions of 1, and if arr has length 5 and histogram started from 1
+        # so area is counted as 5*1 = 5)
+        top_of_stack = stack.pop() 
+  
+        area = (histogram[top_of_stack] * 
+              ((index - stack[-1] - 1)  
+                if stack else index)) 
+  
+  
+        max_area = max(max_area, area) 
+  
+    return max_area 
+
 def HistogramArea(arr):
     '''
     Have the function HistogramArea(arr) 
@@ -32,73 +74,5 @@ def HistogramArea(arr):
     return max_area_histogram(arr)
 
 
-def max_area_histogram(histogram): 
-      
-    # This function calulates maximum  
-    # rectangular area under given  
-    # histogram with n bars 
-  
-    # Create an empty stack. The stack  
-    # holds indexes of histogram[] list.  
-    # The bars stored in the stack are 
-    # always in increasing order of  
-    # their heights. 
-    stack = list() 
-  
-    max_area = 0 # Initialize max area 
-  
-    # Run through all bars of 
-    # given histogram 
-    index = 0
-    while index < len(histogram): 
-          
-        # If this bar is higher  
-        # than the bar on top 
-        # stack, push it to stack 
-  
-        if (not stack) or (histogram[stack[-1]] <= histogram[index]): 
-            stack.append(index) 
-            index += 1
-  
-        # If this bar is lower than top of stack, 
-        # then calculate area of rectangle with  
-        # stack top as the smallest (or minimum 
-        # height) bar.'i' is 'right index' for  
-        # the top and element before top in stack 
-        # is 'left index' 
-        else: 
-            # pop the top 
-            top_of_stack = stack.pop() 
-  
-            # Calculate the area with  
-            # histogram[top_of_stack] 
-            # from index of previous bar
-            area = (histogram[top_of_stack] * 
-                   ((index - stack[-1] - 1)  
-                   if stack else index)) 
-  
-            # update max area, if needed 
-            max_area = max(max_area, area) 
-  
-    # Now pop the remaining bars from  
-    # stack and calculate area with  
-    # every popped bar as the smallest bar 
-    while stack: 
-          
-        # pop the top 
-        top_of_stack = stack.pop() 
-  
-        # Calculate the area with  
-        # histogram[top_of_stack]  
-        # stack as smallest bar 
-        area = (histogram[top_of_stack] * 
-              ((index - stack[-1] - 1)  
-                if stack else index)) 
-  
-        # update max area, if needed 
-        max_area = max(max_area, area) 
-  
-    # Return maximum area under  
-    # the given histogram 
-    return max_area 
+
   

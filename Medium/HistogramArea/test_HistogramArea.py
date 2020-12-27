@@ -16,8 +16,8 @@ class test_HistogramArea(unittest.TestCase):
         '''
         Checks if returned output is as expected.
         '''
-        output = HistogramArea.HistogramArea([2, 1, 3, 4, 1])
-        self.assertEqual(output, 6)
+        output = HistogramArea.HistogramArea([1, 3, 2, 1, 2])
+        self.assertEqual(output, 5)
 
    # endregion
 
