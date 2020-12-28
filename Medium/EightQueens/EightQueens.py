@@ -28,66 +28,15 @@ def EightQueens(strArr):
     is below (taken from Wikipedia).
     '''
     
-    oblique_right = []
-    oblique_right_elems = []
-
-    oblique_left = []
-    oblique_left_elems = []
-
-    vertical = []
-    vertical_elems = []
-
-    horizontal = []
-    horizontal_elems = []
-
-    # due to task first digit is for y axis, secon for x
     for elem in strArr:
-        elem = elem.replace("(","").replace(")","").replace(",","")
-
-        # count b from y = x + b 
-        oblique_right.append( (int(elem[0])) - (int(elem[1])))
-        oblique_right_elems.append("(" + elem[0] + "," + elem[1] + ")")
-
-        # count b from y = -x + b 
-        oblique_left.append( (int(elem[0])) + (int(elem[1])))
-        oblique_left_elems.append("(" + elem[0] + "," + elem[1] + ")")
-
-
-        horizontal.append(int(elem[0]))
-        horizontal_elems.append("(" + elem[0] + "," + elem[1] + ")")
-
-        vertical.append(int(elem[1]))
-        vertical_elems.append("(" + elem[0] + "," + elem[1] + ")")
-
-    possible_outputs = set()
-    if len(set(oblique_right)) != 8:
-        for index in range(0, len(oblique_right)-1):
-            for index_II in range(index + 1, len(oblique_right)):
-                if oblique_right[index] == oblique_right[index_II]:
-                    possible_outputs.add(oblique_right_elems[index])
-
-    if len(set(oblique_left)) != 8:
-        for index in range(0, len(oblique_left)-1):
-            for index_II in range(index + 1, len(oblique_left)):
-                if oblique_left[index] == oblique_left[index_II]:
-                    possible_outputs.add(oblique_left_elems[index])
-
-
-    if len(set(vertical)) != 8:
-        for index in range(0, len(vertical)-1):
-            for index_II in range(index + 1, len(vertical)):
-                if vertical[index] == vertical[index_II]:
-                    possible_outputs.add(vertical_elems[index])
-
-    if len(set(horizontal)) != 8:
-        for index in range(0, len(horizontal)-1):
-            for index_II in range(index + 1, len(horizontal)):
-                if horizontal[index] == horizontal[index_II]:
-                    possible_outputs.add(horizontal_elems[index])
-
-    if len(possible_outputs) != 0:
-        first_mistake = min(strArr.index(elem) for elem in possible_outputs)
-
-        return strArr[first_mistake]
-
+        position = eval(elem)
+        for elem_II in strArr:
+            if elem != elem_II:
+                position2 = eval(elem_II)
+                if (position[0] == position2[0]) | (position[1] == position2[1]):
+                    return elem
+                oblique_pos = [position[0] - position2[0], position[1] - position2[1]]
+                # if both elems create function y = x
+                if(abs( oblique_pos[0]/oblique_pos[1]) == 1):
+                    return elem
     return "true"
