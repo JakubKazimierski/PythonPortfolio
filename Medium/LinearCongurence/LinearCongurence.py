@@ -22,9 +22,9 @@ def LinearCongruence(strParam):
     right_side_equal = int(right_side[0]) % int(right_side[1])
 
     possible_solutions = set()
-    for digit in '0123456789':
+    for number in range(int(right_side[1])):
         
-        if (int(left_side)*int(digit)) % int(right_side[1]) == right_side_equal:
-            possible_solutions.add(int(digit)%4) 
+        if (int(left_side)*number) % int(right_side[1]) == right_side_equal:
+            possible_solutions.add(number%int(right_side[1])) 
 
     return len(possible_solutions)        
