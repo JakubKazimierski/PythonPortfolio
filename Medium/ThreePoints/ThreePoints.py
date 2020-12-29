@@ -21,42 +21,24 @@ def ThreePoints(strArr):
     third point lies to the right of the line formed by the 
     first two points.
     '''
-    # line is going forward point_II, so directions right and left, are based on that
-    point_I, point_II, point_III = eval(strArr[0]), eval(strArr[1]), eval(strArr[2])
 
-    if point_I[0] != point_II[0]:
-        tanges_a = (point_II[1] - point_I[1])/(point_II[0] - point_I[0])
+    (x1, y1), (x2, y2), (x3, y3) = map(eval, strArr)
+    if y1 == y2: return 'neither'
+    
+    if x1 == x2: 
+        line = x1 
+        orient = y2 - y1 > 0
+        if x3 > line: return 'right' if orient else 'left'
+        if x3 < line: return 'left' if orient else 'right'
+        return 'neither'
 
-        if tanges_a == 0:
-            return "neither"
-        b_factor = point_I[1] - point_I[0]*tanges_a
+    a_factor = (y2 - y1) / (x2 - x1)
+    b_factor = y1 - a_factor*x1
 
-        if tanges_a*point_III[0] + b_factor == point_III[1]:
-            return "neither"
-
-        if tanges_a*point_III[0] + b_factor > point_III[1]:
-            if point_II[0] > point_I[0]:
-                return "right"
-            else:
-                return "left"
-        if tanges_a*point_III[0] + b_factor < point_III[1]:
-            if point_II[0] > point_I[0]:
-                return "left"
-            else:
-                return "right"        
-
-    else: 
-        if point_III[0] > point_I[0]:
-            if point_II[1] > point_I[1]:
-                return "right"
-            else:
-                return "left"
-        elif point_III[0] < point_I[0]:
-            if point_II[1] > point_I[1]:
-                return "left"
-            else:
-                return "right"
-        else:
-            return "neither"     
-
-
+    line = a_factor*x3 + b_factor
+    orient = (x2 - x1) > 0
+    
+    if y3 < line: return 'right' if orient else 'left'
+    if y3 > line: return 'left' if orient else 'right'
+    
+    return 'neither'
