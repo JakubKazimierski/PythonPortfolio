@@ -21,6 +21,7 @@ def ThreePoints(strArr):
     third point lies to the right of the line formed by the 
     first two points.
     '''
+    # line is going forward point_II, so directions right and left, are based on that
     point_I, point_II, point_III = eval(strArr[0]), eval(strArr[1]), eval(strArr[2])
 
     if point_I[0] != point_II[0]:
@@ -32,22 +33,29 @@ def ThreePoints(strArr):
 
         if tanges_a*point_III[0] + b_factor == point_III[1]:
             return "neither"
-        if tanges_a > 0:   
-            if tanges_a*point_III[0] + b_factor > point_III[1]:
+
+        if tanges_a*point_III[0] + b_factor > point_III[1]:
+            if point_II[0] > point_I[0]:
                 return "right"
-            if tanges_a*point_III[0] + b_factor < point_III[1]:
-                return "left"        
-        else:
-            if tanges_a*point_III[0] + b_factor > point_III[1]:
+            else:
                 return "left"
-            if tanges_a*point_III[0] + b_factor < point_III[1]:
+        if tanges_a*point_III[0] + b_factor < point_III[1]:
+            if point_II[0] > point_I[0]:
+                return "left"
+            else:
                 return "right"        
 
     else: 
         if point_III[0] > point_I[0]:
-            return "right"
+            if point_II[1] > point_I[1]:
+                return "right"
+            else:
+                return "left"
         elif point_III[0] < point_I[0]:
-            return "left"
+            if point_II[1] > point_I[1]:
+                return "left"
+            else:
+                return "right"
         else:
             return "neither"     
 
