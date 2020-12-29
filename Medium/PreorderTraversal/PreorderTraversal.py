@@ -33,7 +33,7 @@ def PreorderTraversal(strArr):
     of the tree with the elements separated by a space. 
     
     For example: if strArr is 
-    ["5", "2", "6", "1", "9", "#", "8", "#", "#", "#", "#", "4", "#"] 
+    ["5", "2", "6", "1", "9", "#", "8", "#", "#", "#", "#", "#", "#", "4", "#"] 
     then this tree looks like the following tree:
      
              5

@@ -16,7 +16,7 @@ class test_PreorderTraversal(unittest.TestCase):
         '''
         Checks if returned output is as expected.
         '''
-        input_val = ["5", "2", "6", "1", "9", "#", "8", "#", "#", "#", "#", "4", "#"] 
+        input_val = ["5", "2", "6", "1", "9", "#", "8", "#", "#","#", "#", "#", "#", "4", "#"] 
         output = PreorderTraversal.PreorderTraversal(input_val)
         self.assertEqual(output, "5 2 1 9 6 8 4")
 
