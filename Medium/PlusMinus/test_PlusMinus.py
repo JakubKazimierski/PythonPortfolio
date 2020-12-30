@@ -1,14 +1,14 @@
 '''
-Unittests for CharlieTheDog.py
+Unittests for PlusMinus.py
 December 2020 Jakub Kazimierski
 '''
 
 import unittest
-import CharlieTheDog
+import PlusMinus
 
-class test_CharlieTheDog(unittest.TestCase):    
+class test_PlusMinus(unittest.TestCase):    
     '''
-    Class with unittests for CharlieTheDog.py
+    Class with unittests for PlusMinus.py
     '''
 
     # region Unittests
@@ -16,8 +16,8 @@ class test_CharlieTheDog(unittest.TestCase):
         '''
         Checks if returned output is as expected.
         '''
-        output = CharlieTheDog.CharlieTheDog(["FOOF", "OCOO", "OOOH", "FOOO"])
-        self.assertEqual(output, 11)
+        output = PlusMinus.PlusMinus(35132)
+        self.assertEqual(output, "-++-")
 
    # endregion
 
