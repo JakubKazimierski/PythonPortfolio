@@ -1,6 +1,6 @@
 '''
 Unittests for LogitRegression.py
-December 2020 Jakub Kazimierski
+January 2021 Jakub Kazimierski
 '''
 
 import unittest

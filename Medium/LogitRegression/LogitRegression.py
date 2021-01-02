@@ -1,6 +1,6 @@
 '''
 Logit Regression from Coderbyte
-December 2020 Jakub Kazimierski
+January 2021 Jakub Kazimierski
 '''
 
 import math
