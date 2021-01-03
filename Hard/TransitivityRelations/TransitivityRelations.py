@@ -45,20 +45,36 @@ def TransitivityRelations(strArr):
                 nodes_to_check.append(connection_id)
         return nodes_to_check
 
+    def all_connections(matrix, node_id, nodes_connected, nodes_checked):
+        '''
+        Returns all possible connections gained, from node
+        given at input.
+        '''
+        for connection_id in range(len(matrix[node_id])):
+            if node_id != connection_id and matrix[node_id][connection_id] == "1":
+                nodes_connected.append(connection_id)
+        for nodes in nodes_connected:
+            if nodes not in nodes_checked:
+                nodes_checked.append(nodes)
+                all_connections(matrix, nodes, nodes_connected, nodes_checked)
+                
+        return list(set(nodes_connected))
+        
+
     matrix = [elem[1:-1].split(",") for elem in strArr]
 
     missing_connections = []
     for node_id in range(len(matrix)):
         nodes_connected = connections(matrix, node_id)
 
-        for node in nodes_connected:
-            last_connection = connections(matrix, node)
+        last_connection = all_connections(matrix, node_id, [], [])
 
-            for node_last in last_connection:
-                if node_last not in nodes_connected:
-                    missing_connections.append("(" + str(node_id) + "," + str(node_last) + ")")
+        for node_last in last_connection:
+            if node_last not in nodes_connected and node_last != node_id:
+                missing_connections.append("(" + str(node_id) + "," + str(node_last) + ")")
 
     if len(missing_connections) != 0:
+        missing_connections = sorted(missing_connections)
         return "-".join(missing_connections)           
 
     return "transitive"
