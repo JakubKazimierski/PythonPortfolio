@@ -28,7 +28,8 @@ def PatternChaser(strParam):
     possible_patterns = set()
     temp_seq = ""
     for char_id in range(len(strParam)-2):
-        for char_id_II in range(char_id + 2, len(strParam)):
+        # below cheks all patterns of lenght of half available lenght
+        for char_id_II in range(char_id + 2, char_id + (len(strParam)-char_id)//2):
             temp_seq += strParam[char_id:char_id_II] 
 
             if len(re.findall(temp_seq, strParam)) >= 2:
