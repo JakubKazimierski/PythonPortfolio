@@ -32,22 +32,36 @@ def PolynomialExpansion(strParam):
         if char.isalpha():
             var = char 
             break
-        
+
+    # below removes literal from input
     strParam = strParam.replace(var + '^', ' ').replace(var, ' 1').replace('+', ' +').replace('-', ' -')
     polys = strParam.split(')(')
     poly_pairs = []
+    
     for poly in polys:
         poly = poly.replace('(', '').replace(')', '').split()
+        # below add 0 as it would be x^0 at input
         if len(poly) % 2 != 0: poly.append('0')
+        # reassign polynomial as pairs (exponent, coefficient)
         poly = [(int(poly[i + 1]), int(poly[i])) for i in range(0, len(poly), 2)]
         poly_pairs.append(poly)
+    
     result_dict = {}
+    
+    # below joins exponents and coefficients of both polynomials into dict 
+    # where exponents are keys and coefficients are values
     for exp1, coeff1 in poly_pairs[0]:
         for exp2, coeff2 in poly_pairs[1]:
             result_dict[exp1 + exp2] = result_dict.setdefault(exp1 + exp2, 0) + coeff1*coeff2
+    
+    # below joins dictionary into string output
     result = ''
     for exp, coeff in sorted(result_dict.items(), reverse=True):
-        result += f'{f"{coeff:+}"[0] if coeff == 1 else f"{coeff:+}"}{"" if exp == 0 else var}{"" if exp in (0, 1) else "^" + str(exp)}'
-        if result[0] == '+': result = result[1:]
+        # f'{num:+}' prints signs of number (+/-)
+        result += f'{f"{coeff:+}"[0] if coeff == 1 else f"{coeff:+}"}{"" if exp == 0 else var}{"" if exp in [0, 1] else "^" + str(exp)}'
+
+    if result[0] == '+': 
+        result = result[1:]
+
     return result
 
