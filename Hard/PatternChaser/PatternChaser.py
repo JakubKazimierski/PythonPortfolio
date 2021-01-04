@@ -27,7 +27,7 @@ def PatternChaser(strParam):
     
     possible_patterns = set()
     temp_seq = ""
-    for char_id in range(len(strParam)-1):
+    for char_id in range(len(strParam)-2):
         for char_id_II in range(char_id + 2, len(strParam)):
             temp_seq += strParam[char_id:char_id_II] 
 
