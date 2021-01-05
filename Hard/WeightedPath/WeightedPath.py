@@ -3,8 +3,6 @@ Weighted Path from Coderbyte
 January 2021 Jakub Kazimierski
 '''
 
-import re
-
 def WeightedPath(strArr):
     '''
     Have the function WeightedPath(strArr) 
@@ -43,7 +41,6 @@ def WeightedPath(strArr):
     for vertex in vertex_list:
         graph[vertex] = set()
 
-
     for edge in weighted_edges:
         start, end, weight = edge.split("|")
         graph[start].add((end,int(weight)))
@@ -65,15 +62,12 @@ def WeightedPath(strArr):
                     if possible_next[0] not in path:
 
                         temp_weight = sum_weight
-                        
+                        temp_weight += int(possible_next[1])
                         if possible_next[0] == end:
-                            # if end point is reached, do not increment weight
-                            # because, from end point path goes no further
                             # each result, has same index as it's weight in weights list
                             result.append("-".join(path + [possible_next[0]]))
-                            weights.append(temp_weight + int(possible_next[1]))
+                            weights.append(temp_weight)
                         else:
-                            temp_weight += int(possible_next[1])
                             stack.append((possible_next[0], path + [possible_next[0]], temp_weight))
                         
         return result, weights
