@@ -16,9 +16,9 @@ class test_RREF_Matrix(unittest.TestCase):
         '''
         Checks if returned output is as expected.
         '''
-        input_val = ["5","7","8","<>","1","1","2"]
+        input_val = ["2","2","4","<>","1","1","8","<>","7","6","5"]
         output = RREF_Matrix.RREF_Matrix(input_val)
-        self.assertEqual(output, "D-B-A-F")
+        self.assertEqual(output, "100010001")
 
    # endregion
 

@@ -37,51 +37,42 @@ def RREF_Matrix(strArr):
     for row in rows:
         matrix.append([int(elem) for elem in row.split(",")])
 
+    def rref(matrix):
+        '''
+        Based on https://en.wikipedia.org/wiki/Row_echelon_form
 
-  row = 0 
-  for col in range(0 , m):
-    for i in range(row , n ):
-      if matr[i][col] !=0:
-        if  row != i :
-          matr[i] , matr[row] = matr[row] , matr[i]
+        # comments are based on algorithm description from pseudocode
+        
+        Function does not return value, it's editing given matrix
+        '''
+        pivot = 0
+        for row_id in range(len(matrix)):
+            if pivot >= len(matrix[0]):
+                return 
+            temp_row = row_id
+            while matrix[temp_row][pivot] == 0:
+                temp_row += 1
+                if temp_row == len(matrix):
+                    temp_row = row_id
+                    pivot += 1
+                    if pivot == len(matrix[0]):
+                        return 
+            if temp_row != row_id:
+                matrix[temp_row], matrix[row_id] = matrix[row_id], matrix[temp_row]
+            
+            divisor = matrix[row_id][pivot]
+            for elem_id in range(len(matrix[row_id])):
+                # Divide row matrix[row_id] by matrix[row_id][pivot]
+                matrix[row_id][elem_id] = matrix[row_id][elem_id] // divisor
 
-        break 
+            for row_id_II in range(len(matrix)):
+                if row_id_II != row_id:
+                    #  Subtract matrix[row_id_II][pivot] multiplied by row matrix[row_id] from row matrix[row_id_II]
+                    factor = matrix[row_id_II][pivot]
+                    for elem_id in range(len(matrix[row_id_II])):
+                        matrix[row_id_II][elem_id] = matrix[row_id_II][elem_id] - \
+                            matrix[row_id][elem_id]*factor
+            pivot += 1
 
-    if matr[row][col] == 0 :
-      continue 
-
-    for i in range(0 , n):
-      if i == row :
-        continue 
-      
-      a = matr[row][col]
-      b = matr[i][col]
-
-      for  k in range(0 , m):
-        matr[i][k] =int( matr[i][k] * a) -int( matr[row][k] * b )
-
-
-    row = row + 1 
-    if row == n :
-      break 
-
-
-  row  = 0 
-  for col in range(0, m):
-    if matr[row][col] == 0 :
-      continue
-
-    for k in range(col + 1 , m ):
-      matr[row][k] =matr[row][k] // matr[row][col]
-       
-    matr[row][col] = 1 
-    row = row + 1 
-    if row == n :
-       break
-
-
-  return "".join("".join(map(str,x)) for x in matr) 
-
-    rref_matrix = rref(matrix)
-
-    return 0
+    rref(matrix)
+    return "".join("".join(map(str,elem)) for elem in matrix) 
