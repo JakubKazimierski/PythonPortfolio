@@ -16,7 +16,7 @@ class test_StepWalking(unittest.TestCase):
         '''
         Checks if returned output is as expected.
         '''
-        output = StepWalking.StepWalking(13)
+        output = StepWalking.StepWalking(1)
         self.assertEqual(output, 3)
 
    # endregion

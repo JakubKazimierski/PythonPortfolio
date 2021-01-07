@@ -22,29 +22,14 @@ def StepWalking(num):
     number of combinations of climbing num steps.
     '''
     
-    combinations_amount = 0
-    max_steps_comb = []
-    max_steps = num // 2
-    
-    # fill max_steps_comb with max possible amount of 2steps
-    for _ in range(max_steps):
-        max_steps_comb.append(2)
-    if num % 2 != 0:
-        max_steps_comb.append(1)
-        upper_range = len(max_steps_comb)-2
-    else:
-        upper_range = len(max_steps_comb)-1
+    # can be solved by approach to fibbonnaci sequence
+    # as amount of steps at next level of stairs symbolize next
+    # elem of fibbonnaci sequence
 
-    # reverse index iteration till 0
-    for index in range(upper_range, -1, -1):
-        combinations_amount += len(set(permutations(max_steps_comb, len(max_steps_comb))))
-        # after each counted combination, replace 2step with two of 1 step and repeat process
-        max_steps_comb.append(1)
-        max_steps_comb[index] = 1
 
-    # last combination is built from all 1's and for loop does not count it
-    combinations_amount += 1
+    if num == 0 or num == 1:
+        return 1
 
-    return combinations_amount
+    return StepWalking(num-1)+StepWalking(num-2)    
 
 
