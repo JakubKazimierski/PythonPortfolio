@@ -36,7 +36,6 @@ def GasStation(strArr):
     gas_stations = int(strArr[0])
 
     stations = []
-    possible_roads = []
 
     for gain_loss in strArr[1:]:
         stations.append((int(gain_loss.split(":")[0]), int(gain_loss.split(":")[1])))
@@ -63,15 +62,13 @@ def GasStation(strArr):
             if after_trip >= 0:
                 # ((station_id+1) % gas_stations) makes full cycle to index 0
                 trip(stations, ((station_id+1) % gas_stations), road, gas)
-         
-        return road if len(road) == gas_stations + 1 else None
+        
+        # due to indexing from 0 increment output         
+        return road[0]+1 if len(road) == gas_stations + 1 else None
 
     for station_id in range(len(stations)):
-        possible_roads.append(trip(stations, station_id, [], []))
-
-    for road in possible_roads:
-        if road != None:
-            # due to indexing from 0 increment output
-            return road[0] + 1        
+        output = trip(stations, station_id, [], [])
+        if output != None:
+            return output
 
     return "impossible"    
