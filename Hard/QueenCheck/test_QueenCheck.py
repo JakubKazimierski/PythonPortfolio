@@ -17,9 +17,9 @@ class test_QueenCheck(unittest.TestCase):
         Checks if returned output is as expected.
         '''
         pass
-        input_val =  ["(1,6)","(4,3)"]
+        input_val =  ["(8,2)","(7,3)"]
         output = QueenCheck.QueenCheck(input_val)
-        self.assertEqual(output, 6)
+        self.assertEqual(output, 3)
 
    # endregion
 

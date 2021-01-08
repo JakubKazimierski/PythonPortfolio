@@ -27,63 +27,29 @@ def QueenCheck(strArr):
     
     queen_pos, king_pos = eval(strArr[0]), eval(strArr[1])
     
-    # obliqe move as f(x) = x + b (+1) due to indexing from 1
-    b_factor = abs(queen_pos[1] - queen_pos[0])
-
-    def is_queen_in_range(queen_pos, king_pos):
-        '''
-        Returns True if King can capture the Queen.
-        '''
-        if abs(king_pos[0] - queen_pos[0]) == 1 and \
-            abs(king_pos[1] - queen_pos[1]) == 1:
-            return True
-
-    def is_king_checked(queen_pos, king_pos):
-        '''
-        Returns True if King is checked.
-        '''
-        if king_pos[1] == queen_pos[1]:
-            return True
-        elif king_pos[0] == queen_pos[0]:
-            return True
-        # if y = (x_q + delta) + b -> y is in line   
-        elif king_pos[1] == queen_pos[0] + abs(king_pos[0] - queen_pos[0]) + b_factor or\
-                king_pos[1] == (-1)*(queen_pos[0] + abs(king_pos[0] - queen_pos[0])) + (b_factor+2):
-                # for case -x + b (b is greater by 2 because of difference of 2 between -1 and 1)
-            return True    
-
-    if is_king_checked(queen_pos, king_pos):
-        # at corners
-        if king_pos in [(1,1),(1,8),(8,8),(8,1)]:
-            if is_queen_in_range(queen_pos, king_pos):
-                return 3
-            else:
-                return 2    
-        # at left and right border
-        elif king_pos[0] == 1 or king_pos[0] == 8:
-            if is_queen_in_range(queen_pos, king_pos):
-                return 5
-            else:
-                if king_pos[0] == queen_pos[0]:
-                    return 3
-                else:
-                    return 4         
-        # at top and bottom border
-        elif king_pos[1] == 1 or king_pos[1] == 8:
-            if is_queen_in_range(queen_pos, king_pos):
-                return 5
-            else:
-                if king_pos[1] == queen_pos[1]:
-                    return 3
-                else:
-                    return 4         
-        # in the middle
-        else:
-            if is_queen_in_range(queen_pos, king_pos):
-                return 7
-            else:
-                return 6
+    # if king is checked vertical or horizontal
+    if  king_pos[0] == queen_pos[0] or king_pos[1] == queen_pos[1] or\
+        abs(king_pos[1] - queen_pos[1]) == abs(king_pos[0] - queen_pos[0]):# if is checked oblique
+        pass
     else:
         return -1
+
+    # places where king can move
+    # https://stackoverflow.com/questions/2373306/pythonic-and-efficient-way-of-finding-adjacent-cells-in-grid
+    adjacency = [(x+king_pos[0],y+king_pos[1]) for x in (-1,0,1) for y in (-1,0,1) if not (x == y == 0)]
+
+    movements = 0
+    for x,y in adjacency:
+        if x < 1 or x > 8 or y < 1 or y > 8:
+            continue
+        else:
+            if (x == queen_pos[0] or y == queen_pos[1] or abs(y - queen_pos[1]) == abs(x - queen_pos[0])) and\
+                 (x != queen_pos[0] or y != queen_pos[1]):
+                continue
+            else:
+                movements += 1
+      
+    # code goes here
+    return movements
 
 
