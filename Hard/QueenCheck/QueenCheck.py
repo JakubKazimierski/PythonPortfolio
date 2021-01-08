@@ -42,7 +42,7 @@ def QueenCheck(strArr):
     for x,y in adjacency:
         if x < 1 or x > 8 or y < 1 or y > 8:
             continue
-        else:
+        else: # horizontal or vertical or oblique, and not in place of queen
             if (x == queen_pos[0] or y == queen_pos[1] or abs(y - queen_pos[1]) == abs(x - queen_pos[0])) and\
                  (x != queen_pos[0] or y != queen_pos[1]):
                 continue
