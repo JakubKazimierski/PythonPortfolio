@@ -3,7 +3,15 @@ Alphabet Run Encryption from Coderbyte
 January 2021 Jakub Kazimierski
 '''
 
-from string import ascii_lowercase
+def DecodeChar(out, arr, index, step):
+    '''
+    Appends last encrypted letter if out is not empty
+    if it is empty, append first lettter of array and next last decoded.
+    '''
+    if len(out) == 0:
+        out = chr(ord(arr[0]) - step)
+    out += chr(ord(arr[index]) + step)
+    return out
 
 def AlphabetRunEncryption(strParam):
     '''
@@ -43,76 +51,30 @@ def AlphabetRunEncryption(strParam):
     the character preceding N. The input string will never only be composed of repeated characters.
     '''
     
-    from_char = ""
-    count_letters = 0
-    converted = []
-    decreasing = False
-    increasing = False
-    for char_id in range(1, len(strParam)):        
+    out = ''
+    step = 0
+    rules = {'S' : 0, 'N' : 0, 'R' : 1, 'L' : -1}
 
-        if from_char == "":
-            from_char = strParam[char_id-1]
+    for index in range(1, len(strParam)):
+        if strParam[index-1] in rules:
+            continue
 
-        id_letter = ascii_lowercase.index(from_char)
-
-        # first char cannot be uppercase
-        if strParam[char_id] == 'R':
-            decrypted_letter = ascii_lowercase[id_letter-1]
-            converted.append((decrypted_letter, 2))
-
-        elif strParam[char_id] == 'L':
-            decrypted_letter = ascii_lowercase[id_letter+1]
-            converted.append((decrypted_letter, -2))
+        # ord takes ascii num of char
+        dist = ord(strParam[index]) - ord(strParam[index-1])
         
-        elif strParam[char_id] == 'S':
-            converted.append((strParam[char_id-2]+strParam[char_id-1], 0))
-        
-        elif strParam[char_id] == 'N':        
-            converted.append((strParam[char_id-1], 0))
-        
+        if abs(dist) == 1:
+            step = -1 if dist < 0 else 1
+
+            if index == len(strParam) - 1:
+                out = DecodeChar(out, strParam, index, step)
+
+            # belows decode last letter before segment from rules
+            elif strParam[index + 1] == 'N' or\
+                 (index < len(strParam) - 2 and strParam[index + 2] == 'S'):
+                out = DecodeChar(out, strParam, index-1, step)
         else:
-            
-            # if next letter is next in alphabet
-            if strParam[char_id] > strParam[char_id-1]:
-                decrypted_letter = ascii_lowercase[id_letter-1]
-                count_letters += 1
-                increasing = True    
-                if char_id == len(strParam)-1:
-                    # count from char +1 and index of last decrypted letter +1
-                    converted.append((decrypted_letter, count_letters+1+1))
-            
-            elif strParam[char_id] < strParam[char_id-1]:
-                decrypted_letter = ascii_lowercase[id_letter+1]    
-                count_letters -= 1
-                decreasing = True    
-                if char_id == len(strParam)-1:
-                    converted.append((decrypted_letter, count_letters-1-1))
+            # value is provided if it is not in rules
+            step = rules.get(strParam[index], step)
+            out = DecodeChar(out, strParam, index-1, step)
 
-            else:
-                if increasing:
-                    # save decrypted first letter, and counted letters
-                    converted.append((decrypted_letter, count_letters+1+1))
-                if decreasing:
-                    converted.append((decrypted_letter, count_letters-1-1))
-
-                decreasing = False
-                increasing = False    
-                count_letters = 0
-                from_char = ""
-
-    output = ""
-    for conv in converted:
-        letter_id = ascii_lowercase.index(conv[0])
-        if conv[1] != 0:
-            if len(output) > 0 and output[-1] == conv[0]:
-                output += ascii_lowercase[letter_id + conv[1]] 
-            else:
-                output += conv[0] + ascii_lowercase[letter_id + conv[1]] 
-        else:
-            # case: abSbaS = aba not abba
-            if len(conv[0]) == 2 and output[-1] == conv[0][0]:
-                output += conv[0][1]
-            else:
-                output += conv[0]
-
-    return output
+    return out
