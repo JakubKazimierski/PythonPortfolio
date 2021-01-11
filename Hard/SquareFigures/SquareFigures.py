@@ -5,6 +5,7 @@ January 2021 Jakub Kazimierski
 
 from itertools import count, islice
 import sys
+import math
 
 def SquareFigures(num):
     '''
@@ -18,7 +19,10 @@ def SquareFigures(num):
     '''
     
     # isslice only needs to memorize the initial arguments you provide
-    # and generates every number on-the-fly
-    for i in islice(count(0), sys.maxsize):
+    # and generates every number on-the-fly, it's faster than range()
+
+    # let's upper border be number of legth sqrt(num+1)
+    # because it's contains all generators of numbers of lenght num
+    for i in islice(count(0), int(math.sqrt((10**(num+1))))):
         if len(str(i**2)) == num:
             return i
