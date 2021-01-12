@@ -28,23 +28,20 @@ def MatrixBorder(strArr):
     matrix = [row.replace("(", "").replace(")", "").split(",") for row in strArr]
 
     if '0' in matrix[0]:
-        matrix[0], matrix[1] = copy.copy(matrix[1]), copy.copy(matrix[0])
         steps += 1
 
     if '0' in matrix[-1]:   
-        matrix[-1], matrix[-2] = copy.copy(matrix[-2]), copy.copy(matrix[-1])
         steps += 1
 
+    in_first_column = 0
+    in_last_column = 0
     for row_id in range(len(matrix)):
         if '0' in matrix[row_id][0]:    
-            steps += 1
-            for row_id in range(len(matrix)):
-                matrix[row_id][0], matrix[row_id][1] = matrix[row_id][1], matrix[row_id][0]
+            in_first_column = 1
 
         if '0' in matrix[row_id][-1]:
-            steps += 1
-            for row_id in range(len(matrix)):
-                matrix[row_id][-1], matrix[row_id][-2] = matrix[row_id][-2], matrix[row_id][-1]
+            in_last_column = 1
 
+    steps += in_first_column + in_last_column
 
     return steps 
