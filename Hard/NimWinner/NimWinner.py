@@ -31,6 +31,14 @@ def NimWinner(arr):
     # the beginning of the game is non-zero. Otherwise, if the XOR Nim-Sum evaluates 
     # to zero, then player A will lose definitely.”
 
+    # in other words if piles can sum up to the same values, then player A, want it
+    # to be different, but at two last moves, player 2 remove coin from pile, and there
+    # is at least one coin on the other pile (only way to keeps difference), so player B wins
+    # 
+    # if piles sum up to different values then player A wants to have different values of piles
+    # so when it comes to last moves he has to leave one pile, which will be picked up by player B
+    # who wants the same values, and player B wins
+
     xor = eval('^'.join([str(val) for val in arr]))
 
     if xor == 0:
