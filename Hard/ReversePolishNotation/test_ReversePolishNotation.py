@@ -16,8 +16,8 @@ class test_ReversePolishNotation(unittest.TestCase):
         '''
         Checks if returned output is as expected.
         '''
-        output = ReversePolishNotation.ReversePolishNotation("1 2 + 3 *")
-        self.assertEqual(output, 9)
+        output = ReversePolishNotation.ReversePolishNotation("4 5 + 2 1 + *")
+        self.assertEqual(output, 27)
 
    # endregion
 

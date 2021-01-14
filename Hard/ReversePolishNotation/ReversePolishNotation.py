@@ -22,6 +22,7 @@ def ReversePolishNotation(strParam):
         if char.isnumeric():
             arr.append(char)
         else:
+            # below pops two last appended elems
             num_2 = arr.pop()
             num_1 = arr.pop()
             arr.append(eval(f"{num_1}{char}{num_2}"))
