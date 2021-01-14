@@ -11,7 +11,7 @@ Jakub Kazimierski
 
 ## Description
 
-Each day, repository is updated with next tasks. Tasks are similiar to recruitment tests, so if you'd like to practise before interview fell free to clone this repository. By solving different tasks with dofferent level of difficulty I want to improve my skills and prepare for job interviews. Also into this directory I'm planning to push some other projects, which can improve my skills in Python. Version used by me is Python 3.8.6.
+Each day, repository is updated with next tasks. Tasks are similiar to recruitment tests, so if you'd like to practise before interview fell free to clone this repository. By solving different tasks with different level of difficulty I want to improve my skills and prepare for job interviews. Also into this directory I'm planning to push some other projects, which can improve my skills in Python. Version used by me is Python 3.8.6.
 
 ## Directories
 
