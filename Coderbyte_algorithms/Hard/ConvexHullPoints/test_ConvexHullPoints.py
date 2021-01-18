@@ -18,7 +18,7 @@ class test_ConvexHullPoints(unittest.TestCase):
         '''
         input_val = ["(0,1)", "(3,6)", "(2,2)", "(0,7)"] 
         output = ConvexHullPoints.ConvexHullPoints(input_val)
-        self.assertEqual(output, 3)
+        self.assertEqual(output, 4)
    # endregion
 
 if __name__ == "__main__":

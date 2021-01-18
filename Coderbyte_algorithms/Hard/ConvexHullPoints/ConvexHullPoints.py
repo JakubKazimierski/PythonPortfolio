@@ -67,7 +67,7 @@ def ConvexHullPoints(strArr):
         wise point in q. If any point 'i' is more counterclock-  
         wise than q, then update q.  
         '''
-        point_I_id = (point_I_id + 1) % len(points_arr) 
+        point_II_id = (point_I_id + 1) % len(points_arr) 
   
         for point_index in range(len(points_arr)): 
               
