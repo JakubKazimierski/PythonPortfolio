@@ -71,8 +71,8 @@ def ConvexHullPoints(strArr):
   
         for point_index in range(len(points_arr)): 
               
-            # If i is more counterclockwise  
-            # than current q, then update q  
+            # If point_index is more counterclockwise  
+            # than current point_II_id, then update point_II_id  
             if(orientation(points_arr[point_I_id], points_arr[point_index], points_arr[point_II_id]) == 2): 
                 point_II_id = point_index 
   
