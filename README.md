@@ -15,7 +15,8 @@ Each day, repository is updated with next tasks. Tasks are similiar to recruitme
 
 ## Directories
 
-In Coderbyte directory I placed all solved by me tasks from site Coderbyte.com
+In Coderbyte directory I placed all solved by me tasks from site Coderbyte.com, before rankings were deleted
+it placed me at top 10 of users https://coderbyte.com/profile/Kazik
 
 In PLY_calculator I placed based on PLY lexer and parser calculator with reverse polish notation for modular group, task from my university.
 
