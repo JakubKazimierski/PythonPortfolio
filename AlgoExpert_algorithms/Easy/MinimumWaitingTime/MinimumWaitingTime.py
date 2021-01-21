@@ -31,8 +31,8 @@ def minimumWaitingTime(queries):
 
     Note: you're allowed to mutate the input array.
     '''
-
-    perm = list(permutations(queries, len(queries)))
+    # time O(nlogn) | space O(1)
+    sorted_query = sorted(queries)
 
     def count_times(list):
         time = []
@@ -42,8 +42,4 @@ def minimumWaitingTime(queries):
             time.append(curr_time)
         return sum(time)
 
-    times = []
-    for permutation in perm:
-        times.append(count_times(list(permutation)))
-
-    return min(times)
+    return count_times(sorted_query)
