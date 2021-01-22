@@ -1,14 +1,14 @@
 '''
-Unittests for BubbleSort.py
+Unittests for InsertionSort.py
 January 2021 Jakub Kazimierski
 '''
 
 import unittest
-import BubbleSort
+import InsertionSort
 
-class test_BubbleSort(unittest.TestCase):    
+class test_InsertionSort(unittest.TestCase):    
     '''
-    Class with unittests for BubbleSort.py
+    Class with unittests for InsertionSort.py
     '''
 
     # region Unittests
@@ -17,7 +17,7 @@ class test_BubbleSort(unittest.TestCase):
         Checks if returned output is as expected.
         '''
         input_arr  = [8, 5, 2, 9, 5, 6, 3]
-        output = BubbleSort.bubbleSort(input_arr)
+        output = InsertionSort.insertionSort(input_arr)
         self.assertEqual(output, [2, 3, 5, 5, 6, 8, 9])
    # endregion
 
