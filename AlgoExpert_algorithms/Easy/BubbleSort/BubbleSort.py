@@ -17,9 +17,9 @@ def bubbleSort(array):
         return array
 
     for elem_id in range(len(array)):
-        # at each iteration algorithm finds current minimum
-        for elem_id_II in range(elem_id + 1, len(array)):
-            if array[elem_id_II] < array[elem_id]:
-                array[elem_id], array[elem_id_II] = array[elem_id_II], array[elem_id]
+        # at each iteration algorithm finds current max
+        for elem_id_II in range(0, len(array)-1 - elem_id):
+            if array[elem_id_II] > array[elem_id_II + 1]:
+                array[elem_id_II + 1], array[elem_id_II] = array[elem_id_II], array[elem_id_II + 1]
 
     return array
