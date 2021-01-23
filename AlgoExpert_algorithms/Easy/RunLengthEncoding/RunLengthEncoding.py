@@ -31,7 +31,7 @@ def runLengthEncoding(string):
     output = ""
 
     if len(string) < 2:
-        return str(1) + string
+        return str(counter) + string
     else:    
         for elem_id in range(len(string)-1):
 
@@ -45,7 +45,7 @@ def runLengthEncoding(string):
                 if string[elem_id] == string[elem_id+1]:
                     output += str(counter) + string[elem_id]
                 else:
-                    output += str(1) + string[elem_id+1]
+                    output += str(counter) + string[elem_id+1]
                     
         return output
 

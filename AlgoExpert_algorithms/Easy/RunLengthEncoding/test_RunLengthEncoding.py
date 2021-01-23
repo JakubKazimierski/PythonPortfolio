@@ -16,7 +16,6 @@ class test_RunLengthEncoding(unittest.TestCase):
         '''
         Checks if returned output is as expected.
         '''
-        pass
         input_str  = "AAAAAAAAAAAAABBCCCCDD"
         output = RunLengthEncoding.runLengthEncoding(input_str)
         self.assertEqual(output, "9A4A2B4C2D")
