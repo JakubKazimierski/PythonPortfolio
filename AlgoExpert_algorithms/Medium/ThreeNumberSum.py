@@ -3,7 +3,6 @@ Three Number Sum from ALgoExpert.com
 January 2021 Jakub Kazimierski
 '''
 
-from itertools import combinations
 
 def threeNumberSum(array, targetSum):
     '''
@@ -19,11 +18,15 @@ def threeNumberSum(array, targetSum):
     If no three numbers sum up to the target sum, the function
     should return an empty array.
     '''
-    
-    comb = combinations(array, 3)
     triplets = []
-    for combination in comb:
-        if sum(list(combination)) == targetSum:
-            triplets.append(sorted(list(combination)))
 
+    for elem in array:
+        second_target = targetSum - elem
+        for elem_II in array:
+            if elem_II != elem:
+                final_target = second_target - elem_II
+                if final_target != elem and final_target != elem_II:
+                    if final_target in array and\
+                        sorted([elem, elem_II, final_target]) not in triplets:
+                        triplets.append(sorted([elem, elem_II, final_target]))                        
     return sorted(triplets)
