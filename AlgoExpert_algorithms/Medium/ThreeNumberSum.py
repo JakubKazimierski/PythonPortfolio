@@ -18,15 +18,28 @@ def threeNumberSum(array, targetSum):
     If no three numbers sum up to the target sum, the function
     should return an empty array.
     '''
+    # O(n^2) time | O(n) space
+    array.sort()
     triplets = []
 
-    for elem in array:
-        second_target = targetSum - elem
-        for elem_II in array:
-            if elem_II != elem:
-                final_target = second_target - elem_II
-                if final_target != elem and final_target != elem_II:
-                    if final_target in array and\
-                        sorted([elem, elem_II, final_target]) not in triplets:
-                        triplets.append(sorted([elem, elem_II, final_target]))                        
-    return sorted(triplets)
+    for index in range(len(array)-2):
+        # if left index increments sum has to increment also
+        left_p = index + 1
+        # if right pointer decreases sum has to decrease also
+        right_p = len(array)-1
+
+        while left_p < right_p:
+            currSum = array[index] + array[left_p] + array[right_p]
+
+            if currSum == targetSum:
+                triplets.append([array[index], array[left_p], array[right_p]])
+                left_p += 1
+                right_p -= 1
+            elif currSum < targetSum:
+                left_p += 1
+            else:
+                right_p -= 1
+
+    return triplets
+
+
