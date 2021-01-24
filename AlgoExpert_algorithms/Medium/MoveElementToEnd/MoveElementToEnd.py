@@ -15,7 +15,7 @@ def moveElementToEnd(array, toMove):
     the order of the other integers.
     '''
     
-
+    '''
     # O(n) time | O(n) space
     to_extend = []    
     while toMove in array:
@@ -23,4 +23,18 @@ def moveElementToEnd(array, toMove):
     
     array.extend(to_extend)
     return array
+    '''
 
+    #O(n) time | O(1) space
+    left_id = 0
+    right_id = len(array)-1
+    while left_id < right_id:
+        # right_id stops when toMove elements at right side ends
+        while left_id < right_id and array[right_id] == toMove:
+            right_id -= 1
+        # swao toMove elements with occurences of other elems    
+        if array[left_id] == toMove:
+            array[left_id], array[right_id] = array[right_id], array[left_id] 
+        left_id += 1
+    # althought order of other elements is not maintain               
+    return array
