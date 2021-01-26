@@ -15,14 +15,14 @@ Each day, repository is updated with next tasks. Tasks are similiar to recruitme
 
 ## Directories
 
-In Coderbyte directory I placed all solved by me tasks from site Coderbyte.com, before rankings were deleted
+In **Coderbyte_algorithms** directory I placed all solved by me tasks from site Coderbyte.com, before rankings were deleted
 it placed me at top 10 of users https://coderbyte.com/profile/Kazik
 
-In AlgoExpert directory I placed all solved by me tasks from site AlgoExpert.com
+In **AlgoExpert_algorithms** directory I placed all solved by me tasks from site AlgoExpert.com
 
-In Django directory I placed all created by me django projects.
+In **Django** directory I placed all created by me django projects.
 
-In PLY_calculator I placed based on PLY lexer and parser calculator with reverse polish notation for modular group, task from my university.
+In **PLY_calculator** I placed based on PLY lexer and parser calculator with reverse polish notation for modular group, task from my university.
 
-In SortingAlgorithms directory I placed most used sorting algorithms.
+In **SortingAlgorithms** directory I placed most used sorting algorithms.
 
