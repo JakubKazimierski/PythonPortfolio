@@ -14,7 +14,7 @@ class test_MinHeightBST(unittest.TestCase):
     # region Unittests
     def test_preorderOutput(self):
         '''
-        Checks inorder method
+        Checks if preorder output is correct for builded tree.
         '''
 
         input_arr = [1, 2, 5, 7, 10, 13, 14, 15, 22]
