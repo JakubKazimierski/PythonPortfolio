@@ -4,7 +4,7 @@ January 2021 Jakub Kazimierski
 '''
 
 import unittest
-from BST_Construction import BST
+from BST_Construction import BST, setUp
 
 class test_BST_Construction(unittest.TestCase):    
     '''
@@ -16,10 +16,7 @@ class test_BST_Construction(unittest.TestCase):
         '''
         Checks insertion method
         '''
-        root = BST(5)
-        root.insert(10)
-        root.insert(2)
-        root.insert(3)
+        root = setUp()
 
         self.assertEqual(root.left.value, 2)
         self.assertEqual(root.right.value, 10)
@@ -30,12 +27,9 @@ class test_BST_Construction(unittest.TestCase):
         '''
         Checks deletion method
         '''
-        root = BST(5)
-        root.insert(10)
-        root.insert(2)
-        root.insert(3)
-        root.remove(2)
+        root = setUp()
 
+        root.remove(2)
         self.assertEqual(root.left.value, 3)
         self.assertEqual(root.right.value, 10)
         self.assertEqual(root.left.right, None)
@@ -45,13 +39,9 @@ class test_BST_Construction(unittest.TestCase):
         '''
         Checks conatins method
         '''
-        root = BST(5)
-        root.insert(10)
-        root.insert(2)
-        root.insert(3)
-        root.remove(2)
+        root = setUp()
 
-        self.assertEqual(root.contains(2), False)
+        self.assertEqual(root.contains(2), True)
         self.assertEqual(root.contains(10), True)
         self.assertEqual(root.contains(3), True)
         self.assertEqual(root.contains(5), True)

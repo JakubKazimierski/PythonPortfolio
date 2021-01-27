@@ -33,6 +33,17 @@ class BST:
 
         return self
 
+def setUp():
+    '''
+    Returns BST tree for tests
+    '''
+    root = BST(5)
+    root.insert(10)
+    root.insert(2)
+    root.insert(3)
+
+    return root    
+
 def validateBst(tree):
     '''
     Write a function that takes in

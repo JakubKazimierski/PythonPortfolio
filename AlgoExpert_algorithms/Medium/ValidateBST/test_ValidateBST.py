@@ -4,7 +4,7 @@ January 2021 Jakub Kazimierski
 '''
 
 import unittest
-from ValidateBST import BST, validateBst
+from ValidateBST import BST, validateBst, setUp
 
 class test_ValidateBST(unittest.TestCase):    
     '''
@@ -16,10 +16,7 @@ class test_ValidateBST(unittest.TestCase):
         '''
         Checks insertion method
         '''
-        root = BST(5)
-        root.insert(10)
-        root.insert(2)
-        root.insert(3)
+        root = setUp()
 
         self.assertEqual(root.left.value, 2)
         self.assertEqual(root.right.value, 10)
@@ -30,11 +27,7 @@ class test_ValidateBST(unittest.TestCase):
         '''
         Checks deletion method
         '''
-        root = BST(5)
-        root.insert(10)
-        root.insert(2)
-        root.insert(3)
-
+        root = setUp()
         self.assertEqual(validateBst(root), True)
 
    # endregion

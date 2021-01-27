@@ -132,3 +132,14 @@ class BST:
         while current_node.left is not None:
             current_node = current_node.left
         return current_node.value    
+
+def setUp():
+    '''
+    Returns BST tree for tests
+    '''
+    root = BST(5)
+    root.insert(10)
+    root.insert(2)
+    root.insert(3)
+
+    return root    
