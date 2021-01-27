@@ -43,7 +43,7 @@ class test_BST_Construction(unittest.TestCase):
    
     def test_Contains(self):
         '''
-        Checks deletion method
+        Checks conatins method
         '''
         root = BST(5)
         root.insert(10)
