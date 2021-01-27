@@ -31,3 +31,21 @@ class Node:
             child.depthFirstSearch(array)
 
         return array    
+
+def setUp():
+    '''
+    Returns tree for tests
+    '''
+    root = Node("A")
+    root.addChild(Node("B"))
+    root.addChild(Node("C"))
+    root.addChild(Node("D"))
+    root.children[0].addChild(Node("E"))
+    root.children[0].addChild(Node("F"))
+    root.children[0].children[1].addChild(Node("I"))
+    root.children[0].children[1].addChild(Node("J"))
+    root.children[2].addChild(Node("G"))
+    root.children[2].addChild(Node("H"))
+    root.children[2].children[0].addChild(Node("K"))
+    
+    return root            

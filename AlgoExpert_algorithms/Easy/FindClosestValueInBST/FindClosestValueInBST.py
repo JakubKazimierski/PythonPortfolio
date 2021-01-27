@@ -55,15 +55,41 @@ class BST:
         self.left = None
         self.right = None
 
-def insert(root, value): 
-    if root is None: 
-        return BST(value) 
-    else: 
-        if root.value == value: 
-            return root 
-        elif root.value < value: 
-            root.right = insert(root.right, value) 
-        else: 
-            root.left = insert(root.left, value) 
-    return root 
+    def insert(self, value):
+        '''
+        Avg Time O(log(n)) | space O(1)
+        worst time O(n) | space O(1)
+        '''
+
+        current_node = self
+
+        while True:
+            if value < current_node.value:
+                if current_node.left is None:
+                    current_node.left = BST(value)
+                    break
+                else:
+                    current_node = current_node.left    
+            if value >= current_node.value:
+                if current_node.right is None:
+                    current_node.right = BST(value)
+                    break
+                else:
+                    current_node = current_node.right 
 # endregion    
+
+def setUp():
+    '''
+    Returns BST tree for tests
+    '''
+    root = BST(10)
+    root.insert(5)
+    root.insert(15)
+    root.insert(2)
+    root.insert(5)
+    root.insert(1)
+    root.insert(22)
+    root.insert(13)
+    root.insert(14)
+
+    return root    

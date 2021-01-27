@@ -4,7 +4,7 @@ January 2021 Jakub Kazimierski
 '''
 
 import unittest
-from DepthFirstSearch import Node
+from DepthFirstSearch import Node, setUp
 
 class test_DepthFirstSearch(unittest.TestCase):    
     '''
@@ -18,18 +18,7 @@ class test_DepthFirstSearch(unittest.TestCase):
         '''
 
         # below creates linked Binary Tree        
-        root = Node("A")
-        root.addChild(Node("B"))
-        root.addChild(Node("C"))
-        root.addChild(Node("D"))
-        root.children[0].addChild(Node("E"))
-        root.children[0].addChild(Node("F"))
-        root.children[0].children[1].addChild(Node("I"))
-        root.children[0].children[1].addChild(Node("J"))
-        root.children[2].addChild(Node("G"))
-        root.children[2].addChild(Node("H"))
-        root.children[2].children[0].addChild(Node("K"))
-
+        root = setUp()
     
         def traverse_for_output(node, array_out):
             '''
