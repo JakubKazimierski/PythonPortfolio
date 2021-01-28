@@ -3,9 +3,22 @@ Invert Binary Tree from AlgoExpert.io
 January 2021 Jakub Kazimierski
 '''
 
+'''
+Write a function that takes in a Binary Tree 
+and inverts it. In other words, the function should swap
+every left node in the tree for its corresponding
+right node.
+
+Each Binary Tree node has an integer value,
+a left child node, and a right child node.
+Children nodes can either be BinaryTree
+nodes themselves or None/null.
+'''
+
 def invertBinaryTree(tree):
     '''
-    Time O(n) | space O(d) where d is depth of Btree 
+    Time O(n) | space O(d) where d is depth of Btree
+    Starts swapping nodes from lowest left level to the right side. 
     '''
     # first traverse max at left
     if tree.left is not None:
