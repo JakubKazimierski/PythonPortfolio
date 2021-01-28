@@ -3,16 +3,16 @@ from django.http import HttpResponse
 
 posts = [
     {
-        'author' : 'Jakub K',
+        'author' : 'Jakub Kazimierski',
         'title' : 'First post',
-        'content' : 'First content',
+        'content' : 'First tweet',
         'date_posted' : 'January 28 2021',
     
     },
     {
-        'author' : 'Jakub K',
+        'author' : 'Jakub Kazimierski',
         'title' : 'Second post',
-        'content' : 'Second content',
+        'content' : 'Second tweet',
         'date_posted' : 'January 28 2021',
     
     }
@@ -35,4 +35,4 @@ def about(request):
     '''
     View of description page.
     '''
-    return render(request, 'blog/about.html')
+    return render(request, 'blog/about.html', {'title' : 'Description Site'})
