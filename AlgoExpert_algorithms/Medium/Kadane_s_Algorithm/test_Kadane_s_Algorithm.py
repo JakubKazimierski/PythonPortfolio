@@ -6,7 +6,7 @@ January 2021 Jakub Kazimierski
 import unittest
 from Kadane_s_Algorithm import kadanesAlgorithm
 
-class test_LavenshteinDistance(unittest.TestCase):    
+class test_Kadane_s_Algorithm(unittest.TestCase):    
     '''
     Class with unittests for Kadane_s_Algorithm.py
     '''
