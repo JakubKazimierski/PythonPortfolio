@@ -56,6 +56,10 @@ def riverSizes(matrix):
         for col_id in range(len(matrix[row_id])):
             if matrix[row_id][col_id] == 1:
                 lengths.append(move_cross(row_id, col_id, 0))
+                
+                # if matrix contained all 1's return array ASAP
+                if sum(lengths) == len(matrix)*len(matrix[row_id]):
+                    return lengths
 
     return lengths
 
