@@ -45,7 +45,8 @@ def riverSizes(matrix):
             
             if 0 <= next_row < len(matrix) and 0 <= next_col < len(matrix[0]) and\
                 matrix[next_row][next_col] == 1:
-                return move_cross(next_row, next_col, length)
+                # below sums up all occurences of adjacent(cross-like) 1's
+                length += move_cross(next_row, next_col, 0)
 
         return length
 
