@@ -36,7 +36,8 @@ class Node:
         '''
         
         # implementation based on queue (fifo)
-        # time O(v+e) v-vertices e-edges| space O(n)
+        # time O(v+e) for each vertex edges are checked
+        #  v-vertices e-edges| space O(n)
         queue = []
 
         array.append(self.name)
