@@ -1,6 +1,6 @@
 '''
 First Duplicate Value from AlgoExpert.io
-January 2021 Jakub Kazimierski
+February 2021 Jakub Kazimierski
 '''
 
 def firstDuplicateValue(array):

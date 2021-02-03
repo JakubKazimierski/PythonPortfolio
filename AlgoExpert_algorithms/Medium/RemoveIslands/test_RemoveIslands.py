@@ -1,6 +1,6 @@
 '''
 Unittests for RemoveIslands.py
-January 2021 Jakub Kazimierski
+February 2021 Jakub Kazimierski
 '''
 
 import unittest

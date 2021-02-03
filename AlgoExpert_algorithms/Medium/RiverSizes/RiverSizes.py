@@ -1,6 +1,6 @@
 '''
 River Sizes from AlgoExpert.io
-January 2021 Jakub Kazimierski
+February 2021 Jakub Kazimierski
 '''
 
 def riverSizes(matrix):
