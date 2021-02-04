@@ -59,6 +59,6 @@ def validStartingCity(distances, fuel, mpg):
         if min_value > miles_left:
             min_value = miles_left
             # city to which we going to
-            city_idx = idx+1
+            city_idx = idx+1 % len(distances)
 
     return city_idx
