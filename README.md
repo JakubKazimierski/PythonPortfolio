@@ -26,3 +26,5 @@ In **PLY_calculator** I placed based on PLY lexer and parser calculator with rev
 
 In **SortingAlgorithms** directory I placed most used sorting algorithms.
 
+In **DataStructures** directory I placed commonly used data structures.
+
