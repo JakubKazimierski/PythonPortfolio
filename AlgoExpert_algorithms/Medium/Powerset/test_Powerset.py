@@ -4,7 +4,7 @@ February 2021 Jakub Kazimierski
 '''
 
 import unittest
-from Powerset import powerset
+from Powerset import powerset, powerset_recurency
 
 class test_Powerset(unittest.TestCase):    
     '''
@@ -23,7 +23,7 @@ class test_Powerset(unittest.TestCase):
         return self.input, self.output
 
     # region Unittests
-    def test_RemoveKthNodeFromEnd(self):   
+    def test_Iterative_method(self):   
         '''
         Checks if output is correct.
         '''
@@ -31,6 +31,16 @@ class test_Powerset(unittest.TestCase):
         
         
         output = powerset(input_list)
+        self.assertEqual(output, correct_output)
+
+    def test_Recurency_method(self):   
+        '''
+        Checks if output is correct.
+        '''
+        input_list, correct_output = self.SetUp()
+        
+        
+        output = powerset_recurency(input_list)
         self.assertEqual(output, correct_output)
 
 

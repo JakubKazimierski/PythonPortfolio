@@ -29,3 +29,24 @@ def powerset(array):
             sets.append(current_set + [elem])
 
     return sets        
+
+def powerset_recurency(array, idx = None):
+    '''
+    Time O((n^2)*n) | Space O((n^2)*n)
+    Recurency method.
+    Returns powerset of elements in array.
+    '''
+    if idx is None:
+        idx = len(array)-1
+    if idx < 0:
+        return [[]]
+
+    # calls itself with lower index
+    previous_sets = powerset_recurency(array, idx-1)
+    current_elem = array[idx]
+    for set_idx in range(len(previous_sets)):
+        # add new set with new element into previous ones, 
+        # new element's sets doubles number of sets so we have O(2^n) and n elements
+        previous_sets.append(previous_sets[set_idx] + [current_elem])
+
+    return previous_sets
