@@ -17,7 +17,6 @@ class test_Powerset(unittest.TestCase):
         '''
         
         self.input = [1, 2, 3]
-        # due to list in list is not hashable type, use tuple for permutation 
         self.output = [[], [1], [2], [1, 2], [3], [1, 3], [2, 3], [1, 2, 3]]
 
         return self.input, self.output
