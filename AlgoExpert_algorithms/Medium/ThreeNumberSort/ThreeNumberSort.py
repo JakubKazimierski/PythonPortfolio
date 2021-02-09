@@ -33,7 +33,7 @@ def threeNumberSort(array, order):
     # #########################
     # buckets = [0, 0, 0]
 
-    # # below conuts occurences of elements
+    # # below counts occurences of elements
     # for elem in array:
     #    idx_bucket = order.index(elem)
     #    buckets[idx_bucket] += 1
@@ -54,26 +54,53 @@ def threeNumberSort(array, order):
     # traverse both directions aproach
     # O(n) time | O(1) space
     # ##################################
+    # firstValue = order[0]
+    # thirdValue = order[2]
+
+    # # below sort first value
+    # first_idx = 0
+    # for idx in range(len(array)):
+    #     if array[idx] == firstValue:
+    #         array[first_idx], array[idx] = array[idx], array[first_idx]
+    #         first_idx += 1
+
+    # # below sorts last value, so after
+    # # that middle value will be sorted too
+    # last_idx = len(array)-1
+    # for idx in reversed(range(0, len(array))):
+    #     if array[idx] == thirdValue:
+    #         array[idx], array[last_idx] = array[last_idx], array[idx]
+    #         last_idx -= 1
+
+    # return array        
+
+
+    # #################################
+    # traverse one directions aproach
+    # O(n) time | O(1) space
+    # ##################################
     firstValue = order[0]
-    thirdValue = order[2]
+    secondValue = order[1]
 
-    # below sort first value
-    first_idx = 0
-    for idx in range(len(array)):
-        if array[idx] == firstValue:
-            array[first_idx], array[idx] = array[idx], array[first_idx]
+    first_idx = second_idx = 0
+    third_idx = len(array)-1
+
+    # like pivot in quick sort
+    # if second value is found, just increment idx
+    # in all other cases values first and third, are swapped to correct places
+    # so also middle value is going to the correct places then
+    while second_idx <= third_idx:
+        value = array[second_idx]
+        if value == firstValue:
+            array[first_idx], array[second_idx] = array[second_idx], array[first_idx]
             first_idx += 1
+            second_idx += 1
 
-    # below sorts last value, so after
-    # that middle value will be sorted too
-    last_idx = len(array)-1
-    for idx in reversed(range(0, len(array))):
-        if array[idx] == thirdValue:
-            array[idx], array[last_idx] = array[last_idx], array[idx]
-            last_idx -= 1
+        elif value == secondValue:
+            second_idx += 1
 
+        else:
+            array[third_idx], array[second_idx] = array[second_idx], array[third_idx]            
+            third_idx -= 1
     return array        
-
-
-
 
