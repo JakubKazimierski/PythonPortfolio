@@ -19,34 +19,53 @@ def groupAnagrams(words):
     of anagram groups in no particular order.
     '''
 
-    if len(words) == 0:
-        return []
+    # MORE USED SPACE APPROACH
+    # if len(words) == 0:
+    #     return []
 
-    # Time O(words*n*log(n)) | space O(words*n) whre n is longest word
-    sortedWords = ["".join(sorted(word)) for word in words]    
-    indexes_arr = [idx for idx in range(len(words))]
-    # sort indexes by alphabetical order of words idxs represents
-    # Time O(n*words*log(words)) | space O(words) 
-    indexes_arr.sort(key=lambda idx: sortedWords[idx])
+    # # Time O(words*n*log(n)) | space O(words*n) whre n is longest word
+    # sortedWords = ["".join(sorted(word)) for word in words]    
+    # indexes_arr = [idx for idx in range(len(words))]
+    # # sort indexes by alphabetical order of words idxs represents
+    # # Time O(n*words*log(words)) | space O(words) 
+    # indexes_arr.sort(key=lambda idx: sortedWords[idx])
 
-    output_arr = []
-    current_group = []
-    current_anagram = sortedWords[indexes_arr[0]]
+    # output_arr = []
+    # current_group = []
+    # current_anagram = sortedWords[indexes_arr[0]]
   
-    # Time O(n) | Space O(n*words)
-    for idx in indexes_arr:
-        if sortedWords[idx] == current_anagram:
-            current_group.append(words[idx])
-            continue
+    # # Time O(n) | Space O(n*words)
+    # for idx in indexes_arr:
+    #     if sortedWords[idx] == current_anagram:
+    #         current_group.append(words[idx])
+    #         continue
 
-        output_arr.append(current_group)
-        current_group = [words[idx]]
-        current_anagram = sortedWords[idx]
+    #     output_arr.append(current_group)
+    #     current_group = [words[idx]]
+    #     current_anagram = sortedWords[idx]
 
-    # when loop ends one group still left, so append it
-    output_arr.append(current_group)        
+    # # when loop ends one group still left, so append it
+    # output_arr.append(current_group)        
 
-    return output_arr
+    # return output_arr
+
+
+    # DICTIONARY APPROACH
+    # Time O(words*n*log(n)) | space O(words*n) where n is longest word
+    anagrams = {}
+    for word in words:
+        sortedWord = "".join(sorted(word))
+    
+        if sortedWord in anagrams:
+            anagrams[sortedWord].append(word)
+        else:
+            anagrams[sortedWord] = [word]
+    return list(anagrams.values())            
+
+
+
+
+
 
 def compare_lists(list_I, list_II):
     '''
