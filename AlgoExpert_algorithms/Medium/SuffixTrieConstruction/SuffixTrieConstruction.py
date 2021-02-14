@@ -14,9 +14,41 @@ class SuffixTrie:
         self.populateSuffixTrieFrom(string)
 
     def populateSuffixTrieFrom(self, string):
-        # Write your code here.
-        pass
+        '''
+        Populates suffix tree
+        Time O(n^2) | space O(n^2)
+        Where n is length of string.
+        '''
+        for idx in range(len(string)):
+            self.insertFrom(idx, string)
+
+    def insertFrom(self, idx, string):
+        '''
+        Time O(n) | space O(n) 
+        where n is length of suffix
+        Creates branch of tree.
+        '''
+        node = self.root
+        for idx_2 in range(idx, len(string)):
+            letter = string[idx_2]
+            if letter not in node:
+                # key : {} initialization
+                node[letter] = {}
+            node = node[letter]
+        node[self.endSymbol] = True        
+
 
     def contains(self, string):
-        # Write your code here.
-        pass
+        '''
+        Time O(n) | space O(1) 
+        where n is length of suffix
+        Check for suffix in tree.
+        '''
+        node = self.root
+
+        for idx in range(len(string)):
+            letter = string[idx]
+            if letter not in node:
+                return False
+            node = node[letter]
+        return self.endSymbol in node
