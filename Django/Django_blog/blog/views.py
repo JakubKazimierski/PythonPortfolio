@@ -1,19 +1,22 @@
 from django.shortcuts import render
 from django.http import HttpResponse
+from django.views.generic import ListView, DetailView, CreateView
 from .models import Post
 
 
-def home(request):
-    '''
-    View of home page.
-    '''
+class PostListView(ListView):
+    model = Post
+    template_name = 'blog/home.html' # app/model_viewtype.html
+    context_object_name = 'posts'
+    oredering = ['-date_posted']
 
-    context = {
-        'posts' : Post.objects.all()
-    }
+class PostDetailView(DetailView):
+    model = Post
 
-    return render(request, 'blog/home.html', context)
-    
+class PostCreateView(CreateView):
+    model = Post
+    fields = ['title', 'content']
+
 def about(request):
     '''
     View of description page.
