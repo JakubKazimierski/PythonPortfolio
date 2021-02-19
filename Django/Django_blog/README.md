@@ -23,7 +23,13 @@ and it's palylist about Django tests.
 
 **Django_blog** - contains files created by command **"django-admin startproject \[directory_name\]"**<br />
 **blog** - contains files created by command **"python manage.py startapp \[directory_name\]"**<br />
-       it also contains files created by me.
+       it also contains files created by me.<br />
+**Media** - contains image files.<br />
+**Users** - contains users models.<br />
+
+Before run app install requirements.txt by typing **pip install -r requirements.txt**
+
+To run app type **python manage.py runserver**
 
 ## Tests
 In order to run tests, run in your terminal command **"python manage.py test blog"**
