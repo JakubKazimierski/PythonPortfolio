@@ -24,3 +24,17 @@ def minRewards(scores):
     You can assume that all students have different scores;
     In other words, the scores are all unique.
     '''
+
+    # O(n) space
+    rewards = [1]*len(scores)
+
+    # O(n) time 
+    for idx in range(1, len(scores)):
+        if scores[idx] > scores[idx-1]:
+            rewards[idx] = rewards[idx-1] + 1
+    # O(n) time 
+    for idx in reversed(range(len(scores)-1)):
+        if scores[idx] > scores[idx+1]:
+            rewards[idx] = max(rewards[idx], rewards[idx+1] + 1)  
+    # O(n) time 
+    return sum(rewards)               
