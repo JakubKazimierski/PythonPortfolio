@@ -18,7 +18,7 @@ def solution(A):
         rightmost_idx = len(A) - 2
         
         # loop takes O(n)
-        while idx < rightmost_idx:
+        while idx + 1 < rightmost_idx:
 
             temp_sum = array_sum
 

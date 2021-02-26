@@ -26,7 +26,6 @@ class test_Codility_2_task(unittest.TestCase):
     def test_user_input(self):
         '''
         Checks if method works properly.
-        Input cannot be empty string.
         '''
         arrayOne, output = self.setUp()
         output_method = solution(arrayOne)

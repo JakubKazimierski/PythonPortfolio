@@ -41,7 +41,7 @@ def solution(S, T):
         hours_e = end[0]
         minutes_e = end[1]
         seconds_e = end[2]
-          
+            
         while hours_s <= hours_e and minutes_s <= minutes_e and seconds_s <= seconds_e:
             
             if check_set(hours_s, minutes_s, seconds_s):
@@ -62,6 +62,22 @@ def solution(S, T):
 
         return interesting_points
 
-    interesting_points = timer(start_list, end_list, 0)
 
-    return interesting_points
+    hours_s = start_list[0]
+    hours_e = end_list[0]
+
+    if hours_e < hours_s:
+        # till and from midnight hours
+        end_list_I = [0, 0, 0]
+        interesting_points = timer(start_list, end_list_I, 0)
+
+        start_list_II = [0, 0, 0]
+        interesting_points_II = timer(start_list_II, end_list, interesting_points)
+
+        return interesting_points_II
+
+    else:
+        # classic approach
+        interesting_points = timer(start_list, end_list, 0)
+
+        return interesting_points

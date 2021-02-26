@@ -4,7 +4,7 @@ February 2021 Jakub Kazimierski
 '''
 
 import unittest
-import Codility_3_task
+from Codility_3_task import solution
 
 class test_Codility_3_task(unittest.TestCase):    
     '''
@@ -16,22 +16,22 @@ class test_Codility_3_task(unittest.TestCase):
         Sets up input.
         '''
 
-        self.arrayOne = [10, 15, 8, 12, 94, 81, 5, 2, 11]
-        self.arrayTwo = [10, 8, 5, 15, 2, 12, 11, 94, 81]
-        self.output = True
+        self.arrayOne = [100, 63, 1, 6, 2, 13]
+        self.X = 63
+        self.Y = 63
+        self.output = 5
 
-        return self.arrayOne, self.arrayTwo, self.output
+        return self.arrayOne, self.X, self.Y, self.output
 
     # region Unittests
     def test_user_input(self):
         '''
         Checks if method works properly.
-        Input cannot be empty string.
         '''
-        # arrayOne, arrayTwo, output = self.setUp()
-        # output_method = sameBSTs(arrayOne, arrayTwo)
+        arrayOne, X, Y, output = self.setUp()
+        output_method = solution(X, Y, arrayOne)
 
-        # self.assertEqual(output, output_method)
+        self.assertEqual(output, output_method)
 
 
    # endregion

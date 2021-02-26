@@ -11,7 +11,7 @@ def solution(X, Y, A):
     for i in range(N):
         if A[i] == X:
             nX += 1
-        elif A[i] == Y:
+        if A[i] == Y:
             nY += 1
         if nX == nY:
             result = i
