@@ -34,8 +34,12 @@ def maxPathSum(tree):
     return maxSum
 
 def findMaxSum(tree):
+    '''
+    O(n) time | O(log(n)) space
+    Returns max path of sum in tree.
+    '''
     if tree is None:
-        return (0, 0)
+        return (0, float('-inf'))
 
     leftMaxSumAsBranch, leftMaxPathSum = findMaxSum(tree.left)
     rightMaxSumAsBranch, rightMaxPathSum = findMaxSum(tree.right)
@@ -46,7 +50,7 @@ def findMaxSum(tree):
     value = tree.value
     maxSumAsBranch = max(maxChildSumAsBranch + value, value)
     # subtree as triangle, or branch (if values are negative, subtree can be greater than branch with negative value)
-    maxSumAsRootNode = max(leftMaxSumAsBranch + value + rightMaxSumAsBranch, maxChildSumAsBranch)
+    maxSumAsRootNode = max(leftMaxSumAsBranch + value + rightMaxSumAsBranch, maxSumAsBranch)
 
     maxPathSum = max(leftMaxPathSum, rightMaxPathSum, maxSumAsRootNode)
     
