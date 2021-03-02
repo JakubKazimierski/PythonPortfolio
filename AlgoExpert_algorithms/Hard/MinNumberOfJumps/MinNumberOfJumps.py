@@ -42,11 +42,14 @@ def minNumberOfJumps(array):
 
     # faster approach O(n) time | O(1) space
 
+    if len(array) == 1:
+        return 0
+
     max_reach = array[0]
     avail_steps = array[0]
     jumps = 0
 
-    for idx in range(1, len(array)):
+    for idx in range(1, len(array)-1):
 
         max_reach = max(max_reach, array[idx]+idx)
         avail_steps -= 1
