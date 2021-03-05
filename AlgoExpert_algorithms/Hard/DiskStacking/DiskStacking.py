@@ -51,7 +51,7 @@ def diskStacking(disks):
                 # dynamic programming approach
                 heights[idx] = max(heights[idx], heights[idx_2]+curr_disk[2])
 
-                # dynamic programming approach
+                # update indexes in sequence
                 if old_height < heights[idx]:
                     sequences[idx] = sequences[idx_2] + [idx]
                     
