@@ -3,7 +3,6 @@ Unittests for DiskStacking.py
 March 2021 Jakub Kazimierski
 '''
 
-
 import unittest
 from DiskStacking import diskStacking
 
