@@ -11,8 +11,8 @@ def sortedSquaredArray(array):
     with the squares of the original integers also sorted
     in ascending order.
     '''
-
-    # Tine O(n) | space O(n)
+    # Sorting after multiplying takes O(log n)
+    # Time O(n) | space O(n)
     output = [0]*len(array)
 
     left_id = 0
