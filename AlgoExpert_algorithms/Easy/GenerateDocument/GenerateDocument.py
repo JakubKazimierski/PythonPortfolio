@@ -32,7 +32,7 @@ def generateDocument(characters, document):
         return False
 
     # Time O(n) | Space O(1)
-    for char in document:
+    for char in set(document):
         if document.count(char) > characters.count(char):
             return False
 
