@@ -25,3 +25,15 @@ def generateDocument(characters, document):
 
     Note you can aways generate the empty string ("")
     '''
+
+    # base case
+
+    if len(document) > len(characters):
+        return False
+
+    # Time O(n) | Space O(1)
+    for char in document:
+        if document.count(char) > characters.count(char):
+            return False
+
+    return True            
