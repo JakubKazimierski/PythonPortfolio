@@ -31,7 +31,7 @@ def generateDocument(characters, document):
     if len(document) > len(characters):
         return False
 
-    # Time O(n) | Space O(1)
+    # Time O(k*n) where k is num of chars | Space O(1)
     for char in set(document):
         if document.count(char) > characters.count(char):
             return False
